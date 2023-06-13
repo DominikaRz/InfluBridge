@@ -1,0 +1,18 @@
+/*------------FOOTER------------*/
+footer{
+    background-color: #1c1c1d;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 3rem;
+  }
+  footer div img{ width: 10vw; }
+  footer div h3{ color: #eaeaea;}
+  footer .uk-flex .uk-icon{ padding-right: 2rem !important;}
+  .uk-icon{ color: #eaeaea !important; margin: 0 !important;}
+  a span svg { stroke: #eaeaea !important; }
+  footer ul {border-left: 2px #eaeaea4f solid; padding-left: 3rem;}
+  footer .uk-nav { width: 70%;}
+  footer .uk-nav-default .uk-nav-header {color: #eaeaea !important;}
+  footer .uk-nav li{ padding: 0.25rem 0; font-size: 20px;}
+

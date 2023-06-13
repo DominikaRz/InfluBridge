@@ -1,0 +1,170 @@
+<main class="">
+    <!--NAVBAR-->
+    <app-navbar></app-navbar>
+    <!--CONTENT-->
+    <div id="content" class="uk-text-center">
+        
+            <ul class="uk-flex-center uk-child-width-1-4" uk-tab uk-switcher>
+                <li class="uk-active nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">1</span>
+                        <h4>Step 1</h4>
+                        <p>Enter email and password</p>
+                    </a>
+                </li>
+                <li class="nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">2</span>
+                        <h4>Step 2</h4>
+                        <p>Basic informations</p>
+                    </a>
+                </li>
+                <li class="nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">3</span>
+                        <h4>Step 3</h4>
+                        <p>Description and image</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <!--STEP 1-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body">
+                                <!--LOGIN FORM-->
+                                <div class="uk-margin">
+                                    <label for="username" class="label-left uk-margin-medium-left">{{ usernameLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                        <input type="text" class="form-control uk-input" id="username" [(ngModel)]="username" name="username" required>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="password" class="label-left uk-margin-medium-left">{{ passwordLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                        <input type="password" class="form-control uk-input" id="password" [(ngModel)]="password" name="password" required>
+                                        <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" 
+                                        onclick="var passwordInput = document.querySelector('#password'); 
+                                        var icon = document.querySelector('#show');
+                                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                        passwordInput.setAttribute('type', type);
+                                        const ico = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                                        icon.setAttribute('uk-icon', ico);" uk-tooltip="Show password"></a>
+                                    </div>
+                                    
+                                    
+                                    <!--<a uk-icon="icon: eye-slash" id="hidden" onclick="var x = document.getElementById('password');
+                                    if (x.type === 'text') {x.type = 'password'; }"
+                                    uk-tooltip="Hide password" class="uk-hidden"></a>-->
+                                </div>
+                                <button type="button" class="uk-button" uk-switcher-item="next">Next ></button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--STEP 2-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body">
+                                <!--LOGIN FORM-->
+                                <div class="uk-margin">
+                                    <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
+                                        <div>
+                                            <label for="name" class="label-left">{{ nameLabel }}</label>
+                                            <input type="text" class="form-control uk-input uk-form-width-small" id="name" [(ngModel)]="name" name="name" required>
+                                        </div>
+                                        <div>
+                                            <label for="surname" class="label-left">{{ surnameLabel }}</label>
+                                            <input type="text" class="form-control uk-input uk-form-width-small" id="surname" [(ngModel)]="surname" name="surname" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="phone" class="label-left uk-margin-medium-left">{{ phoneLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
+                                        <input type="text" class="form-control uk-input" id="phone" [(ngModel)]="phone" name="phone" required>
+                                    </div>
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="brandName" class="label-left">{{ brandLabel }}</label>
+                                    <input type="text" class="form-control uk-input" id="brandName" [(ngModel)]="brandName" name="brandName"required>
+                                </div>
+                                <div class="uk-margin">
+                                    <label for="nip" class="label-left">{{ nipLabel }}</label>
+                                    <input type="text" class="form-control uk-input" id="nip" [(ngModel)]="nip" name="nip" required>
+                                </div>
+                                <button type="button" class="uk-button" uk-switcher-item="previous"> < Back </button>
+                                <span class="uk-margin-medium-right"></span>
+                                <button type="button" class="uk-button" uk-switcher-item="next">Next ></button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--STEP 3-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body">
+                                <!--FORM-->
+                            <form (ngSubmit)="onSubmit()">
+                                <div class="uk-margin">
+                                    <label for="description" class="label-left">{{ descriptionLabel }}</label>
+                                    <div class="uk-inline">
+                                        <textarea class="form-control uk-textarea uk-form-width-large" rows="9" placeholder="My brand is" 
+                                        aria-label="Textarea" id="description" [(ngModel)]="description" name="description"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="uk-margin">
+                                    <label for="avatar" class="label-left">{{ avatarLabel }}</label>
+                                    <div>
+                                        <div uk-form-custom="target: true">
+                                            <input type="file" aria-label="Custom controls">
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: image"></span>
+                                                <input class="uk-input uk-form-width-large" id="avatar" [(ngModel)]="avatar" type="text" 
+                                                name="avatar" placeholder="Select file" aria-label="Custom controls" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="uk-margin">
+                                    <script src="../../../assets/js/upload.js"></script>
+                                    <label for="avatar" class="label-left">{{ avatarLabel }}</label>
+                                    <div>
+                                        <div class="js-upload uk-placeholder uk-text-center">
+                                            <span uk-icon="icon: image"></span>
+                                            <span class="uk-text-middle uk-margin-small-left">Attach image by dropping it here or</span>
+                                            <div uk-form-custom>
+                                                <input type="file">
+                                                <span class="uk-link uk-margin-small-left"> select one</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+
+                                    </div>
+                                 </div>-->
+                                    <button type="button" class="uk-button" uk-switcher-item="previous"> < Back </button>
+                                    <span class="uk-margin-medium-right"></span>
+                                    <button type="submit" class="uk-button">Register</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+    </div>
+</main>
+<!--FOOTER-->
+<app-footer></app-footer>
+  

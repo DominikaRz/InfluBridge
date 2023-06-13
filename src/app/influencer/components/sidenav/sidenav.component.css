@@ -1,0 +1,76 @@
+
+/*------------SIDENAV------------*/
+.uk-icon-button{ 
+    margin: 0.75rem; 
+    border: #eaeaea 2px solid;
+    background: #02051f !important;
+    color: #eaeaea !important;
+  }
+  /*Source code for sidenav: https://codepen.io/Kamilica/pen/XRbvaL*/
+  .fa {
+    position: relative;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .main-menu:hover, nav.main-menu.expanded {
+    width:15vw;
+    overflow:visible;
+  }
+  
+  .main-menu {
+    padding-top: 1.5rem;
+    background:#212121;
+    position:fixed;
+    top:0;
+    bottom:0;
+    height:100%;
+    left:0;
+    width:60px;
+    overflow:hidden;
+    -webkit-transition:width .05s linear;
+    transition:width .05s linear;
+    z-index:1000;
+    text-align: left;
+  }
+  
+  .main-menu li {
+    position:relative;
+    display:block;
+  }
+  
+  .main-menu li > a {
+    position:relative;
+    display:table;
+    color:#e0dfdf !important;
+    font-size: 14px;
+    text-decoration:none;
+    -webkit-transition:all .1s linear;
+    transition:all .1s linear;
+  }
+  
+  .main-menu .nav-text {
+    position:relative;
+    display:table-cell;
+    vertical-align:middle;
+    text-align: left;
+    width:190px;
+    font-family: 'Titillium Web', sans-serif;
+  }
+  
+  a:hover,a:focus {
+    text-decoration:none;
+  }
+  
+  nav ul,nav li {
+    outline:0;
+    margin:0;
+    padding:0;
+  }
+  .main-menu li:hover>a, nav.main-menu li.active>a{
+    color:#fff;
+    background-color:#000000;
+  }
+  

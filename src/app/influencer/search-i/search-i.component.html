@@ -1,0 +1,140 @@
+<main class="uk-text-center">
+    <!--NAVBAR-->
+    <app-navbar-brand></app-navbar-brand>
+
+    <div id="banner">
+        <h1>Search Campaigns</h1>
+    </div>
+    <div>
+        <div class="uk-margin">
+            <form class="uk-search uk-search-default">
+              <span uk-search-icon></span>
+              <input class="uk-search-input uk-input uk-form-width-large" type="search" placeholder="Search" aria-label="Search"
+                [formControl]="searchInput" [typeahead]="filteredTags" [typeaheadMinLength]="1" [typeaheadOptionsLimit]="10"
+                [typeaheadItemTemplate]="customTypeaheadTemplate">
+            </form>
+            <!-- Updated typeahead suggestion template -->
+            <ng-template #customTypeaheadTemplate let-suggestion="item">
+              <span class="uk-badge">{{ suggestion }}</span>
+            </ng-template>
+          </div>
+    </div>
+    <div id="filter">
+        <div class="uk-margin uk-position-relative">
+            <div class="uk-inline uk-margin-small-right">
+                <span class="uk-icon" uk-icon="icon: tag" style="stroke: #1c1c1d !important;">Filter by tags:</span>
+                <div class="uk-dropdown uk-dropdown-bottom uk-dropdown-scrollable" uk-dropdown="pos: bottom-justify; mode: click">
+                    <div class="uk-margin-small">
+                        <!--<input class="uk-input" type="text" [(ngModel)]="tagFilterInput" (ngModelChange)="filterTags($event)" > (click)="clearTagFilter()">-->
+                        <input class="uk-input" type="text" aria-label="Search" placeholder="Search" [(ngModel)]="tagFilterInput" (input)="filterTags(tagFilterInput)">
+                    </div>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li *ngFor="let tag of filteredTags">
+                            <a (click)="toggleTagFilter(tag)">
+                                <input class="uk-checkbox" type="checkbox" [checked]="isTagFilterApplied(tag)">
+                                {{ tag }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <span *ngFor="let filter of appliedFilters" class="uk-margin-small-right uk-badge">
+                {{ filter }}
+                <span class="uk-icon" uk-icon="icon: close; ratio: 0.6" (click)="removeTagFilter(filter)" 
+                style="stroke: #1c1c1d !important;"></span>
+            </span>
+        </div>
+    </div>
+    
+    
+    
+    
+      
+      
+    
+    
+    <div id="campaigns" uk-grid>
+        <section class="uk-width-4-6 uk-margin-large uk-align-center">
+            <div uk-filter="target: .js-filter">
+            
+                <!---->
+                <table class="uk-table uk-table-hover uk-table-divider uk-table-responsive" style="position: relative;"> 
+                    <thead uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-table; offset: 80;"> 
+                        <tr class="uk-navbar-table uk-margin-large-top">
+                            <th class="uk-width-small">
+                                    Brand
+                                    <span uk-filter-control="sort: data-brand">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
+                                        aria-label="Sort ascending"></a></span>
+                                    <span uk-filter-control="sort: data-brand; order: desc">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
+                                        aria-label="Sort descending"></a></span>
+                            </th>
+                            <th class="uk-width-small">
+                                    Offer Name
+                                    <span uk-filter-control="sort: data-offer">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
+                                        aria-label="Sort ascending"></a></span>
+                                    <span uk-filter-control="sort: data-offer; order: desc">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
+                                        aria-label="Sort descending"></a></span>
+                            </th>
+                            <th class="uk-width-medium">
+                                    Tags
+                            </th>
+                            <th class="uk-width-small">
+                                    Due date
+                                    <span uk-filter-control="sort: data-date">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
+                                        aria-label="Sort ascending"></a></span>
+                                    <span uk-filter-control="sort: data-date; order: desc">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
+                                        aria-label="Sort descending"></a></span>
+                            </th>
+                            <th class="uk-width-small">
+                                    Free places
+                                    <span uk-filter-control="sort: data-place">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
+                                        aria-label="Sort ascending"></a></span>
+                                    <span uk-filter-control="sort: data-date; order: desc">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
+                                        aria-label="Sort descending"></a></span>
+                            </th>
+                            <th class="uk-width-small">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="js-filter">
+                        <tr *ngFor="let search of filterCampaigns()"
+                            [attr.data-brand]="search.brand"
+                            [attr.data-offer]="search.offerName"
+                            [attr.data-date]="search.endDate"
+                            [attr.data-place]="search.freePlaces"
+                        > 
+                            <td><div class="" >{{ search.brand }}</div></td>
+                            <td><div class="" >{{ search.offerName }}</div></td>
+                            <td>
+                                <div *ngFor="let tag of search.tags" style="color: #1c1c1d !important;"
+                                class="uk-badge uk-margin-small-right">
+                                    {{ tag }}
+                                </div>
+                            </td>
+                            <td><div class="" >{{ search.endDate }}</div></td>
+                            <td><div class="" >{{ search.freePlaces }}</div></td>
+                            <td><div class="" ><button class="uk-button">See&nbsp;more&nbsp;></button></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+    </div>
+</main>  
+
+<!--FOOTER-->
+<app-footer-influ></app-footer-influ>
+<!--SIDENAV-->
+<app-sidenav></app-sidenav>
+  
+  
+  

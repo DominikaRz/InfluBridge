@@ -1,0 +1,139 @@
+main{
+    background: linear-gradient(90.0deg, #0a1044, #6839cb);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .uk-modal-close-default svg line{ stroke-width: 1.01; fill: #6113b9af; stroke: #6113b9 !important;}
+
+  
+  #banner{
+    height: 70vh;
+    margin: 3rem;
+    align-items: center;
+  }
+  #banner h1{ color: #eaeaea; font-size: 5vw;}
+  #banner h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+
+  /*for image view*/
+  .image-container { align-items: center; float: left;}
+  .image-container img{ width: 33vw;}
+  
+ 
+  /*------------CARD WITH FORM------------*/
+  .card {
+    margin-top: 50px;
+    padding: 5rem;
+    background-color: rgba(255,255,255,0.15);
+    color: #eaeaea;
+    text-align: center;
+    }
+  .card h1, #about h1, #how-works h1, #why-choose h1{ color: #eaeaea; }
+  .card h3, #about h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+  .card a{ color: #eaeaea; text-decoration: underline;}
+  .card a:hover{ color: #6114fb; text-decoration: underline;}
+
+ /*------------ABOUT------------*/
+  #about{
+    height: auto;
+    align-items: center;
+    margin: 5rem 5rem 5rem 2rem;
+    padding-top: 8rem;
+  }
+
+ /*------------HOW WORKS------------*/
+  #how-works{
+    width: 95vw;
+    margin: 5rem 5rem 5rem 0;
+  }
+  #how-works img{ width: 30vw;}
+  #how-works h2{ color: #eaeaea; }
+  #how-works .uk-card{
+    font-size: 14px;
+    padding: 1rem 3rem 1rem 3rem !important;
+    width: 18vw;
+    margin: 0.5rem;
+
+  }
+  .side-card{ 
+    margin: 3rem 0 0 0 !important; 
+    padding: 0 !important; 
+  }
+
+/*------------WHY CHOOSE------------*/
+
+  #why-choose{
+  height: auto;
+  margin: 5rem;
+  /*align-items: center;*/
+  }
+  #why-choose p{ color: #eaeaea; font-size: 18px; padding: 1rem;}
+
+/*------------CONTACT------------*/
+  #contact{
+    height: auto;
+    width: auto;
+    padding: 5rem 1rem 5rem 1rem;
+  }
+  .card a{ text-decoration: none !important; }
+  #contact .card{
+    width: 80vw;
+    background-color: #eaeaeab0;
+  }
+  #contact h1{ color: #1c1c1d; }
+  #contact h3{ color: #1c1c1d; }
+  .uk-close { padding: 0 !important; left: unset !important; }
+  svg:hover{ fill: #eaeaea !important; }
+  .uk-modal-footer .uk-button{ margin-left: 0.5rem !important; margin-top: 0.25rem !important; }
+  .uk-modal-dialog{ background-color: #eaeaeac4 !important; }
+  .uk-modal-title{ color: #eaeaea; font-weight: bold;  margin-bottom: -13px !important;}
+  .uk-modal-header, .uk-modal-footer{ background: linear-gradient(90.0deg, #0a1044, #6839cb) !important; color: #eaeaea !important; }
+
+
+/*------------FORM------------*/  
+  .form-check { margin-bottom: 20px; }
+  .label-left{
+    padding: 0 0 0.5rem 0.5rem; /*top right bottom left*/
+    display: table;
+    text-align: left !important;
+  }
+  label{ padding-left: 0.5rem; }
+  .uk-form-icon {
+    padding-left: -20px !important;
+  }
+  
+  span{ color: #0A1044; }
+  label span{ font-size: 11px; padding-left: 1rem;}
+  
+  input, .uk-textarea{
+    background-color: #FCFCFC !important;
+    border-radius: 5px !important;
+  }
+
+  .icon-align { align-items: baseline !important; top: 1rem;}
+  
+  .uk-button {
+    background-color: #8C52FF;
+    border-color: none;
+    border-radius: 15px !important;
+    color: #eaeaea !important;
+  }
+  .uk-button-primary {
+    background-color: #b491fb !important;
+    border-radius: 15px !important;
+    color: #0A1044 !important;
+  }
+
+  .uk-radio:checked:focus, .uk-checkbox:checked:focus, 
+  .uk-checkbox:indeterminate:focus, .uk-radio:focus, .uk-checkbox:focus, 
+  .uk-input:focus, .uk-textarea:focus { border-color: #8C52FF !important; }
+  
+  
+
+  /*
+  .btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  */
+

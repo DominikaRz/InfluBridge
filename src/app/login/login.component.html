@@ -1,0 +1,97 @@
+<main class="">
+    <!--NAVBAR-->
+    <app-navbar></app-navbar>
+    <!--CONTENT-->
+    <div id="content" class="uk-child-width-1-1@s uk-child-width-1-2@m uk-text-center">
+        <!--IMAGE-->
+        <div class="image-container">
+            <img src="../../assets/img/deee1656-5e54-4644-bdc7-14e9a86f14f4.png" alt="Login Image">
+        </div >
+        <!--CARD-->
+        <div class="uk-flex uk-flex-center">
+            <div class="card">
+                <div class="card-header"><h1>{{ title }}</h1><h3>{{ subtitle }} <a href="register">Sign up</a></h3></div>
+                <div class="card-body">
+                    <!--LOGIN FORM-->
+                    <form (ngSubmit)="onSubmit()" [formGroup]="form" class="">
+                        <div class="uk-margin" [ngClass]="{ 'has-error': form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched) }">
+                            <div class="uk-margin">
+                                <label for="username" class="label-left">{{ usernameLabel }}</label>
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon" uk-icon="icon: user" style="stroke: black;"></span>
+                                    <input type="text" class="form-control uk-input" id="username" formControlName="username" required>
+                                </div>
+                                <div class="validation-info" *ngIf="form.get('username')!.invalid && (form.get('username')!.dirty || form.get('username')!.touched)">
+                                    <div *ngIf="form.get('username')!.errors?.['required']">Username is required.</div>
+                                </div>
+                            </div>
+                        
+                            <div class="uk-margin">
+                                <label for="password" class="label-left">{{ passwordLabel }}</label>
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                                    <input type="password" class="form-control uk-input" id="password" formControlName="password" required>
+                                    <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" (click)="togglePasswordVisibility()"
+                                    uk-tooltip="Show password" style="stroke: black;"></a>
+                                </div>
+                                <div class="validation-info" *ngIf="form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched)">
+                                    <div *ngIf="form.get('password')!.errors?.['required']">Password is required.</div>
+                                    <div *ngIf="form.get('password')!.errors?.['minlength']">Password must be at least 8 characters long.</div>
+                                    <div *ngIf="form.get('password')!.hasError('passwordRequirements')" class="uk-text-left">
+                                        Missing at least: <br/>
+                                        <ng-container *ngFor="let requirement of form.get('password')!.getError('passwordRequirements')">
+                                        - {{ requirement }} <br/>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <!-- Other form controls -->
+                      
+                        <button type="submit" class="uk-button">{{ submitButtonLabel }}</button>
+                      </form>
+                      
+                    
+                    
+                      
+                      
+                      
+                    <!--
+                    <form (ngSubmit)="onSubmit()" class="">
+                    <div class="uk-margin">
+                        <label for="username" class="label-left">{{ usernameLabel }}</label>
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: user" style="stroke: black;"></span>
+                            <input type="text" class="form-control uk-input" id="username" [(ngModel)]="username" name="username" required>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label for="password" class="label-left">{{ passwordLabel }}</label>
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                            <input type="password" class="form-control uk-input" id="password" [(ngModel)]="password" name="password" required>
+                            <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" 
+                            onclick="var passwordInput = document.querySelector('#password'); 
+                            var icon = document.querySelector('#show');
+                            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                            passwordInput.setAttribute('type', type);
+                            const ico = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                            icon.setAttribute('uk-icon', ico);" uk-tooltip="Show password" style="stroke: black;"></a>
+                        </div>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input uk-checkbox" id="rememberMe" [(ngModel)]="rememberMe" name="rememberMe">
+                        <label for="rememberMe">{{ rememberMeLabel }}</label>
+                    </div>
+                    <button type="submit" class="uk-button">{{ submitButtonLabel }}</button>
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--FOOTER-->
+<app-footer></app-footer>
+  

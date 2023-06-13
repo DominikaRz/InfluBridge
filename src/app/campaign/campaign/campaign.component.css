@@ -1,0 +1,125 @@
+main{
+    background: #ecebef;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .uk-modal-close-default svg line{ stroke-width: 1.01; fill: #6113b9af; stroke: #6113b9 !important;}
+
+   /*------------NAVBAR------------*/
+  .uk-navbar-container:not(.uk-navbar-transparent) {
+    background: #ececf0ff !important;
+  }
+  .uk-navbar-nav > li > a{ 
+    justify-content: left !important; 
+    width: 9vw; 
+    font-weight: bold;
+    color: #1c1c1d !important;
+  }
+  .uk-navbar-nav > li > a:hover{ color: #636365 !important; }
+  .uk-navbar-nav > li:first-child > a{ justify-content: left !important; width: 12vw;}
+  li img{ padding-top: 0.25rem; width: 35%;}
+  nav .uk-button-small{ margin-top: 6px; }
+  .uk-navbar-nav img {width: 3rem; margin-right: 1rem;}
+
+  .uk-navbar-dropdown{ background-color: #ececf0ff !important; }
+  .uk-navbar-dropdown a{ font-weight: bold; color: #1c1c1d !important; }
+  .uk-navbar-dropdown a:hover{ font-weight: bold; color: #636365 !important; }
+  .uk-nav-divider{ border-top: 1px solid  #1c1c1c40 !important;}
+  
+  
+  /*------------BANNER------------*/
+  #banner{
+    height: auto;
+    width: auto;
+    align-items: center;
+  }
+  .uk-height-large{ height: 570px !important;}
+  
+  /*------------INFORMATIONS------------*/
+  #informations{ 
+    width: 90vw;
+    margin: 0 2rem 5rem 2rem;
+    padding-top: 4rem;
+    height: auto;
+    align-items: center;
+  }
+
+  #informations .uk-badge{ 
+    margin: 0.25rem;
+    padding: 13px;
+    font-size: 15px;
+    background-color: rgba(218, 215, 255, 0.7);
+    color: #1c1c1d !important;
+  }
+
+  #informations h1{ margin-bottom: 2rem; font-weight: 500; font-size: 50px;}
+  #informations h3{ color: #970b0b;}
+
+/*------------DESCRIPTIONS------------*/
+  #descriptions{ 
+    width: 90vw;
+    margin: 0 5vw;
+    padding: 5vh 0;
+    height: auto;
+    align-items: center; 
+  }
+
+  /*------------CARD WITH FORM------------*/
+  .card-body-short{ 
+    width: 50vw;
+    margin-left: 15vw;
+    padding: 2rem;
+    color: #1c1c1d;
+    background-color: #fbfafa;
+    border-top: #6113b9 4px solid;
+  }
+
+  .card-body{ 
+    width: 70vw;
+    margin-left: 4vw;
+    padding: 2rem;
+    color: #1c1c1d;
+    background-color: #fbfafa;
+    border-top: #6113b9 4px solid;
+  }
+
+
+/*------------FORM------------*/  
+  .uk-button {
+    background-color: #8C52FF;
+    border-color: none;
+    border-radius: 40px !important;
+    color: #eaeaea !important;
+    font-size: 25px !important;
+    padding: 10px 25px !important;
+    text-transform: none !important;
+  }
+
+
+  /*
+  .btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  */
+
+  /*------------FOOTER------------*/
+  footer{
+    background-color: #1c1c1d;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 3rem;
+  }
+  footer div img{ width: 10vw; }
+  footer div h3{ color: #eaeaea;}
+  footer .uk-flex .uk-icon{ padding-right: 2rem !important;}
+  .uk-icon{ color: #eaeaea !important; margin: 0 !important;}
+  a span svg { stroke: #eaeaea !important; }
+  footer ul {border-left: 2px #eaeaea4f solid; padding-left: 3rem;}
+  footer .uk-nav { width: 70%;}
+  footer .uk-nav-default .uk-nav-header {color: #eaeaea !important;}
+  footer .uk-nav li{ padding: 0.25rem 0; font-size: 20px;}

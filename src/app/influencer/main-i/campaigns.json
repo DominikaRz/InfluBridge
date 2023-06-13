@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "brand": "Beauty by Grace",
+      "offerName": "Graceful Glow-Up",
+      "endDate": "May 15, 2023"
+    },
+    {
+      "id": 2,
+      "brand": "Loveable Toys",
+      "offerName": "Playtime Fun",
+      "endDate": "June 30, 2023"
+    },
+    {
+      "id": 3,
+      "brand": "FitFam Fitness",
+      "offerName": "FitFam Challenge",
+      "endDate": "July 31, 2023"
+    },
+    {
+      "id": 4,
+      "brand": "Sports Gear",
+      "offerName": "Active Lifestyle",
+      "endDate": "December 31, 2023"
+    },
+    {
+      "id": 5,
+      "brand": "Beauty Essentials",
+      "offerName": "Beauty Glow Up",
+      "endDate": "April 30, 2024"
+    },
+    {
+      "id": 6,
+      "brand": "Fit Life",
+      "offerName": "Fit for Life Challenge",
+      "endDate": "March 31, 2024"
+    },
+    {
+      "id": 7,
+      "brand": "Fashionista",
+      "offerName": "Fashion Frenzy",
+      "endDate": "January 31, 2024"
+    }
+]

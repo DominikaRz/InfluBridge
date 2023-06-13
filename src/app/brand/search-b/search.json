@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "name": "Brandon Carter",
+    "followers": "64 thousand",
+    "joinedCampaigns": 21,
+    "tags": ["fitness", "health", "nutrition"],
+    "avatar": "ae301cb2-6c31-4e3f-a249-fe6422ff6f47.jpg" 
+  },
+  {
+    "id": 2,
+    "name": "Samantha Lee",
+    "followers": "72 thousand",
+    "joinedCampaigns": 50,
+    "tags": ["food", "cooking", "recipes"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg" 
+  },
+  {
+    "id": 3,
+    "name": "Lucas Thompson",
+    "followers": "10 thousand",
+    "joinedCampaigns": 16,
+    "tags": ["travel", "adventure", "photography"],
+    "avatar": "63e5db55-7d7d-4a08-8164-b83186c27684.jpg" 
+  },
+  {
+    "id": 4,
+    "name": "Olivia Miller",
+    "followers": "over 3 million",
+    "joinedCampaigns": 90,
+    "tags": ["fashion", "style", "beauty"],
+    "avatar": "82d24c57-3e6e-4d4e-9624-cca6567d9d9b.jpg" 
+  },
+  {
+    "id": 5,
+    "name": "Adam Smith",
+    "followers": "302 thousand",
+    "joinedCampaigns": 140,
+    "tags": ["technology", "gadgets", "reviews"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg" 
+  },
+  {
+    "id": 6,
+    "name": "Maggie Flecher",
+    "followers": "200 thousand",
+    "joinedCampaigns": 200,
+    "tags": ["lifestyle", "home decor", "organization"],
+    "avatar": "720f265f-1bd1-43f8-8c37-e582e62633d3.jpg" 
+  },
+  {
+    "id": 7,
+    "name": "Julia Rows",
+    "followers": "over 1 million",
+    "joinedCampaigns": 10,
+    "tags": ["music", "entertainment", "performances"],
+    "avatar": "4e25ab7c-a222-4db6-8e8d-6b96bcaef507.jpg" 
+  },
+  {
+    "id": 8,
+    "name": "Emma Clark",
+    "followers": "120 thousand",
+    "joinedCampaigns": 25,
+    "tags": ["makeup", "beauty", "skincare"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Noah Anderson",
+    "followers": "15 thousand",
+    "joinedCampaigns": 35,
+    "tags": ["parenting", "kids", "playtime"],
+    "avatar": "ae301cb2-6c31-4e3f-a249-fe6422ff6f47.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Ava Roberts",
+    "followers": "500 thousand",
+    "joinedCampaigns": 80,
+    "tags": ["workout", "fitness", "health"],
+    "avatar": "82d24c57-3e6e-4d4e-9624-cca6567d9d9b.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Liam Davis",
+    "followers": "400 thousand",
+    "joinedCampaigns": 60,
+    "tags": ["design", "interior", "decor"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Sophia Garcia",
+    "followers": "250 thousand",
+    "joinedCampaigns": 45,
+    "tags": ["travel", "adventure", "exploration"],
+    "avatar": "720f265f-1bd1-43f8-8c37-e582e62633d3.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Jackson Wilson",
+    "followers": "2 million",
+    "joinedCampaigns": 120,
+    "tags": ["technology", "gadgets", "reviews"],
+    "avatar": "63e5db55-7d7d-4a08-8164-b83186c27684.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Charlotte Thompson",
+    "followers": "800 thousand",
+    "joinedCampaigns": 75,
+    "tags": ["food", "recipes", "cooking"],
+    "avatar": "4e25ab7c-a222-4db6-8e8d-6b96bcaef507.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Henry Johnson",
+    "followers": "1.5 million",
+    "joinedCampaigns": 100,
+    "tags": ["fashion", "style", "trend"],
+    "avatar": "82d24c57-3e6e-4d4e-9624-cca6567d9d9b.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Amelia Martinez",
+    "followers": "180 thousand",
+    "joinedCampaigns": 30,
+    "tags": ["lifestyle", "home decor", "organization"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Michael Brown",
+    "followers": "3.5 million",
+    "joinedCampaigns": 200,
+    "tags": ["music", "entertainment", "performances"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Harper Taylor",
+    "followers": "90 thousand",
+    "joinedCampaigns": 18,
+    "tags": ["fitness", "workout", "health"],
+    "avatar": "63e5db55-7d7d-4a08-8164-b83186c27684.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Evelyn Anderson",
+    "followers": "20 thousand",
+    "joinedCampaigns": 12,
+    "tags": ["parenting", "kids", "playtime"],
+    "avatar": "4e25ab7c-a222-4db6-8e8d-6b96bcaef507.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Logan Walker",
+    "followers": "750 thousand",
+    "joinedCampaigns": 60,
+    "tags": ["design", "decor", "interior"],
+    "avatar": "ae301cb2-6c31-4e3f-a249-fe6422ff6f47.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Avery Collins",
+    "followers": "300 thousand",
+    "joinedCampaigns": 25,
+    "tags": ["travel", "adventure", "exploration"],
+    "avatar": "720f265f-1bd1-43f8-8c37-e582e62633d3.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Sebastian Garcia",
+    "followers": "1.8 million",
+    "joinedCampaigns": 100,
+    "tags": ["technology", "gadgets", "reviews"],
+    "avatar": "82d24c57-3e6e-4d4e-9624-cca6567d9d9b.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Lily Wilson",
+    "followers": "400 thousand",
+    "joinedCampaigns": 30,
+    "tags": ["food", "recipes", "cooking"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Owen Thompson",
+    "followers": "1.2 million",
+    "joinedCampaigns": 80,
+    "tags": ["fashion", "style", "beauty"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Mia Clark",
+    "followers": "150 thousand",
+    "joinedCampaigns": 20,
+    "tags": ["lifestyle", "home decor", "organization"],
+    "avatar": "4e25ab7c-a222-4db6-8e8d-6b96bcaef507.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Elijah Baker",
+    "followers": "2.5 million",
+    "joinedCampaigns": 150,
+    "tags": ["music", "entertainment", "performances"],
+    "avatar": "ae301cb2-6c31-4e3f-a249-fe6422ff6f47.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Scarlett Davis",
+    "followers": "80 thousand",
+    "joinedCampaigns": 15,
+    "tags": ["fitness", "health", "nutrition"],
+    "avatar": "63e5db55-7d7d-4a08-8164-b83186c27684.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Henry Martinez",
+    "followers": "15 thousand",
+    "joinedCampaigns": 10,
+    "tags": ["parenting", "kids", "toys"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Sophia Green",
+    "followers": "600 thousand",
+    "joinedCampaigns": 40,
+    "tags": ["design", "decor", "interior"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Jackson Turner",
+    "followers": "250 thousand",
+    "joinedCampaigns": 30,
+    "tags": ["travel", "adventure", "exploration"],
+    "avatar": "720f265f-1bd1-43f8-8c37-e582e62633d3.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Amelia White",
+    "followers": "1.5 million",
+    "joinedCampaigns": 90,
+    "tags": ["technology", "gadgets", "reviews"],
+    "avatar": "82d24c57-3e6e-4d4e-9624-cca6567d9d9b.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Daniel Hill",
+    "followers": "350 thousand",
+    "joinedCampaigns": 25,
+    "tags": ["food", "recipes", "cooking"],
+    "avatar": "4e25ab7c-a222-4db6-8e8d-6b96bcaef507.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Victoria Scott",
+    "followers": "1.1 million",
+    "joinedCampaigns": 70,
+    "tags": ["fashion", "style", "beauty"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Gabriel Cooper",
+    "followers": "200 thousand",
+    "joinedCampaigns": 40,
+    "tags": ["lifestyle", "home decor", "organization"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Aria Allen",
+    "followers": "3 million",
+    "joinedCampaigns": 180,
+    "tags": ["music", "entertainment", "performances"],
+    "avatar": "ae301cb2-6c31-4e3f-a249-fe6422ff6f47.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Ethan Lewis",
+    "followers": "70 thousand",
+    "joinedCampaigns": 20,
+    "tags": ["fitness", "workout", "health"],
+    "avatar": "82d24c57-3e6e-4d4e-9624-cca6567d9d9b.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Charlotte Reed",
+    "followers": "25 thousand",
+    "joinedCampaigns": 15,
+    "tags": ["parenting", "kids", "playtime"],
+    "avatar": "63e5db55-7d7d-4a08-8164-b83186c27684.jpg"
+  },
+  {
+    "id": 38,
+    "name": "James Cooper",
+    "followers": "900 thousand",
+    "joinedCampaigns": 70,
+    "tags": ["design", "decor", "interior"],
+    "avatar": "bf357ecc-051d-45f0-9b1f-bcbc249090a6.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Emma Turner",
+    "followers": "400 thousand",
+    "joinedCampaigns": 35,
+    "tags": ["travel", "adventure", "exploration"],
+    "avatar": "720f265f-1bd1-43f8-8c37-e582e62633d3.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Alexander Martinez",
+    "followers": "2.3 million",
+    "joinedCampaigns": 120,
+    "tags": ["technology", "gadgets", "reviews"],
+    "avatar": "7d0c99ec-8640-4b10-8971-525ee292e95f.jpg"
+  }
+]

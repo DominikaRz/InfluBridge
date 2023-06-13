@@ -1,0 +1,116 @@
+main{
+    background: #ecebef;
+    width: 100%;
+    margin: 0;
+    height: auto;
+    padding: 0;
+  }
+
+  .uk-modal-close-default svg line{ stroke-width: 1.01; fill: #6113b9af; stroke: #6113b9 !important;}
+
+   
+  /*------------BANNER------------*/
+  #banner{
+    height: auto;
+    margin: 4rem;
+    align-items: center;
+  }
+  #banner h1{ color: #313131; font-size: 5vw;}
+  #banner h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+
+  /*for image view*/
+  .image-container { align-items: center; float: left;}
+  .image-container img{ width: 33vw;}
+  
+/*------------CAMPAIGNS------------*/ 
+  #campaigns {height: auto; width: 80vw; padding-left: 6vw;}
+  #campaigns section {width: 80vw; padding-left: 10vw;}
+  section{ margin: 0; padding-bottom: 4rem;}
+  .uk-subnav-pill > .uk-active > a {
+    background-color: #6114fb !important;
+    fill: #eaeaea !important;
+    border-radius: 30px;
+  }
+
+  /*--TABLE--*/
+  table{ align-content: center;}
+  thead{ background-color: #ececf0ff !important;}
+  .uk-table-hover > tr:hover, .uk-table-hover tbody tr:hover {
+      background: rgb(235, 224, 250) !important;
+  }
+  tr {
+    font-size: 20px;
+    background-color: #f3f2f2; 
+    border-top: #ecebef 0.75rem solid !important; 
+    border-bottom: #ecebef 0.75rem solid !important;
+  }
+  tr:first-child{ border-top: #6113b9 4px solid !important;}
+  tr td:first-child { 
+    border-top-left-radius: 50px; 
+    border-bottom-left-radius: 50px; 
+    font-weight: 500;
+    padding-left: 20px;
+  }
+  tr td:last-child { 
+    border-top-right-radius: 50px; 
+    border-bottom-right-radius: 50px; 
+  }
+  .uk-table th {text-align: center !important;}
+  .uk-table td { vertical-align: middle !important;}
+
+
+  /*For check filter*/
+  .small{ width: 60vw; padding: 1rem 0;}
+  .medium{ width: 65vw; padding: 1rem 0;}
+  .large{ width: 70vw; padding: 1rem 0;}
+
+  .white{ background-color: #f0ffff; }
+  .blue{ background-color: #7fb7eb; }
+  .black{ background-color: #0b0c0c; color: #e0dfdf;}
+
+
+
+  /*------------CARD WITH FORM------------*/
+  .card {
+    margin-top: 50px;
+    padding: 5rem;
+    background-color: rgba(255,255,255,0.15);
+    color: #eaeaea;
+    text-align: center;
+    }
+  .card h1, #about h1, #how-works h1, #why-choose h1{ color: #eaeaea; }
+  .card h3, #about h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+  .card a{ color: #eaeaea; text-decoration: underline;}
+  .card a:hover{ color: #6114fb; text-decoration: underline;}
+
+ 
+/*------------CONTACT------------*/
+  #contact{
+    height: auto;
+    width: auto;
+    padding: 5rem 1rem 5rem 1rem;
+  }
+  .card a{ text-decoration: none !important; }
+  #contact .card{
+    width: 80vw;
+    background-color: #eaeaeab0;
+  }
+  #contact h1{ color: #1c1c1d; }
+  #contact h3{ color: #1c1c1d; }
+  .uk-close { padding: 0 !important; left: unset !important; }
+  svg:hover{ fill: #eaeaea !important; }
+  .uk-modal-footer .uk-button{ margin-left: 0.5rem !important; margin-top: 0.25rem !important; }
+  .uk-modal-dialog{ background-color: #eaeaeac4 !important; }
+  .uk-modal-title{ color: #eaeaea; font-weight: bold;  margin-bottom: -13px !important;}
+  .uk-modal-header, .uk-modal-footer{ background: linear-gradient(90.0deg, #0a1044, #6839cb) !important; color: #eaeaea !important; }
+
+
+/*------------FORM------------*/  
+  .icon-align { align-items: baseline !important; top: 1rem;}
+  
+  .uk-button {
+    background-color: #8C52FF;
+    border-color: none;
+    border-radius: 15px !important;
+    color: #eaeaea !important;
+  }

@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "BG",
+      "brand": "Beauty by Grace"
+    },
+    {
+      "id": 2,
+      "name": "LT",
+      "brand": "Loveable Toys"
+    },
+    {
+      "id": 3,
+      "name": "FF",
+      "brand": "FitFam Fitness"
+    },
+    {
+      "id": 4,
+      "name": "SG",
+      "brand": "Sports Gear"
+    },
+    {
+      "id": 5,
+      "name": "BE",
+      "brand": "Beauty Essentials"
+    },
+    {
+      "id": 6,
+      "name": "FL",
+      "brand": "Fit Life"
+    }
+]

@@ -1,0 +1,21 @@
+<p>example-back works!</p>
+
+`
+<h1>Employee List</h1> <!--
+<ul>
+    <li *ngFor="let employee of employees">{{ employee.employee_name }}</li>
+</ul>-->
+<table>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>salary</th>
+      <th>age</th>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.employee_name }}</td>
+      <td>{{ employee.employee_salary}}</td>
+      <td>{{ employee.employee_age}}</td>
+    </tr>
+  </table>

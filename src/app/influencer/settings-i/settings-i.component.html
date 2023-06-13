@@ -1,0 +1,231 @@
+<main class="uk-text-center">
+    <!--NAVBAR-->
+    <app-navbar-influ></app-navbar-influ>
+
+    <div id="banner">
+        <h1>My settings</h1>
+    </div>
+    <div  class="uk-child-width-1-2@m" uk-grid>
+        <div>
+            <div id="profile" class="uk-flex">
+                <div class="img">
+                    <img class="uk-border-circle" [attr.src]="' ../../../assets/img/' + avatar" alt="avatar">
+                    <button  class="uk-icon-button  edit uk-margin-small-right" 
+                    uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" 
+                    uk-toggle="target: #modal-image"></button>
+                </div>
+                <h1>{{nick}}</h1> 
+            </div>
+        </div>
+        <div id="table-foll">
+            <!--
+            <table id="followers" class="uk-table uk-table-divider uk-table-responsive"> 
+                <thead> 
+                    <tr class="uk-navbar-table uk-margin-large-top">
+                        <th [attr.colspan]="3">
+                                <h2>{{roundedNumber}}</h2>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngFor="let media of medias" class="uk-child-width-1-2">
+                        <div class="text-followers uk-text-center"><span [attr.uk-icon]="'icon: ' + media.name + '; ratio: 1.6'"></span> {{media.number / 1000}}k</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{roundedNumber}}</h2>
+                </div>
+                <div class="card-content uk-child-width-1-3 uk-flex-center uk-text-center" uk-grid>
+                    <div *ngFor="let media of medias" class="">
+                        <div class="text-followers">
+                            <span [attr.uk-icon]="'icon: ' + media.name + '; ratio: 1.6'"></span> 
+                            {{media.number / 1000}}k
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: plus; ratio: 1.3" 
+                style="stroke: #ecebef !important;" uk-toggle="target: #modal-followers"></a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="uk-padding-large uk-child-width-1-1" uk-grid>
+            <div class="uk-margin-large">
+                <div class="card">
+                    <div class="card-body">
+                        <p>{{ description }}</p>
+                    </div>
+                    <a href="#" class="uk-icon-button  edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" 
+                    style="stroke: #ecebef !important;" uk-toggle="target: #modal-description"></a>
+                </div>
+            </div>
+            <div id="tags" class="uk-margin-large">
+                <div class="card">
+                  <div class="card-header-small">
+                    <h2>Your tags:</h2>
+                  </div>
+                  <div class="card-body-small">
+                    <span *ngFor="let tag of filteredTags" class="uk-badge uk-margin-small-right uk-margin-small-bottom" style="color:#1c1c1d !important;">
+                      {{ tag.tag }}
+                    </span>
+                  </div>
+                  <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" uk-toggle="target: #modal-tags"></a>
+                </div>
+              </div>
+              
+            <div id="notification" class="uk-margin-large">
+                <div class="card">
+                    <div class="card-header-small">
+                        <h2>Notifications:</h2>
+                    </div>
+                    <div class="card-content-small uk-child-width-1-5@m uk-flex-center uk-text-center" uk-grid>
+                        <div *ngFor="let brand of brands" class="">
+                            <div class="">
+                                <span class=""> {{ brand.brand }} </span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" uk-toggle="target: #modal-notification"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-padding-large">
+        <div>
+            <h1>Manage account:</h1>
+            <div id="change-pass" class="uk-margin-large">
+                <h2>Change password:</h2>
+                <form (ngSubmit)="onSubmit()" class="">
+                    <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
+                        <div>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                                <input type="password" class="form-control uk-input" id="prevPass" name="prevPass" 
+                                [(ngModel)]="prevPass" placeholder="Current password" required>
+                                <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" 
+                                onclick="var passwordInput = document.querySelector('#prevPass'); 
+                                var icon = document.querySelector('#show');
+                                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                passwordInput.setAttribute('type', type);
+                                const ico = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                                icon.setAttribute('uk-icon', ico);" uk-tooltip="Show password" style="stroke: black;"></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                                <input type="password" class="form-control uk-input" id="newPass" name="newPass" 
+                                [(ngModel)]="newPass" placeholder="New password" required>
+                                <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show1" 
+                                onclick="var passwordInput = document.querySelector('#newPass'); 
+                                var icon = document.querySelector('#show1');
+                                const type1 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                passwordInput.setAttribute('type', type1);
+                                const ico2 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                                icon.setAttribute('uk-icon', ico2);" uk-tooltip="Show pass2" style="stroke: black;"></a>
+                            </div>
+                        </div>
+                    </div>
+                        <button type="submit" class="uk-button">Change</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>  
+
+<!--FOOTER-->
+<app-footer-influ></app-footer-influ>
+<!--SIDENAV-->
+<app-sidenav></app-sidenav>
+
+
+<div id="modal-image" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Choose new profile picture</h2>
+        <form (ngSubmit)="SubmitImage()">
+            <div uk-form-custom="target: true">
+                <input type="file" aria-label="Custom controls">
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: image" style="stroke: black;"></span>
+                    <input class="uk-input " id="image" [(ngModel)]="image" type="text" 
+                    name="image" placeholder="Select file" aria-label="Custom controls" disabled>
+                </div>
+            </div>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<div id="modal-followers" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-text-center">
+        <h2 class="uk-modal-title">Log in to platform</h2>
+        <div class="uk-child-width-1-1">
+                <button class="uk-button uk-margin-small-bottom" style="background-color: #0000ff; vertical-align: middle;"><i uk-icon="icon: facebook; ratio: 0.9"></i><span>Continue with Facebook</span></button>
+                <button class="uk-button uk-margin-small-bottom" style="background-color: #0088ff; vertical-align: middle;"><i uk-icon="icon: twitter; ratio: 0.9"></i><span>Continue with Twitter</span></button>
+                <button class="uk-button uk-margin-small-bottom" style="background-color: #bb00ff; vertical-align: middle;"><i uk-icon="icon: instagram; ratio: 0.9"></i><span>Continue with Instagram</span></button>
+            </div>
+    </div>
+</div>
+  
+<div id="modal-description" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Change description</h2>
+        <form (ngSubmit)="SubmitDescripion()">
+            <div class="uk-inline">
+                <textarea class="form-control uk-textarea uk-form-width-large" rows="6" 
+                aria-label="Textarea" id="shotrDesc" [(ngModel)]="newDesc" name="shotrDesc"></textarea>
+            </div>
+            <div class="uk-margin">
+            </div>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<div id="modal-tags" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title">Choose new profile picture</h2>
+      <form (ngSubmit)="deleteAtIndex(); closeModal()">
+        <div>
+          <button type="button" *ngFor="let tag of tags; let i = index" 
+            class="uk-badge-edit uk-badge uk-margin-small-right uk-margin-small-bottom btn" 
+            [class.active]="isIndexSelected(i)" 
+            style="color:#1c1c1d !important;" 
+            (click)="toggleIndex(i)">
+            {{ tag.tag }}
+          </button>
+        </div>
+        <p class="uk-text-right">
+          <button class="uk-button uk-button-primary uk-modal-close " type="button" (click)="closeModal()">Cancel</button>
+          <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
+        </p>
+      </form>
+    </div>
+  </div>
+  
+<!--
+<div id="modal-notification" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Choose new profile picture</h2>
+        <form (ngSubmit)="DeleteAtIndex()">
+            <div>
+                <button type="button" *ngFor="let brand of brands" class="" class="uk-badge-edit uk-badge uk-margin-small-right uk-margin-small-bottom btn" onclick="this.style.border = '1px solid green'" style="color:#1c1c1d !important;" (click)="AddToIndexesN(brand.id)"> 
+                    {{ brand.brand }}</button>
+            </div>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-primary uk-modal-close" type="button" (click)="RemoveIndex()">Cancel</button>
+                <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</div>-->

@@ -1,0 +1,14 @@
+/*------------NAVBAR------------*/
+.uk-navbar-container:not(.uk-navbar-transparent) {
+  background: #1c1c1d !important;
+}
+.uk-navbar-nav > li > a{ 
+  justify-content: left !important; 
+  width: 10vw; 
+  font-weight: bold;
+  color: #ececf0ff !important;
+}
+.uk-navbar-nav > li > a:hover{ color: #eaeaea87 !important; }
+.uk-navbar-nav > li:first-child > a{ justify-content: left !important; width: 20vw;}
+li img{ padding-top: 0.25rem; width: 35%;}
+

@@ -1,0 +1,83 @@
+<main class="uk-text-center">
+    <!--NAVBAR-->
+    <app-navbar-brand></app-navbar-brand>
+
+    <div class="uk-child-width-1-2@m" uk-grid>
+        <div>
+            <div id="profile" class="uk-flex">
+                <div class="img">
+                    <img class="uk-border-circle" [attr.src]="' ../../../assets/img/' + avatar" alt="avatar">
+                </div>
+                <h1>{{nick}}</h1> 
+            </div>
+            <button class="uk-button" type="button">Contact</button>
+        </div>
+        <div>
+            <div class="card">
+                <div class="card-body-tiny">
+                    <p>Campaigns joined</p>
+                    <h2>{{ campaignsNo }}</h2>
+                </div>
+                <a href="#" class="uk-icon-button  edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" 
+                style="stroke: #ecebef !important;" uk-toggle="target: #modal-description"></a>
+            </div>
+        </div>
+    </div>
+    <div class="uk-child-width-1-2@m" uk-grid>
+        <div id="table-foll">
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{roundedNumber}}</h2>
+                </div>
+                <div class="card-content uk-child-width-1-3 uk-flex-center uk-text-center" uk-grid>
+                    <div *ngFor="let media of medias" class="">
+                        <div class="text-followers">
+                            <span [attr.uk-icon]="'icon: ' + media.name + '; ratio: 1.6'"></span> 
+                            {{media.number / 1000}}k
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="uk-child-width-1-1" uk-grid>
+            <div class="uk-margin-large">
+                <div class="card">
+                    <div class="card-body">
+                        <p>{{ description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-child-width-1-2@m uk-padding-large-bottom" uk-grid>
+        <div id="tags" class="uk-margin-large">
+            <div class="card">
+                <div class="card-header-small">
+                    <h2>Tags:</h2>
+                </div>
+                <div class="card-body-small">
+                    <span *ngFor="let tag of tags" class="" class="uk-badge uk-margin-small-right uk-margin-small-bottom" style="color:#1c1c1d !important;">
+                        {{ tag.tag }}</span>
+                </div>
+            </div>
+        </div>
+        <div id="notification">
+            <div class="card">
+                <div class="card-header-small">
+                    <h2>Notifications:</h2>
+                </div>
+                <div class="card-content-small uk-child-width-1-5@m uk-flex uk-flex-center uk-flex-middle" uk-grid>
+                    <div *ngFor="let brand of brands" class="">
+                        <div class="">
+                            <span class=""> {{ brand.brand }} </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>  
+
+<!--FOOTER-->
+<app-footer-brand></app-footer-brand>
+

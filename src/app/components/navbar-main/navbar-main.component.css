@@ -1,0 +1,27 @@
+/*------------NAVBAR------------*/
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: #1c1c1d !important;
+  }
+  .uk-container{ margin: 0 3rem !important;}
+  .uk-navbar-nav > li > a{ 
+    justify-content: left !important; 
+    width: 10vw; 
+    font-weight: bold;
+    color: #ececf0ff !important;
+  }
+  .uk-navbar-nav > li > a:hover{ color: #eaeaea87 !important; }
+  .uk-navbar-nav > li:first-child > a{ justify-content: left !important; width: 20vw;}
+  li img{ padding-top: 0.25rem; width: 35%;}
+  
+  /*-------BUTTONS-------*/
+  .uk-button {
+    background-color: #8C52FF;
+    border-color: none;
+    border-radius: 15px !important;
+    color: #eaeaea !important;
+  }
+  .uk-button-primary {
+    background-color: #b491fb !important;
+    border-radius: 15px !important;
+    color: #0A1044 !important;
+  }

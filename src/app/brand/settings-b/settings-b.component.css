@@ -1,0 +1,232 @@
+main{
+    background: #ecebef;
+    width: 90%;
+    padding: 0 5%;
+    margin: 0;
+    height: auto;
+  }
+
+  .uk-grid{ margin-right: 0 !important;}
+  .uk-modal-close-default svg line{ stroke-width: 1.01; fill: #6113b9af; stroke: #6113b9 !important;}
+
+/*------------BANNER------------*/
+  #banner{
+    height: auto;
+    margin: 4rem;
+    align-items: center;
+  }
+  #banner h1{ color: #313131; font-size: 5vw;}
+  #banner h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+
+  /*for image view*/
+  .image-container { align-items: center; float: left;}
+  .image-container img{ width: 33vw;}
+
+/*------------PROFILE------------*/
+  #profile{ font-size: 4vw; padding-top: 50px; margin-left: 10vw;}
+  #profile h1{ font-size: 4vw; padding-top: 50px; margin-left: 2rem;}
+  .uk-border-circle{ width: 12vw; margin-left: 3rem;}
+  .img {position: relative;}
+  .img .edit {
+    top: 93%;
+    left: 84%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+/*------------CAMPAIGNS------------*/ 
+  #campaigns {height: auto; width: 80vw; padding-left: 6vw;}
+  #campaigns section {width: 80vw; padding-left: 10vw;}
+  section{ margin: 0; padding-bottom: 4rem;}
+  .uk-subnav-pill > .uk-active > a {
+    background-color: #6114fb !important;
+    fill: #eaeaea !important;
+    border-radius: 30px;
+  }
+
+  .icon-table{ width: 1rem;}
+  .text-followers{font-size: 27px;}
+  .text-followers .uk-icon{margin: 0 10px 0 40px; }
+
+  #table-foll{ position: relative;}
+  #table-foll .uk-icon{ fill: #420ebc;}
+  #table-foll .edit{
+    top: 6%;
+    left: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%); 
+  }
+
+
+/*------------CARD------------*/
+  .card {
+    margin-top: 50px;
+    color: #eaeaea;
+    text-align: center;
+    }
+  .card h1, #about h1, #how-works h1, #why-choose h1{ color: #eaeaea; }
+  .card h3, #about h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+  .card a{ color: #eaeaea; text-decoration: underline;}
+  .card a:hover{ color: #6114fb; text-decoration: underline;}
+
+  .card-header{ 
+    padding: 3px 0 0 0;
+    color: #1c1c1d;
+    background-color: #fbfafa;
+    margin-bottom: 1rem;
+    border-top: #6113b9 4px solid;
+  }
+  .card-header-small{ 
+    width: 55vw;
+    padding: 3px 0 0 0;
+    margin-left: 15vw;
+    color: #1c1c1d;
+    background-color: #fbfafa;
+    border-top: #6113b9 4px solid;
+  }
+  .card-content{ 
+    border-radius: 80px;
+    color: #1c1c1d;
+  }
+  .card-content div{ 
+    border-radius: 80px;
+    padding: 5px 0 !important;
+    margin: 8px !important;
+    display: flex;
+    text-align: center;
+    background-color: #fbfafa;
+    width: 30%;
+  }
+  .card-content-small div{ 
+    border-radius: 80px;
+    padding: 5px 0 !important;
+    margin: 8px !important;
+    text-align: center;
+    background-color: #fbfafa;
+  }
+  .card-body{ 
+    width: 50vw;
+    margin-left: 15vw;
+    padding: 2rem;
+    color: #1c1c1d;
+    background-color: #fbfafa;
+    border-top: #6113b9 4px solid;
+  }
+  .card-content-small{ 
+    width: 60vw;
+    margin-left: 12vw !important;
+    padding: 0.5rem;
+    color: #1c1c1d;
+  }
+  .card-body-small{ 
+    width: 50vw;
+    margin-left: 15vw !important;
+    padding: 0.5rem;
+    color: #1c1c1d;
+  }
+
+  .card{ position: relative;}
+  .card .edit{
+    top: 9%;
+    left: 69vw;
+    position: absolute;
+    transform: translate(-50%, -50%); 
+  }
+
+
+  .uk-badge{ 
+    padding: 15px !important;
+    font-size: 18px !important;
+    font-weight: 500;
+    background-color: rgba(218, 215, 255, 0.7) !important;
+    color: #1c1c1d !important;
+  }
+
+/*------------CONTACT------------*/
+  #contact{
+    height: auto;
+    width: auto;
+    padding: 5rem 1rem 5rem 1rem;
+  }
+  .card a{ text-decoration: none !important; }
+  #contact .card{
+    width: 80vw;
+    background-color: #eaeaeab0;
+  }
+  #contact h1{ color: #1c1c1d; }
+  #contact h3{ color: #1c1c1d; }
+  .uk-close { padding: 0 !important; left: unset !important; }
+  svg:hover{ fill: #eaeaea !important; }
+  .uk-modal-footer .uk-button{ margin-left: 0.5rem !important; margin-top: 0.25rem !important; }
+  .uk-modal-dialog{ background-color: #ecebef !important; }
+  .uk-modal-title{ color: #1c1c1d; font-weight: bold; font-size: 28px !important; }
+  
+
+
+  #change-pass{ width: 50vw; justify-content: center; margin-left: 15vw;}
+  #change-pass .uk-button{ margin-left: 70%; margin-top: 1rem;}
+
+/*------------FORM------------*/  
+  .icon-align { align-items: baseline !important; top: 1rem;}
+  
+  .uk-button {
+    background-color: #8C52FF;
+    border-color: none;
+    border-radius: 15px !important;
+    color: #eaeaea !important;
+  }
+  .uk-icon-button{ width: 50px !important; height: 50px !important; background: #313131 !important;}
+  .uk-icon-button:hover{ background: #a6a6a6 !important;}
+
+  .uk-button-primary {
+    background-color: #d6c4fa79 !important;
+    border-radius: 15px !important;
+    color: #424242f8 !important;
+  }
+
+  .form-check { margin-bottom: 20px; }
+  .label-left{
+    padding: 0 0 0.5rem 4rem; /*top right bottom left*/
+    display: table;
+    text-align: left !important;
+  }
+  .label-center{
+    padding: 0 0 2% 30%; /*top right bottom left*/
+    display: table;
+    text-align: right !important;
+  }
+  label{ padding-left: 0.5rem; }
+
+  span{ color: #0A1044; }
+
+  input{
+    background-color: #FCFCFC !important;
+    border-radius: 5px !important;
+  }
+  .uk-form-icon-flip {left: unset !important; right: 0 !important;}
+
+
+  .uk-radio:checked:focus, .uk-checkbox:checked:focus, 
+    .uk-checkbox:indeterminate:focus, .uk-radio:focus, .uk-checkbox:focus, 
+    .uk-input:focus, .uk-textarea:focus { border-color: #8C52FF !important; }
+
+    .uk-badge-edit{ 
+      border: none;
+      padding: 15px !important;
+      font-size: 18px !important;
+      font-weight: 500;
+      background-color: rgba(218, 215, 255, 0.7) !important;
+      color: #1c1c1d !important;
+    }
+    .uk-badge-edit:hover{ 
+      border: none;
+      background-color: rgba(218, 215, 255, 0.269) !important;
+      cursor: pointer;
+    }
+  
+  button .uk-icon{ padding: 0 10px; vertical-align: middle;}
+  button span{ padding-top: 20px !important; color: #eaeaea; font-weight: 500;}
+
+
+
+.uk-padding-large{ padding: 4rem !important;}

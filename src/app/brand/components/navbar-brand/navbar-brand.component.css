@@ -1,0 +1,97 @@
+/*------------NAVBAR------------*/
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: #ececf0ff !important;
+  }
+  .uk-navbar-nav > li > a{ 
+    justify-content: left !important; 
+    width: 9vw; 
+    font-weight: bold;
+    color: #1c1c1d !important;
+  }
+  .uk-navbar-nav > li > a:hover{ color: #636365 !important; }
+  .uk-navbar-nav > li:first-child > a{ justify-content: left !important; width: 12vw;}
+  li img{ padding-top: 0.25rem; width: 35%;}
+  nav .uk-button-small{ margin-top: 6px; }
+  .uk-navbar-nav img {width: 3rem; margin-right: 1rem;}
+
+  .uk-navbar-dropdown{ background-color: #ececf0ff !important; }
+  .uk-navbar-dropdown a{ font-weight: bold; color: #1c1c1d !important; }
+  .uk-navbar-dropdown a:hover{ font-weight: bold; color: #636365 !important; }
+  .uk-nav-divider{ border-top: 1px solid  #1c1c1c40 !important;}
+  
+
+
+  
+  #contact h1{ color: #1c1c1d; }
+  #contact h3{ color: #1c1c1d; }
+  .uk-close { padding: 0 !important; left: unset !important; }
+  svg:hover{ fill: #eaeaea !important; }
+  .uk-modal-footer .uk-button{ margin-left: 0.5rem !important; margin-top: 0.25rem !important; }
+  .uk-modal-dialog{ background-color: #eaeaea !important; text-align: center; padding-right: 7rem; }
+  .uk-modal-title{ color: #eaeaea; font-weight: bold;  margin-bottom: -13px !important;}
+  .uk-modal-header, .uk-modal-footer{ background: linear-gradient(90.0deg, #0a1044, #6839cb) !important; color: #eaeaea !important; }
+  .uk-modal-close-full { background: transparent !important; padding-top: 1rem !important; padding-right: 1rem !important;}
+
+/*------------FORM------------*/  
+.form-check { margin-bottom: 20px; }
+.label-left{
+    padding: 0 0 0.5rem 0.5rem; /*top right bottom left*/
+    display: table;
+    text-align: center !important;
+    align-items: center; /*left*/
+}
+label{ padding-left: 0.5rem; }
+.uk-form-icon {
+    padding-left: -20px !important;
+}
+.uk-form-icon-flip {left: unset !important; right: 0 !important;}
+
+span{ color: #0A1044; }
+label span{ font-size: 11px; padding-left: 1rem;}
+
+input, .uk-textarea{
+    background-color: #FCFCFC !important;
+    border-radius: 5px !important;
+}
+
+.icon-align { align-items: baseline !important; top: 1rem;}
+
+.uk-button {
+    background-color: #8C52FF;
+    border-color: none;
+    border-radius: 15px !important;
+    color: #eaeaea !important;
+}
+.uk-button-primary {
+    background-color: #b491fb !important;
+    border-radius: 15px !important;
+    color: #0A1044 !important;
+}
+
+.uk-radio:checked:focus, .uk-checkbox:checked:focus, 
+.uk-checkbox:indeterminate:focus, .uk-radio:focus, .uk-checkbox:focus, 
+.uk-input:focus, .uk-textarea:focus { border-color: #8C52FF !important; }
+
+
+.uk-dropdown-scrollable {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .uk-badge{ 
+    padding: 10px !important;
+    font-size: 12px !important;
+    font-weight: 500;
+    background-color: rgba(218, 215, 255, 0.7) !important;
+    color: #1c1c1d !important;
+    border: none !important;
+  }
+
+  .button-transparent { 
+    text-decoration: none; 
+    color: #6114fb; 
+    border: 1px #6114fb solid; 
+    border-radius: 6px;
+    padding: 4px;
+  }
+  .pointer{ cursor: pointer;}

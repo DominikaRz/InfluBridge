@@ -1,0 +1,13 @@
+/*------------FOOTER------------*/
+footer{
+  background-color: #1c1c1d;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 3rem;
+}
+footer div img{ width: 15vw; }
+footer div h3{ color: #eaeaea;}
+.uk-icon{ color: #2c2ca0ff !important; margin: 0.7rem !important;}
+
+

@@ -1,0 +1,72 @@
+main{
+  background: linear-gradient(90.0deg, #0a1044, #6839cb);
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#content{ padding: 5vh 0 20vh 0;}
+
+/*for image view*/
+.image-container { align-items: center; float: left;}
+.image-container img{ width: 43vw;}
+
+/*------------CARD WITH FORM------------*/
+.card {
+  margin-top: 50px;
+  padding: 5rem;
+  background-color: rgba(255,255,255,0.15);
+  color: #eaeaea;
+  text-align: center;
+  }
+.card h1{ color: #eaeaea; }
+.card h3{ color: #eaeaea; margin: 0.5rem 0 2rem 0;}
+.card a{ color: #eaeaea; text-decoration: underline;}
+.card a:hover{ color: #6114fb; text-decoration: underline;}
+
+.form-check { margin-bottom: 20px; }
+.label-left{
+  padding: 0 0 0.5rem 4rem; /*top right bottom left*/
+  display: table;
+  text-align: left !important;
+}
+label{ padding-left: 0.5rem; }
+
+span{ color: #0A1044; }
+
+input{
+  background-color: #FCFCFC !important;
+  border-radius: 5px !important;
+}
+.uk-form-icon-flip {left: unset !important; right: 0 !important;}
+
+.uk-button {
+  background-color: #8C52FF;
+  border-color: none;
+  border-radius: 15px !important;
+}
+/*
+.uk-radio:checked:focus, .uk-checkbox:checked:focus, 
+.uk-checkbox:indeterminate:focus { background-color: #8C52FF !important; }
+.uk-radio:checked:focus, .uk-checkbox:checked:focus, 
+  .uk-checkbox:indeterminate:focus, .uk-radio:focus, .uk-checkbox:focus, 
+  .uk-input:focus, .uk-textarea:focus { border-color: #8C52FF !important; }
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+*/
+
+.validation-info {
+  color: #fb8080;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.has-error input {
+  border: 3px solid #9f0101f7;
+}
+
+.uk-text-left{ text-align: left !important; margin-left: 20%;}
+
+

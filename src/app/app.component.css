@@ -1,0 +1,9 @@
+::ng-deep * {     /*remove defoult margin*/
+    margin: 0;
+    padding: 0;
+  }
+  
+:root{
+  --bgcolUser: #ecebef;
+  --bgcolMain: #ecebef;
+}

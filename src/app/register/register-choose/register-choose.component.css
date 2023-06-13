@@ -1,0 +1,25 @@
+main{
+    background: linear-gradient(90.0deg, #0a1044, #6839cb);
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }s
+  
+  /*------------CARDS------------*/
+    #content{ width: 100%; text-align: center; }
+
+    .card {
+        padding: 5vh 0 15vh 0;
+        color: #eaeaea;
+        width: auto;
+    }
+    .card-body{ background-color: #ffffff26; padding: 2vh 0; margin-left: 4vw; width: 38vw;}
+    .card h1{ color: #eaeaea; }
+    .card img{ width: 29vw; }
+
+    a{ color: #eaeaea; text-decoration: none !important;}
+    a:hover{ text-decoration: none !important;}
+
+  
+  

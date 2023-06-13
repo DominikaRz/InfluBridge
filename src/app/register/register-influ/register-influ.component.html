@@ -1,0 +1,281 @@
+<main class="">
+    <!--NAVBAR-->
+    <app-navbar></app-navbar>
+    <!--CONTENT-->
+    <div id="content" class="uk-text-center">
+        
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="">
+            <ul class="uk-flex-center uk-child-width-1-5" uk-tab uk-switcher>
+                <li class="nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">1</span>
+                        <h4>Step 1</h4>
+                        <p>Enter email and password</p>
+                    </a>
+                </li>
+                <li class="nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">2</span>
+                        <h4>Step 2</h4>
+                        <p>Basic informations</p>
+                    </a>
+                </li>
+                <li class="nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">3</span>
+                        <h4>Step 3</h4>
+                        <p>Description and image</p>
+                    </a>
+                </li>
+                <li class="uk-active nav-tab">
+                    <a href="#" class="uk-child-width-1-1" uk-grid>
+                        <span href="" class="circle">4</span>
+                        <h4>Step 4</h4>
+                        <p>Platforms and categories</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                <!--STEP 1-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body">
+                                <!--EMAIL & PASSWORD FORM-->
+                                <div class="uk-margin" [ngClass]="{ 'has-error': form.get('username')!.invalid && (form.get('username')!.dirty || form.get('username')!.touched) }">
+                                    <label for="username" class="label-left">{{ usernameLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: user" style="stroke: black;"></span>
+                                        <input type="text" class="form-control uk-input" id="username" formControlName="username" required>
+                                    </div>
+                                    <div class="validation-info" *ngIf="form.get('username')!.invalid && (form.get('username')!.dirty || form.get('username')!.touched)">
+                                        <div *ngIf="form.get('username')!.errors?.['required']">Username is required.</div>
+                                    </div>
+                                </div>
+                            
+                                <div class="uk-margin" [ngClass]="{ 'has-error': form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched) }">
+                                    <label for="password" class="label-left">{{ passwordLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                                        <input type="password" class="form-control uk-input" id="password" formControlName="password" required>
+                                        <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" (click)="togglePasswordVisibility()"
+                                        uk-tooltip="Show password" style="stroke: black;"></a>
+                                    </div>
+                                    <div class="validation-info" *ngIf="form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched)">
+                                        <div *ngIf="form.get('password')!.errors?.['required']">Password is required.</div>
+                                        <div *ngIf="form.get('password')!.errors?.['minlength']">Password must be at least 8 characters long.</div>
+                                        <div *ngIf="form.get('password')!.hasError('passwordRequirements')" class="uk-text-left">
+                                            Missing at least: <br/>
+                                            <ng-container *ngFor="let requirement of form.get('password')!.getError('passwordRequirements')">
+                                            - {{ requirement }} <br/>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="uk-button" uk-switcher-item="next" >Next ></button> <!--[disabled]="!form.valid"-->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--STEP 2-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body">
+                                <!-- INFORMATION FORM --><!--</div> [ngClass]="{ 'has-error': form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched) }">-->
+                                <div class="uk-margin">
+                                    <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
+                                        <div [ngClass]="{ 'has-error': form.get('name')!.invalid && (form.get('name')!.dirty || form.get('name')!.touched) }">
+                                            <label for="name" class="label-left">{{ nameLabel }}</label>
+                                            <input type="text" class="form-control uk-input uk-form-width-small" id="name" formControlName="name" name="name" required>
+                                            <div class="validation-info" *ngIf="form.get('name')!.invalid && (form.get('name')!.dirty || form.get('name')!.touched)">
+                                                <div *ngIf="form.get('name')!.errors?.['required']">Name is required.</div>
+                                            </div>
+                                        </div>
+                                        <div [ngClass]="{ 'has-error': form.get('surname')!.invalid && (form.get('surname')!.dirty || form.get('surname')!.touched) }">
+                                            <label for="surname" class="label-left">{{ surnameLabel }}</label>
+                                            <input type="text" class="form-control uk-input uk-form-width-small" id="surname" formControlName="surname" name="surname" required>
+                                            <div class="validation-info" *ngIf="form.get('surname')!.invalid && (form.get('surname')!.dirty || form.get('surname')!.touched)">
+                                                <div *ngIf="form.get('surname')!.errors?.['required']">Surname is required.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-margin" [ngClass]="{ 'has-error': form.get('phone')!.invalid && (form.get('phone')!.dirty || form.get('phone')!.touched) }">
+                                    <label for="phone" class="label-left uk-margin-medium-left">{{ phoneLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
+                                        <input type="text" class="form-control uk-input" id="phone" formControlName="phone" name="phone" pattern="^[\s+]?[0-9\s]+$" required>
+                                        <div class="validation-info" *ngIf="form.get('phone')!.invalid && (form.get('phone')!.dirty || form.get('phone')!.touched)">
+                                            <div *ngIf="form.get('phone')!.errors?.['required']">Phone number is required.</div>
+                                            <div *ngIf="form.get('phone')!.errors?.['pattern']">Phone number can only contain digits, spaces, and '+' symbol.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="uk-button" uk-switcher-item="previous"> < Back </button>
+                                <span class="uk-margin-medium-right"></span>
+                                <button type="button" class="uk-button" uk-switcher-item="next" >Next ></button> <!--[disabled]="!form.valid"-->
+                            </div> 
+                        </div>
+                    </div>
+                </li>
+                <!--STEP 3-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body">
+                                <!--DESCRIPTION & AVATAR FORM-->
+                                    <div class="uk-margin">
+                                        <label for="description" class="label-left">{{ descriptionLabel }}</label>
+                                        <div class="uk-inline">
+                                            <textarea class="form-control uk-textarea uk-form-width-large" rows="9"
+                                            aria-label="Textarea" id="description" formControlName="description" name="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <label for="avatar" class="label-left">{{ avatarLabel }}</label>
+                                        <div>
+                                            <div uk-form-custom="target: true">
+                                                <input type="file" aria-label="Custom controls">
+                                                <input class="uk-input uk-form-width-large" id="avatar" formControlName="avatar" type="text" 
+                                                name="avatar" placeholder="Select file" aria-label="Custom controls" > <!--disabled-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="uk-button" uk-switcher-item="previous"> < Back </button>
+                                    <span class="uk-margin-medium-right"></span>
+                                    <button type="button" class="uk-button" uk-switcher-item="next">Next ></button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--STEP 4-->
+                <li>
+                    <div class="uk-flex uk-flex-center">
+                        <div class="card">
+                            <div class="card-header"><h1>{{ title }}</h1></div>
+                            <div class="card-body uk-margin-medium-top uk-margin-medium-bottom">
+                                <!--PLATFORMS & CATEGORIES FORM-->
+                                <div id="tags" class="uk-margin uk-position-relative">
+                                    <div class="uk-inline uk-margin-small-right uk-margin-small-bottom">
+                                    <span class="uk-icon pointer" uk-icon="icon: tag" style="stroke: #eaeaea !important;">Click to add your tematic categories: </span>
+                                    <div class="uk-dropdown uk-dropdown-bottom uk-dropdown-scrollable" uk-dropdown="pos: bottom-justify; mode: click">
+                                        <div class="uk-margin-small">
+                                        <input class="uk-input" type="text" [formControl]="tagFilterInput">
+                                        </div>
+                                        <ul class="uk-nav uk-dropdown-nav">
+                                        <li *ngFor="let tag of filteredTags">
+                                            <a (click)="toggleTagFilter(tag.id)">
+                                            <input class="uk-checkbox" type="checkbox" [checked]="isTagFilterApplied(tag.id)">
+                                            {{ tag.tag }}
+                                            </a>
+                                        </li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                    <span class="uk-margin-medium-bottom"></span><br/>
+                                    <span *ngFor="let filter of appliedFilters" class="uk-margin-small-right uk-margin-small-bottom uk-badge">
+                                    {{ getTagNameById(filter) }}
+                                    <span class="uk-icon" uk-icon="icon: close; ratio: 0.6" (click)="removeTagFilter(filter)" 
+                                        style="stroke: #1c1c1d !important;"></span>
+                                    </span>
+                                </div>
+                                <div class="uk-margin">
+                                    <span>Choose your platforms:</span>
+                                    <div class="uk-form-controls uk-margin">
+                                        <select class="uk-select" multiple (click)="toggleOption($event)">
+                                          <option value="Facebook" [class.active]="isOptionActive('Facebook')">Facebook</option>
+                                          <option value="Instagram" [class.active]="isOptionActive('Instagram')">Instagram</option>
+                                          <option value="Twitter" [class.active]="isOptionActive('Twitter')">Twitter</option>
+                                        </select>
+                                    </div> 
+                                </div>
+                            </div>
+                            <button type="button" class="uk-button" uk-switcher-item="previous"> < Back </button>
+                            <span class="uk-margin-medium-right"></span>
+                            <button type="submit" class="uk-button">Register</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</main>
+<!--FOOTER-->
+<app-footer></app-footer>
+
+<!--
+    <div>
+  <form (ngSubmit)="submitForm1()" #form1="ngForm">
+    <h2>Form 1</h2>
+    <label for="name1">Name:</label>
+    <input type="text" id="name1" name="name1" ngModel required>
+    <br>
+    <label for="email1">Email:</label>
+    <input type="email" id="email1" name="email1" ngModel required>
+    <br>
+    <button type="submit">Submit Form 1</button>
+  </form>
+  <br>
+  <form (ngSubmit)="submitForm2()" #form2="ngForm">
+    <h2>Form 2</h2>
+    <label for="name2">Name:</label>
+    <input type="text" id="name2" name="name2" ngModel required>
+    <br>
+    <label for="email2">Email:</label>
+    <input type="email" id="email2" name="email2" ngModel required>
+    <br>
+    <button type="submit">Submit Form 2</button>
+  </form>
+  <br>
+  <form (ngSubmit)="submitForm3()" #form3="ngForm">
+    <h2>Form 3</h2>
+    <label for="name3">Name:</label>
+    <input type="text" id="name3" name="name3" ngModel required>
+    <br>
+    <label for="email3">Email:</label>
+    <input type="email" id="email3" name="email3" ngModel required>
+    <br>
+    <button type="submit">Submit Form 3</button>
+  </form>
+  <br>
+  <button (click)="submitAllForms()" [disabled]="!form1.valid || !form2.valid || !form3.valid">Submit All Forms</button>
+</div>
+
+-->
+<!--
+
+    import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-multiple-forms',
+  templateUrl: './multiple-forms.component.html',
+  styleUrls: ['./multiple-forms.component.css']
+})
+export class MultipleFormsComponent {
+  submitForm1() {
+    // Process and send the data from Form 1
+    console.log("Form 1 submitted");
+  }
+
+  submitForm2() {
+    // Process and send the data from Form 2
+    console.log("Form 2 submitted");
+  }
+
+  submitForm3() {
+    // Process and send the data from Form 3
+    console.log("Form 3 submitted");
+  }
+
+  submitAllForms() {
+    // Submit all forms together
+    console.log("All forms submitted");
+  }
+}
+
+-->
+  

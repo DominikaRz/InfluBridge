@@ -1,0 +1,256 @@
+<main>
+    <!--NAVBAR-->
+    <app-navbar-main></app-navbar-main>
+    <!--BANNER-->
+    <div id="banner" class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid> 
+        <div class="uk-text-center">
+            <h1>Welcome&nbsp;to <br>InfluBridge!</h1>
+            <h3>The ultimate platform&nbsp;for<br> brands and&nbsp;influencers</h3>
+            <a href="#about" class="uk-button">Learn more</a>
+        </div>
+        <div class="image-container hidden-small">
+            <img src="../../assets/img/1c77d1f1-5913-402b-94e8-6d3bddfd9e5a.png" alt="Image">
+        </div>
+    </div>
+    <!--ABOUT-->
+    <div id="about" class="uk-text-center">
+        <h1>Connecting Brands and Influencers</h1>
+        <h3>for Successful Marketing Campaigns</h3>
+        <div class="uk-child-width-1-5@m uk-child-width-1-2@s uk-child-width-1-1@xs uk-flex-center" uk-grid>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title">
+                    <img src="../../assets/img/search.png" alt="Image"/>
+                </h3>
+                <p>
+                    Search for influencers based on category, audience size, and engagement rate to find the perfect fit for your brand.
+                </p>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title"><img src="../../assets/img/discover.png" alt="Ciscover"></h3>
+                <p>
+                    Discover new brand partnerships and take your career to the next level as an influencer.
+                </p>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title"><img src="../../assets/img/find.png" alt="Find"></h3>
+                <p>
+                    Find marketing campaigns by brand, category, or campaign type, making it easy to find campaigns that align with your interests and audience.
+                </p>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title"><img src="../../assets/img/join.png" alt="Join"></h3>
+                <p>
+                    Join exciting marketing campaigns and track performance to make data-driven decisions for future campaigns.
+                </p>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title"><img src="../../assets/img/elevate.png" alt="Elevate"></h3>
+                <p>
+                    Elevate your marketing game with InfluBridge - the ultimate platform for brands and influencers to connect and create successful campaigns.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!---->
+    <div id="how-works" class="uk-text-center">
+        <h1>How it works?</h1>
+        <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
+            <div>
+                <div id="brd-image">
+                    <h2>Brand</h2>
+                    <img src="../../assets/img/b94244cf-b577-4f9d-87ea-a63b93c36443.png" alt="Image" 
+                    onmouseover="$('#brd-side-card').removeClass('uk-hidden');
+                                 $('#inf-image').addClass('uk-hidden');"
+                    onmouseout="$('#inf-image').removeClass('uk-hidden');
+                                $('#brd-side-card').addClass('uk-hidden');" />                             
+                    <!--
+                        onmouseover="document.getElementById('brd-side-card').style.visibility = 'visible';
+                                     document.getElementById('inf-image').style.visibility = 'hidden';"
+                        onmouseout="document.getElementById('inf-image').style.visibility = 'visible';
+                                    document.getElementById('brd-side-card').style.visibility = 'hidden'"
+                                
+                                -->
+                </div>
+                <div id="inf-side-card" class="uk-child-width-1-2@m uk-child-width-1-2@s uk-flex-center side-card uk-hidden" uk-grid>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Search for marketing campaigns by brand, category, or campaign type that align with your interests and audience.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Track performance and analyze data to make data-driven decisions for future campaigns.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Filter your search to find campaigns that match your criteria.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Elevate your career and find new brand partnerships with InfluBridge!
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Apply for campaigns that interest you, and if accepted, collaborate with the brand to create a successful campaign.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="inf-image">
+                    <h2>Influencer</h2>
+                    <img src="../../assets/img/0b50a844-f4b8-441a-8ab8-06e829105d1c.png" alt="Image"
+                    onmouseover="$('#inf-side-card').removeClass('uk-hidden');
+                                 $('#brd-image').addClass('uk-hidden');"
+                    onmouseout="$('#brd-image').removeClass('uk-hidden');
+                                $('#inf-side-card').addClass('uk-hidden');"/>
+                </div>
+                <!--<div class="uk-inline">
+                    <button class="uk-button" type="button">Hover</button>
+                    <div uk-dropdown="mode: click">Create a marketing campaign with specific criteria such as audience size, engagement rate, and category.</div>
+                </div>-->
+                <div id="brd-side-card" class="uk-child-width-1-2@m uk-child-width-1-2@s uk-flex-center side-card uk-hidden" uk-grid>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Create a marketing campaign with specific criteria such as audience size, engagement rate, and category.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Track campaign performance and analyze data to make data-driven decisions for future campaigns.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Search for influencers who match your campaign criteria and send them an invitation to join your campaign.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Once an influencer accepts your invitation, collaborate with them to create a successful campaign.
+                        </p>
+                    </div>
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <p>
+                            Elevate your brand's marketing efforts and connect with the perfect influencers for your campaign with InfluBridge!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--WHY CHOOSE-->
+    <div id="why-choose" class="uk-text-center"> 
+        <h1>Why should you choose us?</h1>
+        <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
+            <div class="image-container">
+                <img src="../../assets/img/0afa227a-5570-4a75-a7f4-a56d4043b757.png" alt="Image">
+            </div>
+            <div class="uk-text-center">
+                <p>At InfluBridge, we understand the challenges of finding the right influencer or brand partner to collaborate with. That's why we've created a platform that makes it easy to find the perfect match. Our powerful search tools allow you to filter by category, audience size, engagement rate, and more, ensuring that you find the best influencers for your campaign. We also offer a variety of campaign types to choose from, including sponsored posts, product reviews, and giveaways.
+                    In addition, we're committed to providing exceptional customer service to all of our users. Our team is available to answer any questions you have and help you navigate the platform. We also offer advanced analytics to help you track your campaign's performance and make data-driven decisions for future campaigns.
+                    Whether you're a brand looking to elevate your marketing game or an influencer looking to discover new brand partnerships, InfluBridge is the ultimate platform to connect with like-minded individuals and create successful campaigns.</p>
+            </div>
+        </div>
+    </div>
+    <!--PRICING-->
+    <div id="pricing" class="uk-child-width-1-2@m uk-hidden" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <img src="" width="1800" height="1200" alt="">
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">Media Top</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--CONTACT-->
+    <div id="contact" class="uk-child-width-1-1 uk-text-center">
+        <div class="uk-flex uk-flex-center">
+            <div class="card">
+                <h1>Any questions?</h1>
+                <h3>Don't be afraid to ask.</h3>
+                <a class="uk-button uk-button-secondary" href="#modal-form" uk-toggle>Learn more</a>
+            </div>
+        </div>
+    </div>
+</main>
+<!--FOOTER-->
+<app-footer></app-footer>
+
+<div id="modal-form" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-light uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header uk-text-center">
+            <h2 class="uk-modal-title">Contact us</h2>
+            <p> If you want to ask a question just write to us by filling form above. </p>
+        </div>
+        <form (ngSubmit)="onSubmit()" class="">
+        <div class="uk-modal-body">
+                <div class="uk-margin">
+                    <label for="email" class="label-left">{{ emailLabel }}
+                        <span>{{ subEmailLabel }}</span>
+                    </label>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                        <input type="text" class="form-control uk-input uk-form-width-large" placeholder="example@email.com" id="email" [(ngModel)]="email" name="email" required>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label for="title" class="label-left">{{ titleLabel }}
+                        <span>{{ subTitleLabel }}</span>
+                    </label>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: quote-right"></span>
+                        <input type="text" class="form-control uk-input uk-form-width-large" placeholder="Question about..." id="title" [(ngModel)]="title" name="title" required>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label for="content" class="label-left">{{ contentLabel }}
+                        <span>{{ subContentLabel }}</span>
+                    </label>
+                    <div class="uk-inline">
+                        <textarea class="form-control uk-textarea uk-form-width-large" rows="5" placeholder="I want to ask about..." aria-label="Textarea"></textarea>
+                    </div>
+                    <div class="uk-margin">
+                    </div>
+                </div>
+            </div>
+            <div class="uk-modal-footer uk-text-right"> 
+                <button class="uk-button uk-button-primary uk-button-small uk-align-left" type="reset">Reset</button> 
+                <button class="uk-button uk-button-secondary uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!--
+<button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-nav">Default Nav</button>
+-->
+<div id="menu" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            <li><a href="#">
+                <img src="../../assets/img/logo.png" alt="Logo">
+            </a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="main#about">About</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="main#contact">Contact</a></li>
+            <li class="uk-nav-divider"></li><li>
+            <li><button class="uk-button" onclick="location.href='/login';">Log&nbsp;in</button></li>
+            <li><button class="uk-button uk-button-small" onclick="location.href='/';">Sign&nbsp;up</button></li>
+                
+        </ul>
+
+    </div>
+</div>
+  

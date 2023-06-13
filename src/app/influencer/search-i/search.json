@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "brand": "Beauty by Grace",
+    "offerName": "Graceful Glow-Up",
+    "tags": ["beauty", "makeup", "skincare", "transformation"],
+    "endDate": "May 15, 2024",
+    "freePlaces": 10
+  },
+  {
+    "id": 2,
+    "brand": "Loveable Toys",
+    "offerName": "Playtime Fun",
+    "tags": ["playtime", "toys", "parenting", "kids"],
+    "endDate": "June 30, 2023",
+    "freePlaces": 15
+  },
+  {
+    "id": 3,
+    "brand": "FitFam Fitness",
+    "offerName": "FitFam Challenge",
+    "tags": ["fitness", "health", "workout", "challenge"],
+    "endDate": "July 31, 2023",
+    "freePlaces": 20
+  },
+  {
+    "id": 4,
+    "brand": "Cozy Home Decor",
+    "offerName": "Cozy Home Makeover",
+    "tags": ["design", "decor", "makeover", "interior", "cozy"],
+    "endDate": "August 31, 2023",
+    "freePlaces": 10
+  },
+  {
+    "id": 5,
+    "brand": "Wanderlust Adventures",
+    "offerName": "Adventurous Escapes",
+    "tags": ["exploration", "escape", "adventure", "travel"],
+    "endDate": "October 31, 2023",
+    "freePlaces": 10
+  },
+  {
+    "id": 6,
+    "brand": "TechGenius",
+    "offerName": "Futuristic Tech",
+    "tags": ["beauty", "makeup", "skincare", "transformation"],
+    "endDate": "November 30, 2023",
+    "freePlaces": 20
+  },
+  {
+    "id": 7,
+    "brand": "SportsGear",
+    "offerName": "Active Lifestyle",
+    "tags": ["workout", "sports", "fitness", "active lifestyle"],
+    "endDate": "December 31, 2023",
+    "freePlaces": 15
+  },
+  {
+    "id": 8,
+    "brand": "Fashionista",
+    "offerName": "Fashion Frenzy",
+    "tags": ["style", "fashion", "trend", "lookbook"],
+    "endDate": "January 31, 2024",
+    "freePlaces": 10
+  },
+  {
+    "id": 9,
+    "brand": "Fit Life",
+    "offerName": "Fit for Life Challenge",
+    "tags": ["progress", "fitness", "challenge", "health"],
+    "endDate": "March 31, 2024",
+    "freePlaces": 20
+  },
+  {
+    "id": 10,
+    "brand": "Beauty Essentials",
+    "offerName": "Beauty Glow Up",
+    "tags": ["beauty", "makeup", "tips", "skincare"],
+    "endDate": "April 30, 2024",
+    "freePlaces": 10
+  },
+  {
+    "id": 11,
+    "brand": "Earthy Eats",
+    "offerName": "Sustainable Foodie",
+    "tags": ["healthy", "food", "recipes", "sustainability"],
+    "endDate": "December 31, 2023",
+    "freePlaces": 15
+  }
+]

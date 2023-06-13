@@ -1,0 +1,10 @@
+<nav class="main-menu">
+    <ul class="uk-text-center">
+        <li class="has-subnav" *ngFor="let brand of brands">
+            <a href="">
+                <span class="uk-icon-button fa">{{ brand.name }}</span>
+                <span class="nav-text"> {{ brand.brand }} </span>
+            </a>
+        </li>
+    </ul>
+</nav>
