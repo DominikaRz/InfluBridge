@@ -1,0 +1,2 @@
+# InfluBridge
+ Frontend in Angular
