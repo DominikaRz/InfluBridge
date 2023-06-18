@@ -95,3 +95,10 @@ input, .uk-textarea{
     padding: 4px;
   }
   .pointer{ cursor: pointer;}
+
+  span{ color: #1c1c1d;}
+  option.active {
+    background-color: #6a21fd;
+    color: #eaeaea;
+  }
+  select option::selection{ background: #6114fb !important;}

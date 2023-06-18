@@ -82,6 +82,10 @@ main{
   .black{ background-color: #0b0c0c; color: #e0dfdf;}
 
 
+  .noData{
+    height: 20vh;
+    margin-top: 3rem;
+  }
 
   /*------------CARD WITH FORM------------*/
   .card {

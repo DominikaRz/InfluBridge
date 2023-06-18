@@ -15,13 +15,14 @@ import { HistoryIComponent } from './influencer/history-i/history-i.component';
 import { SettingsIComponent } from './influencer/settings-i/settings-i.component';
 
 import { CampaignComponent } from './campaign/campaign/campaign.component';
+import { CampaignBComponent } from './campaign/campaign-b/campaign-b.component';
 import { ViewComponent } from './influencer/view/view.component';
 
 
 import { ExampleBackComponent } from './check/example-back/example-back.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent}, //main page
+  { path: '', component: MainComponent, title: 'InfluBridge'}, //main page
   { path: 'login', component: LoginComponent}, //login page
   //register pages
   { path: 'register', component: RegisterChooseComponent},
@@ -33,8 +34,10 @@ const routes: Routes = [
   { path: 'searchBrands', component: SearchIComponent},
   { path: 'settingsInflu', component: SettingsIComponent},
   //single pages
-  { path: 'campaign', component: CampaignComponent},
-  { path: 'influencer', component: ViewComponent},
+  { path: 'campaign/:id', component: CampaignComponent}, //for influencer
+  { path: 'viewCampaign/:id', component: CampaignBComponent}, //for brand
+  { path: 'influencer/:id', component: ViewComponent},
+  
   //brand pages
   { path: 'brand', component: MainBComponent},
   { path: 'HistoryBrand', component: HistoryBComponent},

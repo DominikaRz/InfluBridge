@@ -1,6 +1,6 @@
 <main class="uk-text-center">
     <!--NAVBAR-->
-    <app-navbar-brand></app-navbar-brand>
+    <app-navbar-influ></app-navbar-influ>
 
     <div id="banner">
         <h1>Search Campaigns</h1>
@@ -58,7 +58,7 @@
             <div uk-filter="target: .js-filter">
             
                 <!---->
-                <table class="uk-table uk-table-hover uk-table-divider uk-table-responsive" style="position: relative;"> 
+                <table *ngIf="search.length > 0" class="uk-table uk-table-hover uk-table-divider uk-table-responsive" style="position: relative;"> 
                     <thead uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-table; offset: 80;"> 
                         <tr class="uk-navbar-table uk-margin-large-top">
                             <th class="uk-width-small">
@@ -83,7 +83,7 @@
                                     Tags
                             </th>
                             <th class="uk-width-small">
-                                    Due date
+                                    Dates
                                     <span uk-filter-control="sort: data-date">
                                         <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
                                         aria-label="Sort ascending"></a></span>
@@ -96,7 +96,7 @@
                                     <span uk-filter-control="sort: data-place">
                                         <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
                                         aria-label="Sort ascending"></a></span>
-                                    <span uk-filter-control="sort: data-date; order: desc">
+                                    <span uk-filter-control="sort: data-place; order: desc">
                                         <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
                                         aria-label="Sort descending"></a></span>
                             </th>
@@ -106,26 +106,28 @@
                     </thead>
                     <tbody class="js-filter">
                         <tr *ngFor="let search of filterCampaigns()"
-                            [attr.data-brand]="search.brand"
-                            [attr.data-offer]="search.offerName"
-                            [attr.data-date]="search.endDate"
-                            [attr.data-place]="search.freePlaces"
+                            [attr.data-brand]="search.brandName"
+                            [attr.data-offer]="search.title"
+                            [attr.data-date]="search.endData"
+                            [attr.data-place]="search.vacancies"
                         > 
-                            <td><div class="" >{{ search.brand }}</div></td>
-                            <td><div class="" >{{ search.offerName }}</div></td>
+                            <td><div class="" >{{ search.brandName }}</div></td>
+                            <td><div class="" >{{ search.title }}</div></td>
                             <td>
-                                <div *ngFor="let tag of search.tags" style="color: #1c1c1d !important;"
+                                <div *ngFor="let tag of search.categories" style="color: #1c1c1d !important;"
                                 class="uk-badge uk-margin-small-right">
                                     {{ tag }}
                                 </div>
                             </td>
-                            <td><div class="" >{{ search.endDate }}</div></td>
-                            <td><div class="" >{{ search.freePlaces }}</div></td>
-                            <td><div class="" ><button class="uk-button">See&nbsp;more&nbsp;></button></div></td>
+                            <td><div class="" >{{ splitStringAtT(search.startData) }}<br/>{{ splitStringAtT(search.endData) }}</div></td>
+                            <td><div class="" >{{ search.vacancies }}</div></td>
+                            <td><div class="" ><a [attr.href]="'campaign/' + search.id" class="uk-button">See&nbsp;more&nbsp;></a></div></td>
                         </tr>
                     </tbody>
                 </table>
-
+                <div *ngIf="search.length === 0" class="noData">
+                    <div class="loader"></div>
+                </div>
             </div>
         </section>
     </div>
@@ -133,8 +135,8 @@
 
 <!--FOOTER-->
 <app-footer-influ></app-footer-influ>
-<!--SIDENAV-->
-<app-sidenav></app-sidenav>
+<!--SIDENAV
+<app-sidenav></app-sidenav>-->
   
   
   

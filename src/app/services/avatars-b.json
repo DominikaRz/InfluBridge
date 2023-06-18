@@ -1,0 +1,27 @@
+{
+  "avatars": [{
+    "id": 1,
+    "avatar": "avr/nike.png" 
+  },
+  {
+    "id": 2,
+    "avatar": "avr/cocacola.png" 
+  },
+  {
+    "id": 3,
+    "avatar": "avr/samsung.png" 
+  },
+  {
+    "id": 4,
+    "avatar": "avr/mcdonald.png" 
+  },
+  {
+    "id": 5,
+    "avatar": "avr/adidas.png" 
+  },
+  {
+    "id": 6,
+    "avatar": "avr/" 
+  }
+  ]
+}

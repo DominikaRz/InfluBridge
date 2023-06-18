@@ -1,18 +1,35 @@
 import { Component } from '@angular/core';
-import socialData from './social.json';
-import brandsData from './brands.json'; 
-import tagsData from './tags.json'; 
+import { HttpClient } from '@angular/common/http';
 
-interface Social {
-  id: number;
-  name: String;
-  number: number;
-}
+import { ApiServiceService } from '../../services/api-service.service';
 
+/*
 interface Brands {  
   id: Number;  
   name: String;  
   brand: String;   
+}*/
+
+interface Influencer {
+  id: number;
+  email: string;
+  pseudonym: string;
+  phoneNumber: string;
+  firstName: string;
+  lastName: string;
+  description: string;
+}
+
+interface Categories{
+  id: number;
+  name: string;
+}
+
+interface Platforms {
+  id: number;
+  platformName: string;
+  username: string;
+  views: number;
 }
 
 @Component({
@@ -21,36 +38,71 @@ interface Brands {
   styleUrls: ['./settings-i.component.css', '../../../assets/uikit/css/uikit.css', '../../../assets/uikit/css/uikit-rtl.css']
 })
 export class SettingsIComponent {
-  nick = 'Julia Rows';
-  avatar = '4e25ab7c-a222-4db6-8e8d-6b96bcaef5071.jpg';
 
-  medias: Social[] = socialData;
+  avatar = '4e25ab7c-a222-4db6-8e8d-6b96bcaef5071.jpg';
+  
   totalNumber!: number;
   roundedNumber!: string;
-  description = "I'm Julia Rows, a fashion and lifestyle influencer from NYC. I share my passion for fashion and beauty on Instagram, Facebook, and Twitter. I collaborate with brands I love and whose values align with mine. I also support charities and organizations for women's empowerment and environmental sustainability.";
 
-  brands: Brands[] = brandsData; 
-  tags = tagsData.tags;
+  //brands: Brands[] = brandsData; 
+  newDesc!: string;
 
+
+
+  id = 1;
+  url = '/api/v1/influencer/settings/' + this.id;
+   
+  influencer: Influencer = {} as Influencer;
+  categories: Categories[] = []
+  platforms: Platforms[] = []
+
+  constructor(private apiService: ApiServiceService, private http: HttpClient) {}
 
   ngOnInit() {
-    this.calculateTotalNumber();
-    this.roundNumber();
+    this.http.get<any>(this.url).subscribe(
+      (data) => {
+        this.influencer = data.data.influencerSettings;
+        this.platforms = data.data.influencerSettings.platforms;
+        this.categories = data.data.influencerSettings.categories;
+        this.newDesc = this.influencer.description; // Move the assignment here
+        this.calculateTotalNumber();
+        this.roundNumber();
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
+   
+  splitStringAtT(input: string): string {
+    const index = input.indexOf('T');
+    if (index !== -1) {
+      return input.substring(0, index);
+    }
+    return input;  
+  }
+
 
   calculateTotalNumber() {
-    this.totalNumber = this.medias.reduce((sum, media) => sum + media.number, 0);
+    this.totalNumber = this.platforms.reduce((sum, platform) => sum + platform.views, 0);
+    this.roundNumber(); // Call roundNumber() after updating the totalNumber
   }
-
+  
   roundNumber() {
     if (this.totalNumber >= 1000000) {
-      this.roundedNumber = 'over ' + (this.totalNumber / 1000000).toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' million followers';
+      this.roundedNumber =
+        'over ' +
+        (this.totalNumber / 1000000).toLocaleString(undefined, { maximumFractionDigits: 1 }) +
+        ' million followers';
     } else if (this.totalNumber >= 1000) {
-      this.roundedNumber = (this.totalNumber / 1000).toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' thousand followers';
+      this.roundedNumber =
+        (this.totalNumber / 1000).toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' thousand followers';
     } else {
       this.roundedNumber = this.totalNumber.toLocaleString();
     }
   }
+  
+  
 
 
   prevPass!: string;
@@ -66,10 +118,28 @@ export class SettingsIComponent {
     console.log(this.image);
   }
 
-  newDesc= this.description;
   SubmitDescripion(){
-    this.description = this.newDesc;
+    console.log(this.influencer.description);
   }
+/*
+SubmitDescripion() {
+  this.apiService.updateInfluencerDescription(this.influencer.id, this.influencer.description).subscribe(
+    (response) => {
+      console.log('Description updated successfully');
+      // Optionally, you can show a success message or perform any other action.
+    },
+    (error) => {
+      console.error('Error updating description:', error);
+      // Optionally, you can show an error message or perform any other action.
+    }
+  );
+}
+*/
+  CancelDescripion(){
+    this.influencer.description = this.newDesc;
+  }
+
+  
 //-------------
 indexes: number[] = [];
 
@@ -87,7 +157,7 @@ isIndexSelected(index: number): boolean {
 }
 
 deleteAtIndex(): void {
-  this.tags = this.tags.filter((_, index) => !this.indexes.includes(index));
+  this.categories = this.categories.filter((_, index) => !this.indexes.includes(index));
   this.indexes = [];
 }
 
@@ -96,7 +166,7 @@ closeModal(): void {
 }
 
 get filteredTags(): any[] {
-  return this.tags.filter((_, index) => !this.indexes.includes(index));
+  return this.categories.filter((_, index) => !this.indexes.includes(index));
 }
 
 //----------------
@@ -106,7 +176,7 @@ get filteredTags(): any[] {
   RemoveIndexN(){ this.indexesN = []; }
   DeleteAtIndexN(){
     for(var i=0; i<this.indexesN.length; i++)
-      delete this.tags[this.indexes[i]];
+      delete this.categories[this.indexes[i]];
   }
   
 }

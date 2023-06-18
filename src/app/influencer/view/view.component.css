@@ -57,6 +57,10 @@ main{
     transform: translate(-50%, -50%); 
   }
 
+  .margin-left{ 
+    width: 45vw;
+    margin-left: 20vw !important;
+  }
 
 /*------------CARD------------*/
   .card {

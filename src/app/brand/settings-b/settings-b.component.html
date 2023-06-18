@@ -14,16 +14,16 @@
                     uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" 
                     uk-toggle="target: #modal-image"></button>
                 </div>
-                <h1>{{nick}}</h1> 
+                <h1>{{ brand.name }}</h1> 
             </div>
         </div>
     </div>
-    <div>
+    <div *ngIf="brand.description != null">
         <div class="uk-padding-large uk-child-width-1-1" uk-grid>
             <div class="uk-margin-large">
                 <div class="card">
                     <div class="card-body">
-                        <p>{{ description }}</p>
+                        <p>{{ brand.description }}</p>
                     </div>
                     <a href="#" class="uk-icon-button  edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" 
                     style="stroke: #ecebef !important;" uk-toggle="target: #modal-description"></a>

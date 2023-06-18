@@ -85,9 +85,9 @@
                 </div>
                 <ul id="content" class="js-filter uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center" uk-grid="masonry: true">
                     <li *ngFor="let search of filterCampaigns()"
-                    [attr.data-name]="search.name"
-                    [attr.data-follow]="search.followers"
-                    [attr.data-join]="search.joinedCampaigns">
+                    [attr.data-name]="search.pseudonym"
+                    [attr.data-follow]="search.totalViews"
+                    [attr.data-join]="search.campaignsNumber">
                         <div class="uk-card uk-card-default uk-card-body" uk-grid>
                             <div class="uk-width-1-5 uk-flex uk-flex-center uk-flex-middle">
                                <div class="img">
@@ -96,18 +96,18 @@
                                 </div> 
                             </div>
                             <div class="uk-width-3-5" style="padding: 1rem;">
-                                <div class="" ><h3>{{ search.name }}</h3></div>
-                                <div class="" >{{ search.followers }}</div>
-                                <div class="" >{{ search.joinedCampaigns }} capmaigns</div>
+                                <div class="" ><h3>{{ search.pseudonym }}</h3></div>
+                                <div class="" >{{ search.totalViews }}</div>
+                                <div class="" >{{ search.campaignsNumber }} capmaigns</div>
                                 <div>
                                     <div class="toggle" hidden>
-                                        <div *ngFor="let tag of search.tags" style="color: #1c1c1d !important;" class="uk-badge">
+                                        <div *ngFor="let tag of search.categories" style="color: #1c1c1d !important;" class="uk-badge">
                                             {{ tag }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="uk-width-1-5 side uk-flex uk-flex-middle uk-flex-center">
+                            <a [attr.href]="'influencer/' + search.id" class="uk-width-1-5 side uk-flex uk-flex-middle uk-flex-center">
                                 <span uk-icon="icon: chevron-right; ratio: 3.5" style="stroke: #eaeaea !important;"></span> 
                             </a>
                             

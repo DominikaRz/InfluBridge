@@ -46,7 +46,7 @@ main{
 
   .icon-table{ width: 1rem;}
   .text-followers{font-size: 27px;}
-  .text-followers .uk-icon{margin: 0 10px 0 40px; }
+  .text-followers .uk-icon{margin: 0 5px 0 25px; }
 
   #table-foll{ position: relative;}
   #table-foll .uk-icon{ fill: #420ebc;}

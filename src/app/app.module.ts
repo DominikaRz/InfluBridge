@@ -30,6 +30,7 @@ import { SettingsBComponent } from './brand/settings-b/settings-b.component';
 import { SearchBComponent } from './brand/search-b/search-b.component';
 
 import { CampaignComponent } from './campaign/campaign/campaign.component';
+import { CampaignBComponent } from './campaign/campaign-b/campaign-b.component';
 import { ViewComponent } from './influencer/view/view.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -70,7 +71,8 @@ import { NavbarMainComponent } from './components/navbar-main/navbar-main.compon
     ViewComponent,
     SearchBComponent,
     ExampleBackComponent,
-    NavbarMainComponent
+    NavbarMainComponent,
+    CampaignBComponent
   ],
   imports: [
     BrowserModule,

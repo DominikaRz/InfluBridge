@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import campaignsData from '../main-b/campaigns.json';  
+import { HttpClient } from '@angular/common/http'; 
 
-interface Campaigns {  
-  id: Number;    
-  offerName: String;  
-  endDate: String;  
-  palces: Number;  
-  filled: Number;    
+import { ApiServiceService } from '../../services/api-service.service';
+interface Campaign {
+  id: number;
+  title: string;
+  vacancies: number;
+  occupied: number;
+  startDate: string;
+  endDate: string;
 } 
 
 @Component({
@@ -20,27 +21,32 @@ interface Campaigns {
 export class HistoryBComponent {
 
   
-  campaigns: Campaigns[] = campaignsData;  
-  
-  title = 'Register as Influencer';
-  //step 1
-  nameLabel = 'Name of marketing campaign';
-  imageLabel = 'Image of marketing campaign';
-  categoriesLabel = 'Categories';
-  peopleLabel = 'Participants limit';
-  dateLabel = 'Due date';
-  shortDescLabel = 'Short description';
-  descriptionLabel = 'All informations about campaign';
-  name! : String;
-  image! : String;
-  categories! : [];
-  people! : Number;
-  date! : String;
-  shotrDesc! : String;
-  description! : String;
+  id = 1;
+  url = '/api/v1/campaign/brand/' + this.id;
+   
+  campaigns: Campaign[] = [];
 
-  onSubmit() {
-    
+  constructor(private apiService: ApiServiceService, private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any>(this.url).subscribe(
+      (data) => {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString().split('T')[0];
+  
+        this.campaigns = data.data.brandCampaignsList.filter((campaign: Campaign) => campaign.endDate < formattedDate);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+  }  
+  splitStringAtT(input: string): string {
+    const index = input.indexOf('T');
+    if (index !== -1) {
+      return input.substring(0, index);
+    }
+    return input;  
   }
 
 

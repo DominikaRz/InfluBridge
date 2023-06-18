@@ -1,0 +1,55 @@
+<!---->
+<main class="uk-text-center">
+    <!--NAVBAR-->
+    <app-navbar-brand></app-navbar-brand>
+    <div id="banner">
+        <div class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover" 
+        data-src="../../../assets/img/c34a8b8f-6b56-4686-b422-c199081a5b0d.jpg" uk-img></div>
+    </div>
+    <div id="informations">
+        <div class="uk-child-width-1-2" uk-grid>
+            <div>
+                <h2>{{ brand.name }}</h2>
+                <h1>{{ campaign.title }} </h1>
+                <span *ngFor="let emp of campaign.categories" class="uk-badge uk-margin-small-right">
+                    {{emp}}
+                </span>
+                <div  class="uk-margin-small-right">
+                    
+                </div>
+            </div>
+            <div>
+                <div class="uk-flex uk-flex-center uk-flex-middle">
+                    <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                        <h4>You can earn up to {{ campaign.rate }} $
+                            <br/><span *ngFor="let emp of campaign.platformTypes"  class="uk-margin-small-right uk-margin-small-top"
+                            [attr.uk-icon]="'icon: ' + emp + '; ratio: 1.6'" style="fill: #1c1c1d !important"></span></h4>
+                        <h3 style="white-space: pre-line; margin-top: 0;">start: {{ splitStringAtT(campaign.endData) }} <br/>end: {{ splitStringAtT(campaign.endData) }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="descriptions" class="uk-child-width-1-1 uk-text-center uk-padding-large-bottom" uk-grid>
+        <div class="uk-child-width-1-1 uk-text-center" uk-grid>
+            <div class="card">
+                <div class="card-body-short">
+                    <h5>{{ campaign.description }}</h5>
+                </div>
+            </div>
+            <div *ngIf="brand.description != null" class="card">
+                <div class="card-body">
+                    <p>{{ brand.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main> 
+<!--FOOTER--> 
+<app-footer-brand></app-footer-brand>
+  
+  
+  
+  
+
+

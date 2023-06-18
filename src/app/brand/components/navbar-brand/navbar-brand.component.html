@@ -15,7 +15,7 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                 </div>  
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                        <li>
+                        <li> 
                             <a href="#">
                                 <img class="uk-border-circle" src="../../../assets/img/c34a8b8f-6b56-4686-b422-c199081a5b0d1.jpg" alt="Avatar">
                                 Beauty by Grace
@@ -108,6 +108,16 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                                     style="stroke: #1c1c1d !important;"></span>
                                 </span>
                             </div>
+                        </div>
+                        <div class="uk-margin">
+                            <span class="label-left">Choose your platforms:</span>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" multiple (click)="toggleOption($event)">
+                                    <option value="Facebook" [class.active]="isOptionActive('Facebook')">Facebook</option>
+                                    <option value="Instagram" [class.active]="isOptionActive('Instagram')">Instagram</option>
+                                    <option value="Twitter" [class.active]="isOptionActive('Twitter')">Twitter</option>
+                                </select>
+                            </div> 
                         </div>
                         <div class="uk-margin">
                             <label for="content" class="label-left">{{ shortDescLabel }}

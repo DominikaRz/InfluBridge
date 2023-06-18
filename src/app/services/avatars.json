@@ -1,0 +1,51 @@
+{
+  "avatars": [{
+    "id": 1,
+    "avatar": "avr/mrbeasts.jpg" 
+  },
+  {
+    "id": 2,
+    "avatar": "avr/pewdiepie.jpg" 
+  },
+  {
+    "id": 3,
+    "avatar": "avr/lelepons.png" 
+  },
+  {
+    "id": 4,
+    "avatar": "avr/zachking.png" 
+  },
+  {
+    "id": 5,
+    "avatar": "avr/lizakoshy.png" 
+  },
+  {
+    "id": 6,
+    "avatar": "avr/jamescharles.jpg" 
+  },
+  {
+    "id": 7,
+    "avatar": "avr/lillysingh.jpg" 
+  },
+  {
+    "id": 8,
+    "avatar": "avr/jefreystars.jpg"
+  },
+  {
+    "id": 9,
+    "avatar": "avr/markiplier.jpg"
+  },
+  {
+    "id": 10,
+    "avatar": "avr/rosannas.png"
+  },
+  {
+    "id": 11,
+    "avatar": "avr/daviddobrik.png"
+  },
+  {
+    "id": 12,
+    "avatar": "avr/"
+  }
+  ]
+}

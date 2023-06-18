@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import campaignsData from './campaigns.json';
 
-interface Campaign {  
-  id: Number;  
-  brand: String;  
-  offerName: String;  
-  endDate: String;  
-} 
-
-interface Brands {  
-  id: Number;  
-  name: String;  
-  brand: String;   
+import { ApiServiceService } from '../../services/api-service.service';
+interface Campaign {
+  id: number;
+  brandName: string;
+  title: string;
+  startDate: string;
+  endDate: string;
 }
 
 @Component({
@@ -24,13 +19,33 @@ interface Brands {
 })
 export class MainIComponent {
 
-  constructor(private httpClient: HttpClient) { }
-   public getEmployees(){
-      return this.httpClient.get('http://dummy.restapiexample.com/api/v1/employees');
+  id = 5;
+  url = '/api/v1/campaign/influencer/' + this.id;
+   
+  campaigns: Campaign[] = [];
+  currentDate!: string;
+
+  constructor(private apiService: ApiServiceService, private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any>(this.url).subscribe(
+      (data) => {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString().split('T')[0];
+        this.currentDate = formattedDate;
+  
+        this.campaigns = data.data.influencerCampaignsList.filter((campaign: Campaign) => campaign.endDate >= formattedDate);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+  }  
+  splitStringAtT(input: string): string {
+    const index = input.indexOf('T');
+    if (index !== -1) {
+      return input.substring(0, index);
     }
-
-    camapigns: Campaign[] = campaignsData; 
-
-    
-
+    return input;  
+  }
 }

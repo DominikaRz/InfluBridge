@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../api-service.service';
+import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
   selector: 'app-example-back',
@@ -9,7 +9,7 @@ import { ApiServiceService } from '../api-service.service';
 export class ExampleBackComponent implements OnInit {
   constructor(private apiService: ApiServiceService) {}
 
-  url = '/api/v1/employees';
+  url = 'localhost:8080/api/v1/campaign/influencer/1';
 
   employees: any[] = [];
 
@@ -25,6 +25,8 @@ export class ExampleBackComponent implements OnInit {
     );
   }
 }
+
+
 
 
 /*

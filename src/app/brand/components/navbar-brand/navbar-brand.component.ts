@@ -112,7 +112,23 @@ export class NavbarBrandComponent {
     }
   }
   
+  activeOptions: string[] = [];
 
+  toggleOption(event: MouseEvent) {
+    const option = event.target as HTMLOptionElement;
+    const value = option.value;
+  
+    if (this.isOptionActive(value)) {
+      this.activeOptions = this.activeOptions.filter((activeOption) => activeOption !== value);
+    } else {
+      this.activeOptions.push(value);
+    }
+  }
+  
+  isOptionActive(optionValue: string): boolean {
+    return this.activeOptions.includes(optionValue);
+  }
+  
 
 } 
 

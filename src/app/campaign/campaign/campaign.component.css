@@ -42,8 +42,8 @@ main{
   /*------------INFORMATIONS------------*/
   #informations{ 
     width: 90vw;
-    margin: 0 2rem 5rem 2rem;
-    padding-top: 4rem;
+    margin: 0 1rem 2rem 0.5rem;
+    padding-top: 2rem;
     height: auto;
     align-items: center;
   }
@@ -56,8 +56,10 @@ main{
     color: #1c1c1d !important;
   }
 
-  #informations h1{ margin-bottom: 2rem; font-weight: 500; font-size: 50px;}
-  #informations h3{ color: #970b0b;}
+  #informations h1{ margin-bottom: 2rem; font-weight: 500; font-size: 50px; margin-top: 0 !important;}
+  #informations h3{ color: #970b0b; font-size: 30px;}
+  #informations h4{ font-size: 25px; font-weight: 600;}
+  #informations h2{ padding: 0 !important; margin: 0 !important;}
 
 /*------------DESCRIPTIONS------------*/
   #descriptions{ 
@@ -123,3 +125,5 @@ main{
   footer .uk-nav { width: 70%;}
   footer .uk-nav-default .uk-nav-header {color: #eaeaea !important;}
   footer .uk-nav li{ padding: 0.25rem 0; font-size: 20px;}
+
+  .uk-padding-large-bottom{ padding-bottom: 6rem !important;}

@@ -6,7 +6,7 @@
         
         <form (ngSubmit)="onSubmit()" [formGroup]="form" class="">
             <ul class="uk-flex-center uk-child-width-1-5" uk-tab uk-switcher>
-                <li class="nav-tab">
+                <li class="uk-active nav-tab">
                     <a href="#" class="uk-child-width-1-1" uk-grid>
                         <span href="" class="circle">1</span>
                         <h4>Step 1</h4>
@@ -27,7 +27,7 @@
                         <p>Description and image</p>
                     </a>
                 </li>
-                <li class="uk-active nav-tab">
+                <li class="nav-tab">
                     <a href="#" class="uk-child-width-1-1" uk-grid>
                         <span href="" class="circle">4</span>
                         <h4>Step 4</h4>
@@ -114,6 +114,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="uk-margin" >
+                                    <label for="pseudonym" class="label-left uk-margin-medium-left">{{ pseudonymLabel }}</label>
+                                    <div class="uk-inline">
+                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
+                                        <input type="text" class="form-control uk-input" id="pseudonym" formControlName="pseudonym" name="pseudonym" required>
+                                        
+                                    </div>
+                                </div>
                                 <button type="button" class="uk-button" uk-switcher-item="previous"> < Back </button>
                                 <span class="uk-margin-medium-right"></span>
                                 <button type="button" class="uk-button" uk-switcher-item="next" >Next ></button> <!--[disabled]="!form.valid"-->
@@ -170,7 +178,7 @@
                                         <li *ngFor="let tag of filteredTags">
                                             <a (click)="toggleTagFilter(tag.id)">
                                             <input class="uk-checkbox" type="checkbox" [checked]="isTagFilterApplied(tag.id)">
-                                            {{ tag.tag }}
+                                            {{ tag.name }}
                                             </a>
                                         </li>
                                         </ul>
@@ -187,9 +195,7 @@
                                     <span>Choose your platforms:</span>
                                     <div class="uk-form-controls uk-margin">
                                         <select class="uk-select" multiple (click)="toggleOption($event)">
-                                          <option value="Facebook" [class.active]="isOptionActive('Facebook')">Facebook</option>
-                                          <option value="Instagram" [class.active]="isOptionActive('Instagram')">Instagram</option>
-                                          <option value="Twitter" [class.active]="isOptionActive('Twitter')">Twitter</option>
+                                          <option *ngFor="let platform of platforms" [attr.value]="platform.id" [class.active]="isOptionActive(platform.id)">platform.name</option>
                                         </select>
                                     </div> 
                                 </div>

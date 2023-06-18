@@ -38,14 +38,14 @@
                                 <div class="uk-margin">
                                     <label for="username" class="label-left uk-margin-medium-left">{{ usernameLabel }}</label>
                                     <div class="uk-inline">
-                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                        <span class="uk-form-icon" uk-icon="icon: user" style="stroke: #0A1044 !important;"></span>
                                         <input type="text" class="form-control uk-input" id="username" [(ngModel)]="username" name="username" required>
                                     </div>
                                 </div>
                                 <div class="uk-margin">
                                     <label for="password" class="label-left uk-margin-medium-left">{{ passwordLabel }}</label>
                                     <div class="uk-inline">
-                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                        <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: #0A1044 !important;"></span>
                                         <input type="password" class="form-control uk-input" id="password" [(ngModel)]="password" name="password" required>
                                         <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" 
                                         onclick="var passwordInput = document.querySelector('#password'); 
@@ -53,7 +53,7 @@
                                         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
                                         passwordInput.setAttribute('type', type);
                                         const ico = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
-                                        icon.setAttribute('uk-icon', ico);" uk-tooltip="Show password"></a>
+                                        icon.setAttribute('uk-icon', ico);" uk-tooltip="Show password" style="stroke: #0A1044 !important;"></a>
                                     </div>
                                     
                                     
@@ -88,7 +88,7 @@
                                 <div class="uk-margin">
                                     <label for="phone" class="label-left uk-margin-medium-left">{{ phoneLabel }}</label>
                                     <div class="uk-inline">
-                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
+                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver" style="stroke: #0A1044 !important;"></span>
                                         <input type="text" class="form-control uk-input" id="phone" [(ngModel)]="phone" name="phone" required>
                                     </div>
                                 </div>

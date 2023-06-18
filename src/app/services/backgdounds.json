@@ -1,0 +1,27 @@
+{
+  "backgrounds": [{
+    "id": 1,
+    "avatar": "bg/nike-5126389_1920.jpg" 
+  },
+  {
+    "id": 2,
+    "avatar": "bg/coca-cola-1574045_1920.jpg" 
+  },
+  {
+    "id": 3,
+    "avatar": "bg/pink-791315_1920.jpg" 
+  },
+  {
+    "id": 4,
+    "avatar": "bg/new-york-655215_1920.jpg" 
+  },
+  {
+    "id": 5,
+    "avatar": "bg/adidas-5418998_1920.jpg" 
+  },
+  {
+    "id": 6,
+    "avatar": "bg/" 
+  }
+  ]
+}

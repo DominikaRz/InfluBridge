@@ -1,22 +1,26 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
-import campaignsData from './search.json';
-import tagsData from './tags.json';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 interface Search {
   id: number;
-  brand: string;
-  tags: string[];
-  offerName: string;
-  endDate: string;
-  freePlaces: number;
+  brandName: string;
+  title: string;
+  rate: number;
+  vacancies: number;
+  startData: string;
+  endData: string;
+  categories: string[];
+  platformTypes: string[];
+  influencerIds: number[];
 }
 
-interface Tag {
+interface Category {
   id: number;
-  tag: string;
+  name: string;
 }
 
 @Component({
@@ -27,71 +31,111 @@ interface Tag {
   '../../../assets/uikit/css/uikit-rtl.css', ],
 })
 export class SearchIComponent {
-  searched: Search[] = campaignsData;
-  tags: Tag[] = tagsData.tags;
+  //searched: Search[] = campaignsData;
+  //tags: Tag[] = tagsData.tags;
   appliedFilters: string[] = [];
   filteredTags: string[] = [];
   tagFilterInput: string = '';
   searchInput: FormControl = new FormControl();
 
-  toggleTagFilter(tag: string): void {
-    if (this.isTagFilterApplied(tag)) {
-      this.removeTagFilter(tag);
+  id = 5;
+  url = '/api/v1/campaign/list';
+  urlTags = '/api/v1/category/list';
+   
+  search: Search[] = [];
+  initialSearch: Search[] = [];
+
+  category: Category[] = [];
+
+  ngOnInit() {
+    this.http.get<any>(this.url).subscribe(
+      (data) => {
+        this.search = data.data.campaignsList;
+        this.initialSearch = this.search; 
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+    this.http.get<any>(this.urlTags).subscribe(
+      (data) => {
+        this.category = data.data.categoriesList;
+        this.filteredTags = this.category.map((cat) => cat.name);
+        this.allTags = this.category.map((cat) => cat.name);
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+  }  
+  splitStringAtT(input: string): string {
+    const index = input.indexOf('T');
+    if (index !== -1) {
+      return input.substring(0, index);
+    }
+    return input;  
+  }
+
+  toggleTagFilter(name: string): void {
+    if (this.isTagFilterApplied(name)) {
+      this.removeTagFilter(name);
     } else {
-      this.applyTagFilter(tag);
+      this.applyTagFilter(name);
     }
   }
 
-  applyTagFilter(tag: string): void {
-    this.appliedFilters.push(tag);
+  applyTagFilter(name: string): void {
+    this.appliedFilters.push(name);
   }
 
-  removeTagFilter(tag: string): void {
-    const index = this.appliedFilters.indexOf(tag);
+  removeTagFilter(name: string): void {
+    const index = this.appliedFilters.indexOf(name);
     if (index > -1) {
       this.appliedFilters.splice(index, 1);
     }
   }
 
-  isTagFilterApplied(tag: string): boolean {
-    return this.appliedFilters.includes(tag);
+  isTagFilterApplied(name: string): boolean {
+    return this.appliedFilters.includes(name);
   }
 
   filterCampaigns(): Search[] {
     if (this.appliedFilters.length === 0) {
-      return this.searched;
+      return this.search;
     }
-    return this.searched.filter((campaign) =>
-      campaign.tags.some((tag) => this.appliedFilters.includes(tag))
+    return this.search.filter((campaign) =>
+      campaign.categories.some((name) => this.appliedFilters.includes(name))
     );
   }
 
   allTags: string[] = [];
 
-  
-
   filterTags(input: string): void {
     const filterValue = input.toLowerCase();
-    this.filteredTags = this.allTags.filter(tag => tag.toLowerCase().includes(filterValue));
+    if (filterValue === '') {
+      this.filteredTags = this.allTags.slice();
+    } else {
+      this.filteredTags = this.allTags.filter(name => name.toLowerCase().includes(filterValue));
+    }
   }
-
-  
 
   searchCampaigns(query: string): void {
     const filterValue = query.toLowerCase();
-    this.searched = campaignsData.filter((campaign) =>
-      campaign.brand.toLowerCase().includes(filterValue) ||
-      campaign.offerName.toLowerCase().includes(filterValue) ||
-      campaign.endDate.toLowerCase().includes(filterValue) ||
-      campaign.tags.some((tag) => tag.toLowerCase().includes(filterValue))
-    );
+    if (filterValue === '') {
+      this.search = this.appliedFilters.length === 0 ? this.initialSearch : this.filterCampaigns();
+    } else {
+      this.search = this.initialSearch.filter((campaign) =>
+        campaign.brandName.toLowerCase().includes(filterValue) ||
+        campaign.title.toLowerCase().includes(filterValue) ||
+        campaign.endData.toLowerCase().includes(filterValue) ||
+        campaign.categories.some((name) => name.toLowerCase().includes(filterValue))
+      );
+    }
   }
-  
+
   @ViewChild('customTypeaheadTemplate', { static: true }) customTypeaheadTemplate: ElementRef | undefined;
 
-  constructor() {
-    this.filteredTags = this.tags.map(tag => tag.tag);
-    this.allTags = this.tags.map(tag => tag.tag);
+  constructor(private apiService: ApiServiceService, private http: HttpClient) {
 
     this.searchInput.valueChanges
       .pipe(

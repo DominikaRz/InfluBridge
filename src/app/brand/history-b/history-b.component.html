@@ -9,119 +9,59 @@
             <div uk-filter="target: .js-filter">
             
                 <!---->
-                <table class="uk-table uk-table-hover uk-table-divider uk-table-responsive" style="position: relative;"> 
+                <table *ngIf="campaigns.length > 0" class="uk-table uk-table-hover uk-table-divider uk-table-responsive" style="position: relative;"> 
                     <thead uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-table; offset: 80;"> 
-                        <th class="uk-width-small">
-                            Offer Name
-                            <span uk-filter-control="sort: data-offer">
-                                <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
-                                aria-label="Sort ascending"></a></span>
-                            <span uk-filter-control="sort: data-offer; order: desc">
-                                <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
-                                aria-label="Sort descending"></a></span>
-                        </th>
-                        <th class="uk-width-small">
-                                Date
-                                <span uk-filter-control="sort: data-date">
-                                    <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
-                                    aria-label="Sort ascending"></a></span>
-                                <span uk-filter-control="sort: data-date; order: desc">
-                                    <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
-                                    aria-label="Sort descending"></a></span>
-                        </th>
-                        <th class="uk-width-small">
-                                Filled Places
-                                <span uk-filter-control="sort: data-place">
-                                    <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
-                                    aria-label="Sort ascending"></a></span>
-                                <span uk-filter-control="sort: data-place; order: desc">
-                                    <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
-                                    aria-label="Sort descending"></a></span>
-                        </th>
-                        <th class="uk-width-small">
-                        </th>
-                    </thead>
-                    <tbody class="js-filter">
-                        <tr *ngFor="let campaign of campaigns" [attr.data-offer]="campaign.offerName" [attr.data-date]="campaign.endDate" [attr.data-place]="campaign.filled">
-                            <td><div class="" >{{ campaign.offerName }}</div></td>
-                            <td><div class="" >{{ campaign.endDate }}</div></td>
-                            <td>
-                                <svg width="50" height="50" viewBox="-30 -30 170 170">
-                                    <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="20" />
-                                    <circle class="percent" style="--filled: {{ campaign.palces }}; --places: {{ campaign.palces}}" 
-                                    cx="60" cy="60" r="54" fill="none" stroke="#6113b9" stroke-width="20" pathLength="100" />
-                                </svg> 
-                                <span class="uk-margin-small-left">{{ campaign.palces}} / {{ campaign.palces}}</span>
-                            </td>
-                            <td><div class="" ><button class="uk-button">See more ></button></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!--
-                <table class="uk-table uk-table-hover uk-table-divider uk-table-responsive" style="position: relative;"> 
-                    <thead uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-table; offset: 80;">  
                         <tr class="uk-navbar-table uk-margin-large-top">
                             <th class="uk-width-small">
-                                <div class="uk-subnav uk-subnav-pill">
-                                    <span uk-filter-control><a href="#">All</a></span>
-                                    <span uk-filter-control="[data-color='white']"><a href="#">White</a></span>
-                                    <span uk-filter-control="[data-color='blue']"><a href="#">Blue</a></span>
-                                    <span uk-filter-control="[data-color='black']"><a href="#">Black</a></span>
-                                    <span uk-filter-control="[data-size='small']"><a href="#">Small</a></span>
-                                    <span uk-filter-control="[data-size='medium']"><a href="#">Medium</a></span>
-                                    <span uk-filter-control="[data-size='large']"><a href="#">Large</a></span>
-                                
-                                    <span class="uk-active" uk-filter-control="sort: data-name">
+                                Offer Name
+                                <span uk-filter-control="sort: data-offer">
+                                    <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
+                                    aria-label="Sort ascending"></a></span>
+                                <span uk-filter-control="sort: data-offer; order: desc">
+                                    <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
+                                    aria-label="Sort descending"></a></span>
+                            </th>
+                            <th class="uk-width-small">
+                                    Date
+                                    <span uk-filter-control="sort: data-date">
                                         <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
                                         aria-label="Sort ascending"></a></span>
-                                    <span uk-filter-control="sort: data-name; order: desc">
+                                    <span uk-filter-control="sort: data-date; order: desc">
                                         <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
                                         aria-label="Sort descending"></a></span>
-                                </div>
+                            </th>
+                            <th class="uk-width-small">
+                                    Filled Places
+                                    <span uk-filter-control="sort: data-place">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-down" style="fill: #1c1c1d;"
+                                        aria-label="Sort ascending"></a></span>
+                                    <span uk-filter-control="sort: data-place; order: desc">
+                                        <a class="uk-icon-link" href="#" uk-icon="icon: arrow-up" style="fill: #1c1c1d;"
+                                        aria-label="Sort descending"></a></span>
+                            </th>
+                            <th class="uk-width-small">
                             </th>
                         </tr>
                     </thead>
                     <tbody class="js-filter">
-                        
-                        <tr data-color="white" data-size="large" data-name="A">
-                            <td><div class="white large" >A</div></td>
-                        </tr>
-                        <tr data-color="blue" data-size="small" data-name="B">
-                            <td><div class="blue small">B</div></td>
-                        </tr>
-                        <tr data-color="white" data-size="medium" data-name="C">
-                            <td><div class="white medium">C</div></td>
-                        </tr>
-                        <tr data-color="white" data-size="small" data-name="D">
-                            <td><div class="white small">D</div></td>
-                        </tr>
-                        <tr  data-color="black" data-size="medium" data-name="E">
-                            <td><div class="black medium">E</div></td>
-                        </tr>
-                        <tr data-color="black" data-size="small" data-name="F">
-                            <td><div class="black small">F</div></td>
-                        </tr>
-                        <tr data-color="blue" data-size="medium" data-name="G">
-                            <td><div class="blue medium">G</div></td>
-                        </tr>
-                        <tr data-color="black" data-size="large" data-name="H">
-                            <td><div class="black large">H</div></td>
-                        </tr>
-                        <tr data-color="blue" data-size="large" data-name="I">
-                            <td><div class="blue large">I</div></td>
-                        </tr>
-                        <tr data-color="white" data-size="large" data-name="J">
-                            <td><div class="white large">J</div></td>
-                        </tr>
-                        <tr data-color="blue" data-size="medium" data-name="K">
-                            <td><div class="blue medium">K</div></td>
-                        </tr>
-                        <tr  data-color="black" data-size="small" data-name="L">
-                            <td><div class="black small">L</div></td>
+                        <tr *ngFor="let campaign of campaigns" [attr.data-offer]="campaign.title" [attr.data-date]="campaign.endDate" [attr.data-place]="campaign.occupied" >
+                            <td><div class="" >{{ campaign.title }}</div></td>
+                            <td><div class="" >start: {{ splitStringAtT(campaign.startDate) }}<br/>end: {{ splitStringAtT(campaign.endDate) }}</div></td>
+                            <td>
+                                <svg width="50" height="50" viewBox="-30 -30 170 170">
+                                    <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="20" />
+                                    <circle class="percent" style="--filled: {{ campaign.occupied }}; --places: {{ campaign.vacancies}}" 
+                                    cx="60" cy="60" r="54" fill="none" stroke="#6113b9" stroke-width="20" pathLength="100" />
+                                </svg> 
+                                <span class="uk-margin-small-left">{{ campaign.occupied }} / {{ campaign.vacancies}}</span>
+                            </td>
+                            <td><div class="" ><a [attr.href]="'viewCampaign/' + campaign.id" class="uk-button">See&nbsp;more&nbsp;></a></div></td>
                         </tr>
                     </tbody>
-                </table>-->
+                </table>
+                <div *ngIf="campaigns.length === 0" class="noData">
+                    <h2>No history campaigns available.</h2>
+                </div>
             </div>
         </section>
     </div>

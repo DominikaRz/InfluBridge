@@ -5,7 +5,7 @@
     <div id="banner">
         <h1>My settings</h1>
     </div>
-    <div  class="uk-child-width-1-2@m" uk-grid>
+    <div class="uk-child-width-1-2@m" uk-grid>
         <div>
             <div id="profile" class="uk-flex">
                 <div class="img">
@@ -14,83 +14,71 @@
                     uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" 
                     uk-toggle="target: #modal-image"></button>
                 </div>
-                <h1>{{nick}}</h1> 
+                <div>
+                    <h1>{{ influencer.pseudonym }}</h1> 
+                    <h3>{{ influencer.firstName }} {{ influencer.lastName }}</h3> 
+                </div>
             </div>
         </div>
         <div id="table-foll">
-            <!--
-            <table id="followers" class="uk-table uk-table-divider uk-table-responsive"> 
-                <thead> 
-                    <tr class="uk-navbar-table uk-margin-large-top">
-                        <th [attr.colspan]="3">
-                                <h2>{{roundedNumber}}</h2>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td *ngFor="let media of medias" class="uk-child-width-1-2">
-                        <div class="text-followers uk-text-center"><span [attr.uk-icon]="'icon: ' + media.name + '; ratio: 1.6'"></span> {{media.number / 1000}}k</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>-->
             <div class="card">
-                <div class="card-header">
-                    <h2>{{roundedNumber}}</h2>
-                </div>
-                <div class="card-content uk-child-width-1-3 uk-flex-center uk-text-center" uk-grid>
-                    <div *ngFor="let media of medias" class="">
-                        <div class="text-followers">
-                            <span [attr.uk-icon]="'icon: ' + media.name + '; ratio: 1.6'"></span> 
-                            {{media.number / 1000}}k
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: plus; ratio: 1.3" 
-                style="stroke: #ecebef !important;" uk-toggle="target: #modal-followers"></a>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="uk-padding-large uk-child-width-1-1" uk-grid>
-            <div class="uk-margin-large">
-                <div class="card">
-                    <div class="card-body">
-                        <p>{{ description }}</p>
-                    </div>
-                    <a href="#" class="uk-icon-button  edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" 
-                    style="stroke: #ecebef !important;" uk-toggle="target: #modal-description"></a>
-                </div>
-            </div>
-            <div id="tags" class="uk-margin-large">
-                <div class="card">
-                  <div class="card-header-small">
-                    <h2>Your tags:</h2>
+              <div class="card-header">
+                <h2>{{ roundedNumber }}</h2>
+              </div>
+              <div class="card-content uk-child-width-1-3 uk-flex-center uk-text-center" uk-grid>
+                <div *ngFor="let media of platforms" class="">
+                  <div class="text-followers">
+                    <span [attr.uk-icon]="'icon: ' + media.platformName + '; ratio: 1.6'"></span>
+                    <span *ngIf="media.views > 1000000">{{ (media.views / 1000000).toFixed(1) }}M</span>
+                    <span *ngIf="media.views < 1000000">{{ (media.views / 1000).toFixed(1) }}k</span>
                   </div>
-                  <div class="card-body-small">
-                    <span *ngFor="let tag of filteredTags" class="uk-badge uk-margin-small-right uk-margin-small-bottom" style="color:#1c1c1d !important;">
-                      {{ tag.tag }}
-                    </span>
-                  </div>
-                  <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" uk-toggle="target: #modal-tags"></a>
+                  <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: plus; ratio: 1.3" 
+                    style="stroke: #ecebef !important;" uk-toggle="target: #modal-followers"></a>
                 </div>
               </div>
-              
-            <div id="notification" class="uk-margin-large">
-                <div class="card">
-                    <div class="card-header-small">
-                        <h2>Notifications:</h2>
+            </div>
+          </div>
+          
+        <div>
+            <div class="uk-padding-large uk-child-width-1-1" uk-grid>
+                <div class="uk-margin-large">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{{ influencer.description }}</p>
+                        </div>
+                        <a href="#" class="uk-icon-button  edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" 
+                        style="stroke: #ecebef !important;" uk-toggle="target: #modal-description"></a>
                     </div>
-                    <div class="card-content-small uk-child-width-1-5@m uk-flex-center uk-text-center" uk-grid>
-                        <div *ngFor="let brand of brands" class="">
-                            <div class="">
-                                <span class=""> {{ brand.brand }} </span>
+                </div>
+                <div id="tags" class="uk-margin-large">
+                    <div class="card">
+                        <div class="card-header-small">
+                            <h2>Your tags:</h2>
+                        </div>
+                        <div class="card-body-small">
+                            <span *ngFor="let tag of filteredTags" class="uk-badge uk-margin-small-right uk-margin-small-bottom" style="color:#1c1c1d !important;">
+                                {{ tag.name }}
+                            </span>
+                        </div>
+                        <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" uk-toggle="target: #modal-tags"></a>
+                    </div>
+                </div>
+                <!--
+                <div id="notification" class="uk-margin-large">
+                    <div class="card">
+                        <div class="card-header-small">
+                            <h2>Notifications:</h2>
+                        </div>
+                        <div class="card-content-small uk-child-width-1-5@m uk-flex-center uk-text-center" uk-grid>
+                            <div *ngFor="let brand of brands" class="">
+                                <div class="">
+                                    <span class=""> {{ brand.brand }} </span>
+                                </div>
                             </div>
                         </div>
+                        <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" uk-toggle="target: #modal-notification"></a>
                     </div>
-                    <a href="#" class="uk-icon-button edit uk-margin-small-right" uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" uk-toggle="target: #modal-notification"></a>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -139,8 +127,8 @@
 
 <!--FOOTER-->
 <app-footer-influ></app-footer-influ>
-<!--SIDENAV-->
-<app-sidenav></app-sidenav>
+<!--SIDENAV
+<app-sidenav></app-sidenav>-->
 
 
 <div id="modal-image" uk-modal>
@@ -176,33 +164,34 @@
   
 <div id="modal-description" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Change description</h2>
-        <form (ngSubmit)="SubmitDescripion()">
-            <div class="uk-inline">
-                <textarea class="form-control uk-textarea uk-form-width-large" rows="6" 
-                aria-label="Textarea" id="shotrDesc" [(ngModel)]="newDesc" name="shotrDesc"></textarea>
-            </div>
-            <div class="uk-margin">
-            </div>
-            <p class="uk-text-right">
-                <button class="uk-button uk-button-primary uk-modal-close" type="button">Cancel</button>
-                <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
-            </p>
-        </form>
+      <h2 class="uk-modal-title">Change description</h2>
+      <form (ngSubmit)="SubmitDescripion()">
+        <div class="uk-inline">
+          <textarea class="form-control uk-textarea uk-form-width-large" rows="6" aria-label="Textarea" id="newDesc"
+            [(ngModel)]="influencer.description" name="newDesc"></textarea>
+        </div>
+        <div class="uk-margin">
+        </div>
+        <p class="uk-text-right">
+          <button class="uk-button uk-button-primary uk-modal-close" (click)="CancelDescripion()" type="button">Cancel</button>
+          <button class="uk-button uk-margin-medium-left" button="submit">Save</button>
+        </p>
+      </form>
     </div>
-</div>
+  </div>
+  
 
 <div id="modal-tags" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
       <h2 class="uk-modal-title">Choose new profile picture</h2>
       <form (ngSubmit)="deleteAtIndex(); closeModal()">
         <div>
-          <button type="button" *ngFor="let tag of tags; let i = index" 
+          <button type="button" *ngFor="let tag of categories; let i = index" 
             class="uk-badge-edit uk-badge uk-margin-small-right uk-margin-small-bottom btn" 
             [class.active]="isIndexSelected(i)" 
             style="color:#1c1c1d !important;" 
             (click)="toggleIndex(i)">
-            {{ tag.tag }}
+            {{ tag.name }}
           </button>
         </div>
         <p class="uk-text-right">
