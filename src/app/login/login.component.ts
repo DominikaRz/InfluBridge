@@ -55,6 +55,10 @@ selectUserType(userType: string): void {
   this.userType = userType;
 }
 
+setCookie(name: string, value: string): void {
+  document.cookie = `${name}=${value}; path=/`;
+}
+
   onSubmit(): void {
     const influencerUrl = 'http://localhost:8080/api/v1/influencer/login';
     const brandUrl = 'http://localhost:8080/api/v1/brand/login';
@@ -74,6 +78,10 @@ selectUserType(userType: string): void {
           const data: InfluencerLoginData = response.data as InfluencerLoginData;
           console.log('Influencer Pseudonym:', data.influencerPseudonym);
           console.log('Influencer ID:', data.influencerId);
+              // Set cookies
+              this.setCookie('id', data.influencerId.toString());
+              this.setCookie('type', 'influencer');
+              this.setCookie('name', data.influencerPseudonym);
       },
       (error) => {
         this.http.post<any>(brandUrl, brandData).subscribe(
@@ -82,10 +90,16 @@ selectUserType(userType: string): void {
               const data: InfluencerLoginData = response.data as InfluencerLoginData;
               console.log('Influencer Pseudonym:', data.influencerPseudonym);
               console.log('Influencer ID:', data.influencerId);
+              
             } else if ('brandId' in response.data && 'brandName' in response.data) {
               const data: BrandLoginData = response.data as BrandLoginData;
               console.log('Brand ID:', data.brandId);
               console.log('Brand Name:', data.brandName);
+
+              // Set cookies
+              this.setCookie('id', data.brandId.toString());
+              this.setCookie('type', 'brand');
+              this.setCookie('name', data.brandName);
             } else {
               // Handle the case where login is successful but response data is not as expected
               console.error('Invalid response data');

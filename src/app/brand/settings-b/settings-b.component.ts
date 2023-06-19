@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ImgService } from 'src/app/services/img.service';
 
 import { ApiServiceService } from '../../services/api-service.service';
 import { PostService } from 'src/app/services/post.service';
@@ -20,22 +21,28 @@ interface Brand{
 })
 export class SettingsBComponent {
   nick = 'Beauty by Grace';
-  avatar = 'c34a8b8f-6b56-4686-b422-c199081a5b0d1.jpg';
+  avatar!: string;
 
   totalNumber!: number;
   roundedNumber!: string;
   description = "'Beauty by Grace' is a renowned brand dedicated to enhancing your natural beauty and providing top-quality beauty products. Our mission is to empower individuals to embrace their unique features and radiate confidence. With a wide range of skincare, makeup, and beauty essentials, we strive to offer innovative solutions that cater to various skin types and preferences. From luxurious serums to vibrant eyeshadow palettes, our products are carefully curated to bring out your inner glow. Experience the transformative power of 'Beauty by Grace' and unlock your true beauty potential.";
 
 
-  id = 1;
-  url = '/api/v1/brand/settings/' + this.id;
+  id!: number;
+  type: string | null = null;
+  username: string | null = null;
+  imag!: string;
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient, private postService: PostService) {}
+  
+
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService) {}
 
   brand: Brand = {} as Brand;
 
   ngOnInit() {
-    this.http.get<any>(this.url).subscribe(
+    this.id = Number(this.getCookie('id'));
+    let url = '/api/v1/brand/settings/' + this.id;
+    this.http.get<any>(url).subscribe(
       (data) => {
         this.brand = data.data.brandSettings;
       },
@@ -44,6 +51,22 @@ export class SettingsBComponent {
       }
     );
     this.newDesc = this.brand.description;
+    
+    this.type = this.getCookie('type');
+    this.username = this.getCookie('name');
+    this.imag = this.img.getBrandAvatarById(this.id);
+    this.avatar = this.img.getBrandAvatarById(this.id);
+  }
+
+  getCookie(name: string): string | null {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
   }
 
   urlU = `http://localhost:8080/api/v1/brand/update/` + this.id;

@@ -47,7 +47,9 @@ interface Category{
 })
 export class SettingsIComponent {
 
-  avatar = '4e25ab7c-a222-4db6-8e8d-6b96bcaef5071.jpg';
+  avatar!: string;
+
+  id!: number;
   
   totalNumber!: number;
   roundedNumber!: string;
@@ -59,8 +61,7 @@ export class SettingsIComponent {
   appliedFilters: number[] = [];
   filteredTags: Category[] = [];
 
-  id = 1;
-  url = '/api/v1/influencer/settings/' + this.id;
+ 
   urlTags = '/api/v1/category/list';
    
   influencer: Influencer = {} as Influencer;
@@ -84,7 +85,10 @@ export class SettingsIComponent {
       console.error('Error:', error);
     }
   );
-    this.http.get<any>(this.url).subscribe(
+  this.id = Number(this.getCookie('id'));
+    this.avatar = this.img.getInfluAvatarById(this.id);
+    let url = '/api/v1/influencer/settings/' + this.id;
+    this.http.get<any>(url).subscribe(
       (data) => {
         this.influencer = data.data.influencerSettings;
         this.platforms = data.data.influencerSettings.platforms;
@@ -106,6 +110,16 @@ export class SettingsIComponent {
     this.tagFilterInput.valueChanges.subscribe(() => {
       this.filterTags();
     });
+  }
+  getCookie(name: string): string | null {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
   }
    
   splitStringAtT(input: string): string {

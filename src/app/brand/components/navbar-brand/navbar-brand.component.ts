@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ImgService } from 'src/app/services/img.service';
 import { HttpClient } from '@angular/common/http';
 
 import { ApiServiceService } from '../../../services/api-service.service';
@@ -26,7 +27,11 @@ interface Platforms{
 })
 export class NavbarBrandComponent {
 
-  id = 1;
+  id!: number;
+  type: string | null = null;
+  username: string | null = null;
+  imag!: string;
+
   title = 'Register as Influencer';
   //step 1
   nameLabel = 'Name of marketing campaign';
@@ -95,6 +100,21 @@ export class NavbarBrandComponent {
     this.tagFilterInput.valueChanges.subscribe(() => {
       this.filterTags();
     });
+    this.id = Number(this.getCookie('id'));
+    this.type = this.getCookie('type');
+    this.username = this.getCookie('name');
+    this.imag = this.img.getBrandAvatarById(this.id);
+  }
+
+  getCookie(name: string): string | null {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
   }
 
   
@@ -142,7 +162,7 @@ export class NavbarBrandComponent {
  tagFilterInput: FormControl = new FormControl();
 
   form!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService) {}
+  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService) {}
 
   activeOptions: number[] = [];
 

@@ -51,7 +51,7 @@ export class CampaignComponent {
   url!: string;
 
   isJoined: boolean = false;
-  idI = 2;
+  idI!: number;
    
   campaign: Campaign = {} as Campaign;
   brand: Brand = {} as Brand;
@@ -63,6 +63,7 @@ export class CampaignComponent {
   constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute, private img: ImgService) {}
 
   ngOnInit() {
+    this.idI = Number(this.getCookie('id'));
     const currentDate = new Date();
     const formattedDate = currentDate.toISOString().split('T')[0];
     this.currentDate = formattedDate;
@@ -97,6 +98,16 @@ export class CampaignComponent {
       return input.substring(0, index);
     }
     return input;  
+  }
+  getCookie(name: string): string | null {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
   }
 
   
