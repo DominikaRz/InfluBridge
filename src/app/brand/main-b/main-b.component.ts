@@ -11,6 +11,15 @@ interface Campaign {
   endDate: string;
 }
 
+import { PostService } from 'src/app/services/post.service';
+interface Category{
+  id: number;
+  name: string;
+}
+interface Platforms{
+  id: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-main-b',
@@ -51,6 +60,7 @@ export class MainBComponent {
 
   
 
+  //----------------------------------------
   
     
 

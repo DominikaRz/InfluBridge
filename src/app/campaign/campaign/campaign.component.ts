@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
+import { ImgService } from '../../services/img.service';
+
+
 import { ApiServiceService } from '../../services/api-service.service';
 interface Campaign {
   id: number;
@@ -42,7 +45,7 @@ export class CampaignComponent {
   labelButton!: string;*/
   
   labelButton = 'Join Campaign'
-  image = 'c34a8b8f-6b56-4686-b422-c199081a5b0d.jpg'
+  image!: string;
 
   id!: number;
   url!: string;
@@ -53,9 +56,11 @@ export class CampaignComponent {
   campaign: Campaign = {} as Campaign;
   brand: Brand = {} as Brand;
 
+  //data: Data[] = brandData;
+
   currentDate!: string;
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute, private img: ImgService) {}
 
   ngOnInit() {
     const currentDate = new Date();
@@ -71,8 +76,10 @@ export class CampaignComponent {
         this.campaign = data.data.campaignView;
         this.brand = data.data.campaignView.brand;
 
+        this.image = this.img.getBrandBackgroundById(this.brand.id);
         // Check if idI is in influencerIds array
         this.isJoined = this.campaign.influencerIds.includes(this.idI);
+
 
         if (this.isJoined) {
           // Execute your logic if idI is present in influencerIds
@@ -92,6 +99,10 @@ export class CampaignComponent {
     return input;  
   }
 
+  
+   //'c34a8b8f-6b56-4686-b422-c199081a5b0d.jpg'
+  
+
   joinQuit() {
     const joinUrl = `/api/v1/campaign/join/${this.id}?influencerId=${this.idI}`;
     const leaveUrl = `/api/v1/campaign/leave/${this.id}?influencerId=${this.idI}`;
@@ -101,13 +112,14 @@ export class CampaignComponent {
       this.http.patch(leaveUrl, {}).subscribe(
         (response) => {
           // Handle successful leave response
-          console.log('Left campaign successfully');
+          alert('Left campaign successfully');
           this.isJoined = false;
           this.labelButton = 'Join Campaign';
         },
         (error) => {
           // Handle error response
-          console.error('Error leaving campaign:', error);
+          console.log('Error leaving campaign:', error);
+          alert('The error accured. For more information see console');
         }
       );
     } else {
@@ -115,13 +127,14 @@ export class CampaignComponent {
       this.http.patch(joinUrl, {}).subscribe(
         (response) => {
           // Handle successful join response
-          console.log('Joined campaign successfully');
+          alert('You joined the campaign successfully!');
           this.isJoined = true;
           this.labelButton = 'Quit Campaign';
         },
         (error) => {
           // Handle error response
-          console.error('Error joining campaign:', error);
+          console.log('Error joining campaign:', error);
+          alert('The error accured. For more information see console');
         }
       );
     }

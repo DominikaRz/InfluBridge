@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { ImgService } from 'src/app/services/img.service';
 
 ;
 
@@ -40,7 +41,7 @@ interface Platform {
 })
 export class ViewComponent {
   nick = 'Julia Rows';
-  avatar = '4e25ab7c-a222-4db6-8e8d-6b96bcaef5071.jpg';
+  avatar!: string;
   campaignsNo = 10;
 
   totalNumber!: number;
@@ -55,7 +56,7 @@ export class ViewComponent {
   platforms: Platform[] = [];
   categories: Category[] = [];
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute, private img: ImgService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
@@ -78,6 +79,7 @@ export class ViewComponent {
         this.platforms = data.platform;
         this.calculateTotalNumber();
         this.roundNumber();
+        this.avatar = this.img.getInfluAvatarByPseudonym(this.data.pseudonym);
       },
       (error) => {
         console.error('Error:', error);

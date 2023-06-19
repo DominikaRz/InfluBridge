@@ -1,0 +1,34 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "name": "Nike",
+      "avatar": "avr/nike.png",
+      "background": "bg/nike-5126389_1920.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Coca-Cola",
+      "avatar": "avr/cocacola.png",
+      "background": "bg/coca-cola-1574045_1920.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Samsung",
+      "avatar": "avr/samsung.png",
+      "background": "bg/pink-791315_1920.jpg"
+    },
+    {
+      "id": 4,
+      "name": "McDonald's",
+      "avatar": "avr/mcdonald.png",
+      "background": "bg/new-york-655215_1920.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Adidas",
+      "avatar": "avr/adidas.png",
+      "background": "bg/adidas-5418998_1920.jpg"
+    }
+  ]
+}

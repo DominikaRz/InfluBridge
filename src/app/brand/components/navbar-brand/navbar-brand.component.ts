@@ -161,6 +161,7 @@ export class NavbarBrandComponent {
   }
 
   onSubmit() {  
+    console.log(this.date)
     const data = {
       brandId: this.id,
       title: this.name,

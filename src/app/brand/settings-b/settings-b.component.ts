@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { ApiServiceService } from '../../services/api-service.service';
+import { PostService } from 'src/app/services/post.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 interface Brand{
   id: number;
@@ -28,7 +30,7 @@ export class SettingsBComponent {
   id = 1;
   url = '/api/v1/brand/settings/' + this.id;
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient) {}
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private postService: PostService) {}
 
   brand: Brand = {} as Brand;
 
@@ -41,15 +43,35 @@ export class SettingsBComponent {
         console.error('Error:', error);
       }
     );
+    this.newDesc = this.brand.description;
   }
 
-
+  urlU = `http://localhost:8080/api/v1/brand/update/` + this.id;
 
   prevPass!: string;
   newPass!: string;
   onSubmit() {  
     console.log(this.prevPass);
     console.log(this.newPass);
+
+    const data= {
+      password: this.prevPass,
+      newPassword: this.newPass,
+      newDescription: null
+    }
+    console.log(data);
+
+    this.postService.pachData(data, this.urlU).subscribe(
+      (response) => {
+        // Handle successful leave response
+        console.log('Password changed successfully');
+        alert('Password changed successfully');
+      },
+      (error) => {
+        // Handle error response
+        console.error('Error:', error);
+      }
+    );
   }
 
 
@@ -58,9 +80,31 @@ export class SettingsBComponent {
     console.log(this.image);
   }
 
-  newDesc= this.description;
+  pass3!: string;
+  newDesc= this.brand.description;
   SubmitDescripion(){
-    this.description = this.newDesc;
+    const data= {
+      password: this.pass3,
+      newPassword: null,
+      newDescription: this.brand.description
+    }
+    console.log(data);
+
+    this.postService.pachData(data, this.urlU).subscribe(
+      (response) => {
+        // Handle successful leave response
+        console.log('Description changed successfully');
+        alert('Description changed successfully');
+      },
+      (error) => {
+        // Handle error response
+        console.error('Error:', error);
+      }
+    );
+  }
+
+  cancel(){
+    this.brand.description = this.newDesc;
   }
 
   

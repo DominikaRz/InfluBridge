@@ -87,7 +87,7 @@ export class RegisterInfluComponent {
     );
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(8), this.passwordValidator]],
 
       name: ['', Validators.required],
       surname: ['', Validators.required],
@@ -217,10 +217,12 @@ onSubmit() {
     .subscribe(
       response => {
         console.log('Data sent successfully:', response);
+        alert('Register succesfull!');
         // Handle successful response here
       },
       error => {
         console.error('Error sending data:', error);
+        alert('The error accured. For more information see console');
         // Handle error response here
       }
     );

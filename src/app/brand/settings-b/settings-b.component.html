@@ -112,16 +112,6 @@
     </div>
 </div>
 
-<div id="modal-followers" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-text-center">
-        <h2 class="uk-modal-title">Log in to platform</h2>
-        <div class="uk-child-width-1-1">
-                <button class="uk-button uk-margin-small-bottom" style="background-color: #0000ff; vertical-align: middle;"><i uk-icon="icon: facebook; ratio: 0.9"></i><span>Continue with Facebook</span></button>
-                <button class="uk-button uk-margin-small-bottom" style="background-color: #0088ff; vertical-align: middle;"><i uk-icon="icon: twitter; ratio: 0.9"></i><span>Continue with Twitter</span></button>
-                <button class="uk-button uk-margin-small-bottom" style="background-color: #bb00ff; vertical-align: middle;"><i uk-icon="icon: instagram; ratio: 0.9"></i><span>Continue with Instagram</span></button>
-            </div>
-    </div>
-</div>
   
 <div id="modal-description" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
@@ -129,12 +119,27 @@
         <form (ngSubmit)="SubmitDescripion()">
             <div class="uk-inline">
                 <textarea class="form-control uk-textarea uk-form-width-large" rows="9" 
-                aria-label="Textarea" id="shotrDesc" [(ngModel)]="newDesc" name="shotrDesc"></textarea>
+                aria-label="Textarea" id="shotrDesc" [(ngModel)]="brand.description" name="shotrDesc"></textarea>
             </div>
             <div class="uk-margin">
+                <div>
+                    <p style="color: crimson;">You must approve the changes via password. Not inserted, the changes will not be applied!</p>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                        <input type="password" class="form-control uk-input" id="pass3" name="pass3" 
+                        [(ngModel)]="pass3" placeholder="Enter passowrd" required>
+                        <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show3" 
+                        onclick="var passwordInput = document.querySelector('#pass3'); 
+                        var icon = document.querySelector('#show3');
+                        const type3 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type3);
+                        const ico3 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                        icon.setAttribute('uk-icon', ico3);" uk-tooltip="Show pass3" style="stroke: black;"></a>
+                    </div>
+                </div>
             </div>
             <p class="uk-text-right">
-                <button class="uk-button uk-button-primary uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary uk-modal-close" (click)="cancel()" type="button">Cancel</button>
                 <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
             </p>
         </form>

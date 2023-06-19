@@ -9,7 +9,7 @@
         <div>
             <div id="profile" class="uk-flex">
                 <div class="img">
-                    <img class="uk-border-circle" [attr.src]="' ../../../assets/img/' + avatar" alt="avatar">
+                    <img class="uk-border-circle" [src]="'../../../assets/img/' + avatar" alt="avatar">
                     <button  class="uk-icon-button  edit uk-margin-small-right" 
                     uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" 
                     uk-toggle="target: #modal-image"></button>
@@ -37,8 +37,7 @@
                 </div>
               </div>
             </div>
-          </div>
-          
+        </div>
         <div>
             <div class="uk-padding-large uk-child-width-1-1" uk-grid>
                 <div class="uk-margin-large">
@@ -56,7 +55,7 @@
                             <h2>Your tags:</h2>
                         </div>
                         <div class="card-body-small">
-                            <span *ngFor="let tag of filteredTags" class="uk-badge uk-margin-small-right uk-margin-small-bottom" style="color:#1c1c1d !important;">
+                            <span *ngFor="let tag of filteredTag" class="uk-badge uk-margin-small-right uk-margin-small-bottom" style="color:#1c1c1d !important;">
                                 {{ tag.name }}
                             </span>
                         </div>
@@ -87,7 +86,7 @@
             <h1>Manage account:</h1>
             <div id="change-pass" class="uk-margin-large">
                 <h2>Change password:</h2>
-                <form (ngSubmit)="onSubmit()" class="">
+                <form (ngSubmit)="changePass()" class="">
                     <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
                         <div>
                             <div class="uk-inline">
@@ -155,10 +154,115 @@
     <div class="uk-modal-dialog uk-modal-body uk-text-center">
         <h2 class="uk-modal-title">Log in to platform</h2>
         <div class="uk-child-width-1-1">
-                <button class="uk-button uk-margin-small-bottom" style="background-color: #0000ff; vertical-align: middle;"><i uk-icon="icon: facebook; ratio: 0.9"></i><span>Continue with Facebook</span></button>
-                <button class="uk-button uk-margin-small-bottom" style="background-color: #0088ff; vertical-align: middle;"><i uk-icon="icon: twitter; ratio: 0.9"></i><span>Continue with Twitter</span></button>
-                <button class="uk-button uk-margin-small-bottom" style="background-color: #bb00ff; vertical-align: middle;"><i uk-icon="icon: instagram; ratio: 0.9"></i><span>Continue with Instagram</span></button>
+                <button class="uk-button uk-margin-small-bottom" style="background-color: #0088ff; vertical-align: middle;" uk-toggle="target: #modal-twitter"><i uk-icon="icon: twitter; ratio: 0.9"></i><span>Continue with Twitter</span></button>
+                <button class="uk-button uk-margin-small-bottom" style="background-color: #bb00ff; vertical-align: middle;" uk-toggle="target: #modal-instagram"><i uk-icon="icon: instagram; ratio: 0.9"></i><span>Continue with Instagram</span></button>
+                <button class="uk-button uk-margin-small-bottom" style="background-color: #cf0f0f; vertical-align: middle;" uk-toggle="target: #modal-youtube"><i uk-icon="icon: youtube; ratio: 0.9"></i><span>Continue with YouTube</span></button>
             </div>
+    </div>
+</div>
+
+<div id="modal-twitter" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Add twitter account</h2>
+        <form (ngSubmit)="submitPlatform(2)">
+            <div class="uk-inline">
+                <p>Username used in Twitter:</p>
+              <input type="text" class="form-control uk-textarea uk-form-width-large" rows="6" aria-label="Textarea" id="username"
+                [(ngModel)]="username" name="username"/>
+            </div>
+            <div class="uk-margin">
+                <div>
+                    <p style="color: crimson;">You must approve the changes via password. Not inserted, the changes will not be applied!</p>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                        <input type="password" class="form-control uk-input" id="pass5" name="pass5" 
+                        [(ngModel)]="pass5" placeholder="Enter passowrd" required>
+                        <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show5" 
+                        onclick="var passwordInput = document.querySelector('#pass5'); 
+                        var icon = document.querySelector('#show5');
+                        const type5 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type5);
+                        const ico5 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                        icon.setAttribute('uk-icon', ico5);" uk-tooltip="Show pass5" style="stroke: black;"></a>
+                    </div>
+                </div>
+            </div>
+            <p class="uk-text-right">
+              <button class="uk-button uk-button-primary uk-modal-close" (click)="CancelDescripion()" type="button">Cancel</button>
+              <button class="uk-button uk-margin-medium-left" button="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+  
+<div id="modal-instagram" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Add instagram account</h2>
+        <form (ngSubmit)="submitPlatform(3)">
+            <div class="uk-inline">
+                <p>Username used in Instagram:</p>
+              <input type="text" class="form-control uk-textarea uk-form-width-large" rows="6" aria-label="Textarea" id="username"
+                [(ngModel)]="username" name="username"/>
+            </div>
+            <div class="uk-margin">
+                <div>
+                    <p style="color: crimson;">You must approve the changes via password. Not inserted, the changes will not be applied!</p>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                        <input type="password" class="form-control uk-input" id="pass6" name="pass6" 
+                        [(ngModel)]="pass6" placeholder="Enter passowrd" required>
+                        <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show6" 
+                        onclick="var passwordInput = document.querySelector('#pass6'); 
+                        var icon = document.querySelector('#show6');
+                        const type6 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type6);
+                        const ico6 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                        icon.setAttribute('uk-icon', ico6);" uk-tooltip="Show pass6" style="stroke: black;"></a>
+                    </div>
+                </div>
+            </div>
+            <p class="uk-text-right">
+              <button class="uk-button uk-button-primary uk-modal-close" (click)="CancelDescripion()" type="button">Cancel</button>
+              <button class="uk-button uk-margin-medium-left" button="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+  
+<div id="modal-youtube" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Add youtube account</h2>
+        <form (ngSubmit)="submitPlatform(1)">
+            <div class="uk-inline">
+                <p>Username used in YouTube:</p>
+              <input type="text" class="form-control uk-textarea uk-form-width-large" rows="6" aria-label="Textarea" id="username"
+                [(ngModel)]="username" name="username"/>
+            </div>
+            <div class="uk-margin">
+                <div>
+                    <p style="color: crimson;">You must approve the changes via password. Not inserted, the changes will not be applied!</p>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                        <input type="password" class="form-control uk-input" id="pass7" name="pass7" 
+                        [(ngModel)]="pass5" placeholder="Enter passowrd" required>
+                        <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show7" 
+                        onclick="var passwordInput = document.querySelector('#pass7'); 
+                        var icon = document.querySelector('#show7');
+                        const type7 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type7);
+                        const ico7 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                        icon.setAttribute('uk-icon', ico7);" uk-tooltip="Show pass7" style="stroke: black;"></a>
+                    </div>
+                </div>
+            </div>
+            <p class="uk-text-right">
+              <button class="uk-button uk-button-primary uk-modal-close" (click)="CancelDescripion()" type="button">Cancel</button>
+              <button class="uk-button uk-margin-medium-left" button="submit">Save</button>
+            </p>
+        </form>
     </div>
 </div>
   
@@ -171,6 +275,21 @@
             [(ngModel)]="influencer.description" name="newDesc"></textarea>
         </div>
         <div class="uk-margin">
+            <div>
+                <p style="color: crimson;">You must approve the changes via password. Not inserted, the changes will not be applied!</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                    <input type="password" class="form-control uk-input" id="pass3" name="pass3" 
+                    [(ngModel)]="pass3" placeholder="Enter passowrd" required>
+                    <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show3" 
+                    onclick="var passwordInput = document.querySelector('#pass3'); 
+                    var icon = document.querySelector('#show3');
+                    const type3 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type3);
+                    const ico3 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                    icon.setAttribute('uk-icon', ico3);" uk-tooltip="Show pass3" style="stroke: black;"></a>
+                </div>
+            </div>
         </div>
         <p class="uk-text-right">
           <button class="uk-button uk-button-primary uk-modal-close" (click)="CancelDescripion()" type="button">Cancel</button>
@@ -184,7 +303,7 @@
 <div id="modal-tags" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
       <h2 class="uk-modal-title">Choose new profile picture</h2>
-      <form (ngSubmit)="deleteAtIndex(); closeModal()">
+      <form (ngSubmit)="deleteAtIndex(); closeModal()"><!--
         <div>
           <button type="button" *ngFor="let tag of categories; let i = index" 
             class="uk-badge-edit uk-badge uk-margin-small-right uk-margin-small-bottom btn" 
@@ -193,10 +312,53 @@
             (click)="toggleIndex(i)">
             {{ tag.name }}
           </button>
+        </div>-->
+        <div class="uk-margin">
+            <div id="tags" class="uk-margin uk-position-relative">
+                <div class="uk-inline uk-margin-small-right uk-margin-small-bottom uk-margin-small-top">
+                <span class="pointer button-transparent" style="stroke: #1c1c1d !important;">Click to menage your tematic categories: </span>
+                <div class="uk-dropdown uk-dropdown-bottom uk-dropdown-scrollable" uk-dropdown="pos: bottom-justify; mode: click">
+                    <div class="uk-margin-small">
+                        <input class="uk-input" type="text" [formControl]="tagFilterInput">
+                    </div>
+                    <ul class="uk-nav uk-dropdown-nav">
+                    <li *ngFor="let tag of filteredTags">
+                        <a (click)="toggleTagFilter(tag.id)">
+                            <input class="uk-checkbox" type="checkbox" [checked]="isTagFilterApplied(tag.id)">
+                            {{ tag.name }}
+                            </a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+                <span class="uk-margin-medium-bottom"></span><br/>
+                <span *ngFor="let filter of appliedFilters" class="uk-margin-small-right uk-margin-small-bottom uk-badge" style="color: #1c1c1d !important;">
+                {{ getTagNameById(filter) }}
+                <span class="uk-icon" uk-icon="icon: close; ratio: 0.6" (click)="removeTagFilter(filter)" 
+                    style="stroke: #1c1c1d !important;"></span>
+                </span>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div>
+                <p style="color: crimson;">You must approve the changes via password. Not inserted, the changes will not be applied!</p>
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
+                    <input type="password" class="form-control uk-input" id="pass4" name="pass4" 
+                    [(ngModel)]="pass4" placeholder="Enter passowrd" required>
+                    <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show4" 
+                    onclick="var passwordInput = document.querySelector('#pass4'); 
+                    var icon = document.querySelector('#show4');
+                    const type4 = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type4);
+                    const ico4 = icon.getAttribute('uk-icon') === 'eye-slash' ? 'eye' : 'eye-slash';
+                    icon.setAttribute('uk-icon', ico4);" uk-tooltip="Show pass4" style="stroke: black;"></a>
+                </div>
+            </div>
         </div>
         <p class="uk-text-right">
-          <button class="uk-button uk-button-primary uk-modal-close " type="button" (click)="closeModal()">Cancel</button>
-          <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
+          <button class="uk-button uk-button-primary uk-modal-close " type="button" >Cancel</button>
+          <button class="uk-button uk-margin-medium-left" type="submit" (click)="closeModal()">Save</button>
         </p>
       </form>
     </div>

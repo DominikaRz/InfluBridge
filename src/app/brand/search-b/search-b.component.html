@@ -97,7 +97,10 @@
                             </div>
                             <div class="uk-width-3-5" style="padding: 1rem;">
                                 <div class="" ><h3>{{ search.pseudonym }}</h3></div>
-                                <div class="" >{{ search.totalViews }}</div>
+                                <div class="" >
+                                    <span *ngIf="search.totalViews > 1000000">{{ (search.totalViews / 1000000).toFixed(1) }}M</span>
+                                    <span *ngIf="search.totalViews < 1000000">{{ (search.totalViews / 1000).toFixed(1) }}k</span> followers
+                                </div>
                                 <div class="" >{{ search.campaignsNumber }} capmaigns</div>
                                 <div>
                                     <div class="toggle" hidden>

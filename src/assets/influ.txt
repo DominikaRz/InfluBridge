@@ -1,0 +1,510 @@
+{
+    "timestamp": "2023-06-19T12:59:22.3980041",
+    "status": 200,
+    "message": "Influencers all.",
+    "data": {
+        "influencersAll": [
+            {
+                "id": 1,
+                "email": "contact@mrbeast.com",
+                "password": "MrBeast123",
+                "pseudonym": "MrBeast",
+                "phoneNumber": "+2345678901",
+                "firstName": "Jimmy",
+                "lastName": "Donaldson",
+                "description": "Philanthropist and creator of epic challenges!",
+                "platforms": [
+                    {
+                        "id": 1,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "MrBeast",
+                        "views": 100309766
+                    },
+                    {
+                        "id": 2,
+                        "platformType": {
+                            "id": 2,
+                            "name": "twitter",
+                            "linkPattern": "twitter.com"
+                        },
+                        "username": "MrBeast",
+                        "views": 5000003
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 7,
+                        "name": "Charity"
+                    },
+                    {
+                        "id": 1,
+                        "name": "Gaming"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "email": "contact@pewdiepie.com",
+                "password": "PewDiePie123",
+                "pseudonym": "PewDiePie",
+                "phoneNumber": "+9876543210",
+                "firstName": "Felix",
+                "lastName": "Kjellberg",
+                "description": "I play games and make funny videos!",
+                "platforms": [
+                    {
+                        "id": 3,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "PewDiePie",
+                        "views": 90327234
+                    },
+                    {
+                        "id": 4,
+                        "platformType": {
+                            "id": 2,
+                            "name": "twitter",
+                            "linkPattern": "twitter.com"
+                        },
+                        "username": "PewDiePie",
+                        "views": 3239478
+                    },
+                    {
+                        "id": 5,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "pewdiepie",
+                        "views": 10983322
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 1,
+                        "name": "Gaming"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "email": "contact@lelepons.com",
+                "password": "LelePons123",
+                "pseudonym": "Lele Pons",
+                "phoneNumber": "+8345699902",
+                "firstName": "Lele",
+                "lastName": "Pons",
+                "description": "Vine star turned YouTuber!",
+                "platforms": [
+                    {
+                        "id": 6,
+                        "platformType": {
+                            "id": 2,
+                            "name": "twitter",
+                            "linkPattern": "twitter.com"
+                        },
+                        "username": "lelepons",
+                        "views": 3037846
+                    },
+                    {
+                        "id": 7,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "lelepons",
+                        "views": 8234857
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 8,
+                        "name": "Comedy"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Lifestyle"
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "email": "contact@zachking.com",
+                "password": "ZachKing123",
+                "pseudonym": "Zach King",
+                "phoneNumber": "+8901234567",
+                "firstName": "Zach",
+                "lastName": "King",
+                "description": "Digital magician and filmmaker!",
+                "platforms": [],
+                "categories": [
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 9,
+                        "name": "Magic"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Technology"
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "email": "contact@lizakoshy.com",
+                "password": "LizaKoshy123",
+                "pseudonym": "Liza Koshy",
+                "phoneNumber": "+3456789012",
+                "firstName": "Liza",
+                "lastName": "Koshy",
+                "description": "Comedian and content creator!",
+                "platforms": [
+                    {
+                        "id": 8,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "Liza Koshy",
+                        "views": 789639
+                    },
+                    {
+                        "id": 9,
+                        "platformType": {
+                            "id": 2,
+                            "name": "twitter",
+                            "linkPattern": "twitter.com"
+                        },
+                        "username": "lizakoshy",
+                        "views": 100345
+                    },
+                    {
+                        "id": 10,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "lizakoshy",
+                        "views": 1200493
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 8,
+                        "name": "Comedy"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Lifestyle"
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "email": "contact@jamescharles.com",
+                "password": "JamesCharles123",
+                "pseudonym": "James Charles",
+                "phoneNumber": "+3456789123",
+                "firstName": "James",
+                "lastName": "Charles",
+                "description": "Beauty guru and makeup artist!",
+                "platforms": [
+                    {
+                        "id": 11,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "James Charles",
+                        "views": 3589689
+                    },
+                    {
+                        "id": 12,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "jamescharles",
+                        "views": 1903983
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 3,
+                        "name": "Beauty"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Fashion"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Lifestyle"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "email": "contact@lillysingh.com",
+                "password": "LillySingh123",
+                "pseudonym": "Lilly Singh",
+                "phoneNumber": "+4567890123",
+                "firstName": "Lilly",
+                "lastName": "Singh",
+                "description": "Comedian, actress, and author!",
+                "platforms": [
+                    {
+                        "id": 13,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "Lilly Singh",
+                        "views": 908346
+                    },
+                    {
+                        "id": 14,
+                        "platformType": {
+                            "id": 2,
+                            "name": "twitter",
+                            "linkPattern": "twitter.com"
+                        },
+                        "username": "IISuperwomanII",
+                        "views": 298765
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 8,
+                        "name": "Comedy"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Lifestyle"
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "email": "contact@jeffreestar.com",
+                "password": "JeffreeStar123",
+                "pseudonym": "Jeffree Star",
+                "phoneNumber": "+5678901234",
+                "firstName": "Jeffree",
+                "lastName": "Star",
+                "description": "Beauty YouTuber and entrepreneur!",
+                "platforms": [
+                    {
+                        "id": 15,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "Jeffree Star",
+                        "views": 387667
+                    },
+                    {
+                        "id": 16,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "jeffreestar",
+                        "views": 401998
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 3,
+                        "name": "Beauty"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Fashion"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Lifestyle"
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "email": "contact@markiplier.com",
+                "password": "Markiplier123",
+                "pseudonym": "Markiplier",
+                "phoneNumber": "+6789012345",
+                "firstName": "Mark",
+                "lastName": "Fischbach",
+                "description": "Gaming YouTuber and Let's Player!",
+                "platforms": [
+                    {
+                        "id": 17,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "Markiplier",
+                        "views": 112456
+                    },
+                    {
+                        "id": 18,
+                        "platformType": {
+                            "id": 2,
+                            "name": "twitter",
+                            "linkPattern": "twitter.com"
+                        },
+                        "username": "markiplier",
+                        "views": 54099
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 1,
+                        "name": "Gaming"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 8,
+                        "name": "Comedy"
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "email": "contact@rosannapansino.com",
+                "password": "RosannaPansino123",
+                "pseudonym": "Rosanna Pansino",
+                "phoneNumber": "+7890123456",
+                "firstName": "Rosanna",
+                "lastName": "Pansino",
+                "description": "Baking YouTuber and cookbook author!",
+                "platforms": [
+                    {
+                        "id": 19,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "Rosanna Pansino",
+                        "views": 345678
+                    },
+                    {
+                        "id": 20,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "rosannapansino",
+                        "views": 785673
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 11,
+                        "name": "Cooking"
+                    },
+                    {
+                        "id": 10,
+                        "name": "Baking"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "email": "contact@daviddobrik.com",
+                "password": "DavidDobrik123",
+                "pseudonym": "David Dobrik",
+                "phoneNumber": "+1201289575",
+                "firstName": "David",
+                "lastName": "Dobrik",
+                "description": "Vlogger and prankster!",
+                "platforms": [
+                    {
+                        "id": 21,
+                        "platformType": {
+                            "id": 1,
+                            "name": "youtube",
+                            "linkPattern": "youtube.com"
+                        },
+                        "username": "David Dobrik",
+                        "views": 3495924
+                    },
+                    {
+                        "id": 22,
+                        "platformType": {
+                            "id": 3,
+                            "name": "instagram",
+                            "linkPattern": "instagram.com"
+                        },
+                        "username": "daviddobrik",
+                        "views": 213969
+                    }
+                ],
+                "categories": [
+                    {
+                        "id": 2,
+                        "name": "Entertainment"
+                    },
+                    {
+                        "id": 8,
+                        "name": "Comedy"
+                    },
+                    {
+                        "id": 12,
+                        "name": "Vlogging"
+                    }
+                ]
+            }
+        ]
+    }
+}

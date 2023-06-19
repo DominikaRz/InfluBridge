@@ -1,0 +1,49 @@
+{
+    "timestamp": "2023-06-19T12:59:42.7816745",
+    "status": 200,
+    "message": "Brands all.",
+    "data": {
+        "BrandsAll": [
+            {
+                "id": 1,
+                "email": "contact@nike.com",
+                "password": "Nike123",
+                "name": "Nike",
+                "nip": "1234567890",
+                "description": null
+            },
+            {
+                "id": 2,
+                "email": "contact@coca-cola.com",
+                "password": "CocaCola123",
+                "name": "Coca-Cola",
+                "nip": "0987654321",
+                "description": null
+            },
+            {
+                "id": 3,
+                "email": "contact@samsung.com",
+                "password": "Samsung123",
+                "name": "Samsung",
+                "nip": "0123456789",
+                "description": null
+            },
+            {
+                "id": 4,
+                "email": "contact@mcdonalds.com",
+                "password": "McDonalds123",
+                "name": "McDonald's",
+                "nip": "5678901234",
+                "description": null
+            },
+            {
+                "id": 5,
+                "email": "contact@adidas.com",
+                "password": "Adidas123",
+                "name": "Adidas",
+                "nip": "4321098765",
+                "description": null
+            }
+        ]
+    }
+}

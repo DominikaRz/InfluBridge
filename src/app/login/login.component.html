@@ -19,7 +19,7 @@
                                 <label for="username" class="label-left">{{ usernameLabel }}</label>
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: user" style="stroke: black;"></span>
-                                    <input type="text" class="form-control uk-input" id="username" formControlName="username" required>
+                                    <input type="text" class="form-control uk-input" id="username" formControlName="username" [(ngModel)]="username" required>
                                 </div>
                                 <div class="validation-info" *ngIf="form.get('username')!.invalid && (form.get('username')!.dirty || form.get('username')!.touched)">
                                     <div *ngIf="form.get('username')!.errors?.['required']">Username is required.</div>
@@ -30,7 +30,7 @@
                                 <label for="password" class="label-left">{{ passwordLabel }}</label>
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: lock" style="stroke: black;"></span>
-                                    <input type="password" class="form-control uk-input" id="password" formControlName="password" required>
+                                    <input type="password" class="form-control uk-input" id="password" formControlName="password" [(ngModel)]="password" required>
                                     <a uk-icon="icon: eye" class="uk-form-icon uk-form-icon-flip" id="show" (click)="togglePasswordVisibility()"
                                     uk-tooltip="Show password" style="stroke: black;"></a>
                                 </div>

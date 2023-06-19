@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { ImgService } from '../../services/img.service';
 
 import { ApiServiceService } from '../../services/api-service.service';
 interface Campaign {
@@ -33,7 +34,7 @@ interface Brand{
 })
 export class CampaignBComponent {
   
-  image = 'c34a8b8f-6b56-4686-b422-c199081a5b0d.jpg'
+  image!: string;
 
   id!: number;
   url!: string;
@@ -45,7 +46,7 @@ export class CampaignBComponent {
   brand: Brand = {} as Brand;
 
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private route: ActivatedRoute, private img: ImgService) {}
 
   ngOnInit() {
     
@@ -57,6 +58,7 @@ export class CampaignBComponent {
       (data) => {  
         this.campaign = data.data.campaignView;
         this.brand = data.data.campaignView.brand;
+        this.image = this.img.getBrandBackgroundById(this.brand.id);
 
       },
       (error) => {

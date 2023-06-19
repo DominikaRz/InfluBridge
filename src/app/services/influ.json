@@ -1,0 +1,76 @@
+{
+  "influencers": [
+    {
+      "id": 1,
+      "pseudonym": "MrBeast",
+      "avatar": "avr/mrbeasts.jpg",
+      "background": null
+    },
+    {
+      "id": 2,
+      "pseudonym": "PewDiePie",
+      "avatar": "avr/pewdiepie.jpg",
+      "background": null
+    },
+    {
+      "id": 3,
+      "pseudonym": "Lele Pons",
+      "avatar": "avr/lelepons.png",
+      "background": null
+    },
+    {
+      "id": 4,
+      "pseudonym": "Zach King",
+      "avatar": "avr/zachking.png",
+      "background": null
+    },
+    {
+      "id": 5,
+      "pseudonym": "Liza Koshy",
+      "avatar": "avr/lizakoshy.png",
+      "background": null
+    },
+    {
+      "id": 6,
+      "pseudonym": "James Charles",
+      "avatar": "avr/jamescharles.jpg",
+      "background": null
+    },
+    {
+      "id": 7,
+      "pseudonym": "Lilly Singh",
+      "avatar": "avr/lillysingh.jpg",
+      "background": null
+    },
+    {
+      "id": 8,
+      "pseudonym": "Jeffree Star",
+      "avatar": "avr/jefreystars.jpg",
+      "background": null
+    },
+    {
+      "id": 9,
+      "pseudonym": "Markiplier",
+      "avatar": "avr/markiplier.jpg",
+      "background": null
+    },
+    {
+      "id": 10,
+      "pseudonym": "Rosanna Pansino",
+      "avatar": "avr/rosannas.png",
+      "background": null
+    },
+    {
+      "id": 11,
+      "pseudonym": "David Dobrik",
+      "avatar": "avr/daviddobrik.png",
+      "background": null
+    },
+    {
+      "id": 12,
+      "pseudonym": null,
+      "avatar": null,
+      "background": null
+    }
+  ]
+}

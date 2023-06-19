@@ -234,3 +234,16 @@ main{
 button.active {
   border: 1px solid green;
 }
+
+.button-transparent { 
+  text-decoration: none; 
+  color: #6114fb; 
+  border: 1px #6114fb solid; 
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.uk-dropdown-scrollable {
+  max-height: 200px;
+  overflow-y: auto;
+}

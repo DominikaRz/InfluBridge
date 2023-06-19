@@ -4,7 +4,7 @@
     <app-navbar-influ></app-navbar-influ>
     <div id="banner">
         <div class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover" 
-        data-src="../../../assets/img/c34a8b8f-6b56-4686-b422-c199081a5b0d.jpg" uk-img></div>
+        [attr.data-src]="'../../assets/img/' + image" uk-img></div>
     </div>
     <div id="informations">
         <div class="uk-child-width-1-2" uk-grid>
@@ -24,10 +24,10 @@
                         <h4>You can earn up to {{ campaign.rate }} $
                             <br/><span *ngFor="let emp of campaign.platformTypes"  class="uk-margin-small-right uk-margin-small-top"
                             [attr.uk-icon]="'icon: ' + emp + '; ratio: 1.6'" style="fill: #1c1c1d !important"></span></h4>
-                        <h3 style="white-space: pre-line; margin-top: 0;">{{ splitStringAtT(campaign.endData) }}</h3>
+                        <h3 style="white-space: pre-line; margin-top: 0;">{{ campaign.endData }}</h3>
                     </div>
                 </div>
-                <div *ngIf="currentDate < splitStringAtT(campaign.endData)" class="uk-flex uk-flex-center uk-flex-middle">
+                <div *ngIf="currentDate < campaign.endData" class="uk-flex uk-flex-center uk-flex-middle">
                     <button type="button" (click)="joinQuit()" class="uk-button">{{ labelButton }}</button>
                 </div>
             </div>

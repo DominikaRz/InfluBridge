@@ -5,7 +5,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { ApiServiceService } from 'src/app/services/api-service.service';
-import avatarData from 'src/app/services/avatars.json';
+import { ImgService } from 'src/app/services/img.service';
 
 interface Search {
   id: number;
@@ -21,10 +21,6 @@ interface Category {
   name: string;
 }
 
-interface Avatars{
-  id: number;
-  avatar: string;
-}
 
 @Component({
   selector: 'app-search-b',
@@ -39,7 +35,6 @@ export class SearchBComponent {
   tagFilterInput: string = '';
   searchInput: FormControl = new FormControl();
 
-  avatars = avatarData.avatars;
 
   
   url = '/api/v1/influencer/list';
@@ -55,7 +50,7 @@ export class SearchBComponent {
       (data) => {
         this.search = data.data.influencersList;
         this.initialSearch = this.search; 
-        this.assignAvatars();
+        this.img.assignAvatars(this.search);
       },
       (error) => {
         console.error('Error:', error);
@@ -78,13 +73,6 @@ export class SearchBComponent {
       return input.substring(0, index);
     }
     return input;  
-  }
-
-  assignAvatars(): void {
-    this.search.forEach((result) => {
-      const avatar = this.avatars.find((a) => a.id === result.id);
-      result.avatar = avatar ? avatar.avatar : ''; // Assign the avatar or empty string if not found
-    });
   }
 
   toggleTagFilter(name: string): void {
@@ -144,7 +132,7 @@ export class SearchBComponent {
 
   @ViewChild('customTypeaheadTemplate', { static: true }) customTypeaheadTemplate: ElementRef | undefined;
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient) {
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private img: ImgService) {
 
     this.searchInput.valueChanges
       .pipe(
