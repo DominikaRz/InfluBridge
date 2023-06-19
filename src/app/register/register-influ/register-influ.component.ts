@@ -5,11 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { ApiServiceService } from '../../services/api-service.service';
 import { PostService } from 'src/app/services/post.service';
 
-import tagsData from './tags.json';
-interface Tag {
-  id: number;
-  tag: string;
-}
 
 interface Category{
   id: number;
@@ -33,35 +28,42 @@ export class RegisterInfluComponent {
   title = 'Register as Influencer';
   //step 1
   usernameLabel = 'Email';
-  passwordLabel = 'Password';
+  passwordLabel = 'Password';/*
   username!: string;
-  password!: string; 
+  password!: string; */
+  username = 'gaby@gmail.com';
+  password = 'Ga#by3em'; 
 
 
   //step 2
   nameLabel = 'Name';
   surnameLabel = 'Surname';
   phoneLabel = 'Phone number';
-  pseudonymLabel = 'Pseudonym';
+  pseudonymLabel = 'Pseudonym';/*
   pseudonym!: string;
   name!: string;
   surname!: string;
-  phone!: string;
+  phone!: string;*/
+  pseudonym = 'gabbby';
+  name = 'Gabrielle';
+  surname = 'Finch';
+  phone = '694536475'
   //step 3
   descriptionLabel = 'Describe yourself';
-  avatarLabel = 'Avatar';
+  avatarLabel = 'Avatar';/*
   description!: string;
-  avatar!: string;
+  avatar!: string;*/
+  description = 'I am an influencer who like funny stuff.';
+  avatar = '';
   //step 4
 
-  tags: Tag[] = tagsData.tags;
   appliedFilters: number[] = [];
   filteredTags: Category[] = [];
   tagFilterInput: FormControl;
 
   
   urlTags = '/api/v1/category/list';
-  urlPlatf = '/api/v1/category/list';
+  urlPlatf = '/api/v1/platform-type/list';
   category: Category[] = [];
   platforms: Platforms[] = [];
 
@@ -84,16 +86,16 @@ export class RegisterInfluComponent {
       }
     );
     this.form = this.formBuilder.group({
-      username: ['abc', Validators.required],
-      password: ['12#Edrswak', [Validators.required, Validators.minLength(8)]],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
 
-      name: ['Gabrielle', Validators.required],
-      surname: ['Finch', Validators.required],
-      pseudonym: ['bagy123', Validators.required],
-      phone: ['234356354', [Validators.required, Validators.pattern('^[\s+]?[0-9\s]+$')]],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      pseudonym: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern('^[\s+]?[0-9\s]+$')]],
 
-      description: ['I am an...'],
-      avatar: ['123'],
+      description: [''],
+      avatar: [''],
 
       tagFilterInput: [''],
     });
@@ -182,6 +184,7 @@ export class RegisterInfluComponent {
     }
   }
   
+  
 
 isOptionActive(optionValue: number): boolean {
   return this.activeOptions.includes(optionValue);
@@ -209,6 +212,7 @@ onSubmit() {
   const url = '/api/v1/influencer/register'; // Replace with your API endpoint
 
   /*
+    */
   this.postService.sendData(data, url)
     .subscribe(
       response => {
@@ -220,7 +224,6 @@ onSubmit() {
         // Handle error response here
       }
     );
-    */
    console.log(data);
 }
 

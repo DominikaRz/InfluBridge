@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div *ngIf="currentDate < splitStringAtT(campaign.endData)" class="uk-flex uk-flex-center uk-flex-middle">
-                    <button type="button" class="uk-button">{{ labelButton }}</button>
+                    <button type="button" (click)="joinQuit()" class="uk-button">{{ labelButton }}</button>
                 </div>
             </div>
         </div>

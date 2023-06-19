@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
-import tagsData from './tags.json';
-interface Tag {
+import { ApiServiceService } from '../../../services/api-service.service';
+import { PostService } from 'src/app/services/post.service';
+
+
+
+interface Category{
   id: number;
-  tag: string;
+  name: string;
 }
-
+interface Platforms{
+  id: number;
+  name: string;
+}
 
 
 @Component({
@@ -18,28 +26,78 @@ interface Tag {
 })
 export class NavbarBrandComponent {
 
-  
+  id = 1;
   title = 'Register as Influencer';
   //step 1
   nameLabel = 'Name of marketing campaign';
-  imageLabel = 'Image of marketing campaign';
+  rateLabel = 'Price rate for campaign';
   categoriesLabel = 'Categories';
   peopleLabel = 'Participants limit';
   dateLabel = 'Due date';
-  shortDescLabel = 'Short description';
-  descriptionLabel = 'All informations about campaign';
+  descriptionLabel = 'All informations about campaign';/*
   name! : String;
   image! : String;
   people! : Number;
   date! : String;
-  shotrDesc! : String;
   description! : String;
+  rate! : number;*/
+  name = 'Example title of campaign';
+  people = 23;
+  date = '23-08-2023';
+  description = "This campaign is great. Join us!"
+  rate = 12000;
   //tagFilterInput!: FormControl;
   
   
-  tags: Tag[] = tagsData.tags;
   appliedFilters: number[] = [];
-  filteredTags: Tag[] = [];
+  filteredTags: Category[] = [];
+
+  
+  urlTags = '/api/v1/category/list';
+  urlPlatf = '/api/v1/platform-type/list';
+  category: Category[] = [];
+  platforms: Platforms[] = [];
+
+
+  ngOnInit() {
+    this.http.get<any>(this.urlTags).subscribe(
+      (data) => {
+        this.category = data.data.categoriesList;
+        this.filteredTags = this.category;
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+    this.http.get<any>(this.urlPlatf).subscribe(
+      (data) => {
+        this.platforms = data.data.platformTypesList;
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      date: ['', Validators.required],
+      tagFilterInput: [''],
+      categories: [''],
+      people: [''],
+      description: [''],
+      rate: [''],
+      // Define other form controls and their validators
+    });
+  
+    this.tagFilterInput = this.form.get('tagFilterInput') as FormControl; // Initialize tagFilterInput control
+  
+    // for filtering tags using search input
+    this.filterTags();
+    this.tagFilterInput.valueChanges.subscribe(() => {
+      this.filterTags();
+    });
+  }
+
+  
 
   toggleTagFilter(tagId: number): void {
     if (this.isTagFilterApplied(tagId)) {
@@ -65,70 +123,79 @@ export class NavbarBrandComponent {
   }
 
   getTagNameById(tagId: number): string {
-    const tag = this.tags.find(t => t.id === tagId);
-    return tag ? tag.tag : '';
+    const tag = this.category.find(t => t.id === tagId);
+    return tag ? tag.name : '';
   }
 
- 
-
-  form!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
-
-  onSubmit() {  }
-
-  tagFilterInput: FormControl = new FormControl();
-
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      image: [''],
-      date: ['', Validators.required],
-      tagFilterInput: [''],
-      categories: [''],
-      people: [''],
-      shortDesc: [''],
-      description: [''],
-      // Define other form controls and their validators
-    });
-  
-    this.tagFilterInput = this.form.get('tagFilterInput') as FormControl; // Initialize tagFilterInput control
-  
-    // for filtering tags using search input
-    this.filterTags();
-    this.tagFilterInput.valueChanges.subscribe(() => {
-      this.filterTags();
-    });
-  }
-  
   filterTags(): void {
-    const searchText = this.tagFilterInput.value?.toLowerCase().trim();
-    if (searchText?.length === 0) {
-      this.filteredTags = this.tags;
+    const searchText = this.tagFilterInput.value.toLowerCase().trim();
+    if (searchText.length === 0) {
+      this.filteredTags = this.category;
     } else {
-      this.filteredTags = this.tags.filter((tag) => {
+      this.filteredTags = this.category.filter(tag => {
         const tagText = this.getTagNameById(tag.id).toLowerCase();
         return tagText.includes(searchText);
       });
     }
   }
-  
-  activeOptions: string[] = [];
+
+ tagFilterInput: FormControl = new FormControl();
+
+  form!: FormGroup;
+  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService) {}
+
+  activeOptions: number[] = [];
 
   toggleOption(event: MouseEvent) {
     const option = event.target as HTMLOptionElement;
-    const value = option.value;
+    const platformId = Number(option.value);
   
-    if (this.isOptionActive(value)) {
-      this.activeOptions = this.activeOptions.filter((activeOption) => activeOption !== value);
+    if (this.isOptionActive(platformId)) {
+      this.activeOptions = this.activeOptions.filter((activeOption) => activeOption !== platformId);
     } else {
-      this.activeOptions.push(value);
+      this.activeOptions.push(platformId);
     }
   }
-  
-  isOptionActive(optionValue: string): boolean {
+  isOptionActive(optionValue: number): boolean {
     return this.activeOptions.includes(optionValue);
   }
+
+  onSubmit() {  
+    const data = {
+      brandId: this.id,
+      title: this.name,
+      rate: this.rate,
+      description: this.description,
+      vacancies: this.people,
+      endDate: this.date,
+      categoriesIds: this.appliedFilters,
+      platformTypesIds: this.activeOptions,
+    };
+
+    const url = 'http://localhost:8080/api/v1/campaign/create';
   
+    this.postService.sendData(data, url).subscribe(
+        (response) => {
+          console.log('Data sent successfully:', response);
+          // Handle successful response here
+        },
+        (error) => {
+          console.error('Error sending data:', error);
+          // Handle error response here
+        }
+      );
+    console.log(data);
+  }
+
+  /**
+    "brandId": 1,
+    "title": "New Campaign",
+    "rate": 23000,
+    "description": "Earn money with us!!!",
+    "vacancies": 10,
+    "endDate": "2007-12-03T10:15:30",
+    "categoriesIds": [1, 2, 3],
+    "platformTypesIds": [1, 2] */
 
 } 
 

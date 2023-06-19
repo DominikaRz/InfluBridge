@@ -53,19 +53,16 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                                 </label>
                                 <div class="uk-inline">
                                     <span class="uk-form-icon" uk-icon="icon: quote-right" style="fill: black;"></span>
-                                    <input type="text" class="form-control uk-input" id="name" formControlName="name" name="name" required>
+                                    <input type="text" class="form-control uk-input" id="name" formControlName="name" [(ngModel)]="name" name="name" required>
                                 </div>
                             </div>
                             <div>
-                                <label for="image" class="label-left">{{ imageLabel }}
+                                <label for="rate" class="label-left">{{ rateLabel }}
                                 </label>
                                 <div uk-form-custom="target: true">
-                                    <input type="file" aria-label="Custom controls">
-                                    <div class="uk-inline">
-                                        <span class="uk-form-icon" uk-icon="icon: image" style="stroke: black;"></span>
-                                        <input class="uk-input " id="image" formControlName="image" type="text" 
-                                        name="image" placeholder="Select file" aria-label="Custom controls" > <!--disabled-->
-                                    </div>
+                                    <input class="uk-input " id="rate" formControlName="rate" type="number" [(ngModel)]="rate"
+                                    name="rate" placeholder="What is the rate?" aria-label="Custom controls" > <!--disabled-->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -75,11 +72,11 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                             <div class="uk-child-width-1-2@m uk-child-width-1-1@s" uk-grid>
                                 <div>
                                     <label for="people" class="label-left">{{ peopleLabel }}</label>
-                                    <input type="number" class="form-control uk-input uk-form-width-medium" id="people" formControlName="people" name="people" required>
+                                    <input type="number" class="form-control uk-input uk-form-width-medium" id="people" formControlName="people" name="people" [(ngModel)]="people" required>
                                 </div>
                                 <div>
                                     <label for="date" class="label-left">{{ dateLabel }}</label>
-                                    <input type="date" class="form-control uk-input uk-form-width-medium" id="date" formControlName="date" name="date" required>
+                                    <input type="date" class="form-control uk-input uk-form-width-medium" id="date" formControlName="date" name="date" [(ngModel)]="date" required>
                                 </div>
                             </div>
                         </div>
@@ -94,9 +91,9 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                                     <ul class="uk-nav uk-dropdown-nav">
                                     <li *ngFor="let tag of filteredTags">
                                         <a (click)="toggleTagFilter(tag.id)">
-                                        <input class="uk-checkbox" type="checkbox" [checked]="isTagFilterApplied(tag.id)">
-                                        {{ tag.tag }}
-                                        </a>
+                                            <input class="uk-checkbox" type="checkbox" [checked]="isTagFilterApplied(tag.id)">
+                                            {{ tag.name }}
+                                            </a>
                                     </li>
                                     </ul>
                                 </div>
@@ -113,30 +110,16 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                             <span class="label-left">Choose your platforms:</span>
                             <div class="uk-form-controls">
                                 <select class="uk-select" multiple (click)="toggleOption($event)">
-                                    <option value="Facebook" [class.active]="isOptionActive('Facebook')">Facebook</option>
-                                    <option value="Instagram" [class.active]="isOptionActive('Instagram')">Instagram</option>
-                                    <option value="Twitter" [class.active]="isOptionActive('Twitter')">Twitter</option>
-                                </select>
+                                    <option *ngFor="let platform of platforms" [attr.value]="platform.id" [class.active]="isOptionActive(platform.id)">{{platform.name}}</option>
+                                  </select>
                             </div> 
-                        </div>
-                        <div class="uk-margin">
-                            <label for="content" class="label-left">{{ shortDescLabel }}
-                            </label>
-                            <div class="uk-inline">
-                                <!-- Update the form control name from 'shotrDesc' to 'shortDesc' -->
-                                <textarea class="form-control uk-textarea uk-form-width-large" rows="3" 
-                                aria-label="Textarea" id="shortDesc" formControlName="shortDesc" name="shortDesc"></textarea>
-
-                            </div>
-                            <div class="uk-margin">
-                            </div>
                         </div>
                         <div class="uk-margin">
                             <label for="content" class="label-left">{{ descriptionLabel }}
                             </label>
                             <div class="uk-inline">
                                 <textarea class="form-control uk-textarea uk-form-width-large" rows="6" 
-                                aria-label="Textarea" id="description" formControlName="description" name="description"></textarea>
+                                aria-label="Textarea" id="description" [(ngModel)]="description" formControlName="description" name="description"></textarea>
                             </div>
                             <div class="uk-margin">
                             </div>

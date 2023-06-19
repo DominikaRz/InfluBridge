@@ -92,6 +92,40 @@ export class CampaignComponent {
     return input;  
   }
 
+  joinQuit() {
+    const joinUrl = `/api/v1/campaign/join/${this.id}?influencerId=${this.idI}`;
+    const leaveUrl = `/api/v1/campaign/leave/${this.id}?influencerId=${this.idI}`;
+
+    if (this.isJoined) {
+      // Send a PATCH request to the leaveUrl if already joined
+      this.http.patch(leaveUrl, {}).subscribe(
+        (response) => {
+          // Handle successful leave response
+          console.log('Left campaign successfully');
+          this.isJoined = false;
+          this.labelButton = 'Join Campaign';
+        },
+        (error) => {
+          // Handle error response
+          console.error('Error leaving campaign:', error);
+        }
+      );
+    } else {
+      // Send a PATCH request to the joinUrl if not joined
+      this.http.patch(joinUrl, {}).subscribe(
+        (response) => {
+          // Handle successful join response
+          console.log('Joined campaign successfully');
+          this.isJoined = true;
+          this.labelButton = 'Quit Campaign';
+        },
+        (error) => {
+          // Handle error response
+          console.error('Error joining campaign:', error);
+        }
+      );
+    }
+  }
   
 
 
