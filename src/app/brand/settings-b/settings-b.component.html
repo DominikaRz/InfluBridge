@@ -10,9 +10,9 @@
             <div id="profile" class="uk-flex">
                 <div class="img">
                     <img class="uk-border-circle" [attr.src]="' ../../../assets/img/' + avatar" alt="avatar">
-                    <button  class="uk-icon-button  edit uk-margin-small-right" 
+                    <!--<button  class="uk-icon-button  edit uk-margin-small-right" 
                     uk-icon="icon: pencil; ratio: 1.7" style="stroke: #ecebef !important;" 
-                    uk-toggle="target: #modal-image"></button>
+                    uk-toggle="target: #modal-image"></button>-->
                 </div>
                 <h1>{{ brand.name }}</h1> 
             </div>
@@ -71,6 +71,7 @@
                 </form>
             </div>
         </div>
+        <!--
         <div>
             <h2>Change default background picture</h2>
             <form (ngSubmit)="SubmitImage()">
@@ -84,7 +85,7 @@
                     <button class="uk-button uk-margin-medium-left" type="submit">Save</button>
                 </div>
             </form>
-        </div>
+        </div>-->
     </div>
 </main>  
 

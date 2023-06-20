@@ -1,17 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ImgService } from 'src/app/services/img.service';
 import { HttpClient } from '@angular/common/http';
+import {Router} from "@angular/router";
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 
 import { PostService } from 'src/app/services/post.service';
 
-interface LoginResponse {
-  timestamp: string;
-  status: number;
-  message: string;
-  data: InfluencerLoginData | BrandLoginData;
-}
 
 interface InfluencerLoginData {
   influencerPseudonym: string;
@@ -82,6 +77,7 @@ setCookie(name: string, value: string): void {
               this.setCookie('id', data.influencerId.toString());
               this.setCookie('type', 'influencer');
               this.setCookie('name', data.influencerPseudonym);
+              this.router.navigate(['influ']);
       },
       (error) => {
         this.http.post<any>(brandUrl, brandData).subscribe(
@@ -100,6 +96,8 @@ setCookie(name: string, value: string): void {
               this.setCookie('id', data.brandId.toString());
               this.setCookie('type', 'brand');
               this.setCookie('name', data.brandName);
+              
+              this.router.navigate(['brand']);
             } else {
               // Handle the case where login is successful but response data is not as expected
               console.error('Invalid response data');
@@ -107,6 +105,7 @@ setCookie(name: string, value: string): void {
           },
           (error) => {
             console.error('Error:', error);
+            alert('Error! Provide valid data!');
           }
         );
       }
@@ -138,7 +137,7 @@ setCookie(name: string, value: string): void {
 
   
 
-  constructor(private formBuilder: FormBuilder, private img: ImgService, private postService: PostService, private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private img: ImgService, private postService: PostService, private http: HttpClient, private router: Router) {}
 
   
   url = '/api/v1/influencer/settings/';

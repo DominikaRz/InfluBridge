@@ -1,5 +1,6 @@
 import { Binary } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PostService } from 'src/app/services/post.service';
 
@@ -56,7 +57,7 @@ export class RegisterBrandComponent {
     console.log('avatar: ' + this.avatar);
   }*/
 
-  constructor(private PostService: PostService) {}
+  constructor(private PostService: PostService, private router: Router) {}
 
   onSubmit() {
     const data = {
@@ -73,10 +74,14 @@ export class RegisterBrandComponent {
       .subscribe(
         response => {
           console.log('Registration successful:', response);
+          alert('Registration successful:');
+          this.router.navigate(['login']);
           // Handle successful response here
+
         },
         error => {
           console.error('Registration failed:', error);
+          alert('Registration failed. Provide valid data!');
           // Handle error response here
         }
       );

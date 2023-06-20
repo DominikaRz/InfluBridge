@@ -14,7 +14,17 @@ cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; end: 
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                </div>    
+                </div>  
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li *ngIf="href != '/login'">
+                            <button type="button" class="uk-button" onclick="location.href='login'"> Log&nbsp;in</button>
+                        </li>
+                        <li  *ngIf="href == '/login'">
+                            <button type="button" class="uk-button" onclick="location.href='register'"> Sign&nbsp;up</button>
+                        </li>
+                    </ul>
+                </div>   
             </div>
         </div>
     </nav>

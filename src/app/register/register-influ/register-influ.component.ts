@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { ApiServiceService } from '../../services/api-service.service';
 import { PostService } from 'src/app/services/post.service';
@@ -151,7 +152,7 @@ export class RegisterInfluComponent {
   
 //------------FORMS------------
   form!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService) {
+  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private router: Router) {
     this.tagFilterInput = this.formBuilder.control('');
   }
 
@@ -217,12 +218,14 @@ onSubmit() {
     .subscribe(
       response => {
         console.log('Data sent successfully:', response);
-        alert('Register succesfull!');
         // Handle successful response here
+        
+        alert('Registration successful:');
+        this.router.navigate(['login']);
       },
       error => {
         console.error('Error sending data:', error);
-        alert('The error accured. For more information see console');
+        alert('Registration failed. Provide valid data!');
         // Handle error response here
       }
     );

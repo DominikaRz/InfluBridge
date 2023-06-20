@@ -10,7 +10,7 @@
           </div>
           <h1>{{ data!.pseudonym }}</h1>
         </div>
-        <button class="uk-button" type="button">Contact</button>
+        <button class="uk-button" type="button" href="#modal-contact" uk-toggle>Contact</button>
       </div>
       <div>
         <div class="card">
@@ -79,4 +79,16 @@
   
   <!--FOOTER-->
   <app-footer-brand></app-footer-brand>
+
+  <div id="modal-contact" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body" style="background-color: #eaeaea;">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title" style="color: #1d1d1d;">Hello!</h2>
+            <div class="uk-margin">
+                <h2>My e-mail address is: <br/><b>{{data.email}}</b></h2>
+                <h3>Feel free to contact with me if you have any qirestions.</h3>
+            </div>
+        
+    </div>
+</div>
   

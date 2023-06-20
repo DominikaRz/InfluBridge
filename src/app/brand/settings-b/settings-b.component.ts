@@ -33,7 +33,7 @@ export class SettingsBComponent {
   username: string | null = null;
   imag!: string;
 
-  
+  urlU!: string;
 
   constructor(private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService) {}
 
@@ -41,6 +41,7 @@ export class SettingsBComponent {
 
   ngOnInit() {
     this.id = Number(this.getCookie('id'));
+    this.urlU = `http://localhost:8080/api/v1/brand/update/` + this.id;
     let url = '/api/v1/brand/settings/' + this.id;
     this.http.get<any>(url).subscribe(
       (data) => {
@@ -69,7 +70,6 @@ export class SettingsBComponent {
     return null;
   }
 
-  urlU = `http://localhost:8080/api/v1/brand/update/` + this.id;
 
   prevPass!: string;
   newPass!: string;
@@ -88,11 +88,13 @@ export class SettingsBComponent {
       (response) => {
         // Handle successful leave response
         console.log('Password changed successfully');
-        alert('Password changed successfully');
+        //alert('Password changed successfully');
+        window.location.reload();
       },
       (error) => {
         // Handle error response
         console.error('Error:', error);
+        alert('Error. Provide valid data!');
       }
     );
   }
@@ -117,11 +119,13 @@ export class SettingsBComponent {
       (response) => {
         // Handle successful leave response
         console.log('Description changed successfully');
-        alert('Description changed successfully');
+        //alert('Description changed successfully');
+        window.location.reload();
       },
       (error) => {
         // Handle error response
         console.error('Error:', error);
+        alert('Error. Provide valid data!');
       }
     );
   }

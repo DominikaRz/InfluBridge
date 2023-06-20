@@ -12,3 +12,14 @@
 .uk-navbar-nav > li:first-child > a{ justify-content: left !important; width: 20vw;}
 li img{ padding-top: 0.25rem; width: 35%;}
 
+.uk-button {
+  background-color: #8C52FF;
+  border-color: none;
+  border-radius: 15px !important;
+  color: #eaeaea !important;
+}
+.uk-button-primary {
+  background-color: #b491fb !important;
+  border-radius: 15px !important;
+  color: #0A1044 !important;
+}

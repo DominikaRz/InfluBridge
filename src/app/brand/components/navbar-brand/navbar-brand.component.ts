@@ -198,6 +198,7 @@ export class NavbarBrandComponent {
     this.postService.sendData(data, url).subscribe(
         (response) => {
           console.log('Data sent successfully:', response);
+          alert('Data sent successfully:');
           // Handle successful response here
         },
         (error) => {

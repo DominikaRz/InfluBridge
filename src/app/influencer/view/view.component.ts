@@ -20,6 +20,7 @@ interface Data {
   categories: Category[];
   platforms: Platform[];
   campaignsNumber: number;
+  email: string;
 }
 
 interface Category {
@@ -71,6 +72,7 @@ export class ViewComponent {
           id: data.id,
           pseudonym: data.pseudonym,
           description: data.description,
+          email: data.email,
           categories: data.categories.map((category: any) => category.name),
           platforms: data.platform.map((platform: any) => platform.platformName),
           campaignsNumber: data.campaignsNumber

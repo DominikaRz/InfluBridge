@@ -106,7 +106,7 @@
                                 <div class="uk-margin" [ngClass]="{ 'has-error': form.get('phone')!.invalid && (form.get('phone')!.dirty || form.get('phone')!.touched) }">
                                     <label for="phone" class="label-left uk-margin-medium-left">{{ phoneLabel }}</label>
                                     <div class="uk-inline">
-                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
+                                        <span class="uk-form-icon uk-form-icon" uk-icon="icon: receiver" style="stroke: #0A1044 !important;"></span>
                                         <input type="text" class="form-control uk-input" id="phone" formControlName="phone" pattern="^[\s+]?[0-9\s]+$" [(ngModel)]="phone" required>
                                         <div class="validation-info" *ngIf="form.get('phone')!.invalid && (form.get('phone')!.dirty || form.get('phone')!.touched)">
                                             <div *ngIf="form.get('phone')!.errors?.['required']">Phone number is required.</div>
@@ -117,7 +117,6 @@
                                 <div class="uk-margin" >
                                     <label for="pseudonym" class="label-left uk-margin-medium-left">{{ pseudonymLabel }}</label>
                                     <div class="uk-inline">
-                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: receiver"></span>
                                         <input type="text" class="form-control uk-input" id="pseudonym" [(ngModel)]="pseudonym" formControlName="pseudonym" name="pseudonym" required>
                                         
                                     </div>

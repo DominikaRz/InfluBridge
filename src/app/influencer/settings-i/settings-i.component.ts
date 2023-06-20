@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ImgService } from 'src/app/services/img.service';
+import { Router } from '@angular/router';
 
 import { ApiServiceService } from '../../services/api-service.service';
 import { PostService } from 'src/app/services/post.service';
@@ -63,6 +64,7 @@ export class SettingsIComponent {
 
  
   urlTags = '/api/v1/category/list';
+  urlU!: string;
    
   influencer: Influencer = {} as Influencer;
   categories: Categories[] = []
@@ -73,7 +75,7 @@ export class SettingsIComponent {
 
   form!: FormGroup;
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService) {}
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService, private router: Router) {}
 
   ngOnInit() {
     this.http.get<any>(this.urlTags).subscribe(
@@ -85,8 +87,9 @@ export class SettingsIComponent {
       console.error('Error:', error);
     }
   );
-  this.id = Number(this.getCookie('id'));
+    this.id = Number(this.getCookie('id'));
     this.avatar = this.img.getInfluAvatarById(this.id);
+    this.urlU = `http://localhost:8080/api/v1/influencer/update/` + this.id;
     let url = '/api/v1/influencer/settings/' + this.id;
     this.http.get<any>(url).subscribe(
       (data) => {
@@ -150,7 +153,7 @@ export class SettingsIComponent {
     }
   }
   
-  urlU = `http://localhost:8080/api/v1/influencer/update/` + this.id;
+  
   username!: string;
   pass5!: string;
   pass6!: string;
@@ -178,11 +181,13 @@ export class SettingsIComponent {
       (response) => {
         // Handle successful leave response
         console.log('Platform add successfully');
-        alert('Platform add successfully');
+        //alert('Platform add successfully');
+        window.location.reload();
       },
       (error) => {
         // Handle error response
         console.error('Error:', error);
+        alert('Error. Provide valid data!');
       }
     );
     
@@ -210,6 +215,7 @@ export class SettingsIComponent {
       (response) => {
         // Handle successful leave response
         console.log('Password changed successfully');
+        window.location.reload();
       },
       (error) => {
         // Handle error response
@@ -241,10 +247,13 @@ export class SettingsIComponent {
       (response) => {
         // Handle successful leave response
         console.log('Description changed successfully');
+        window.location.reload();
+        
       },
       (error) => {
         // Handle error response
         console.error('Error:', error);
+        alert('Error. Provide valid data!');
       }
     );
     /*
@@ -361,10 +370,12 @@ closeModal(){
       (response) => {
         // Handle successful leave response
         console.log('Tags changed successfully');
+        window.location.reload();
       },
       (error) => {
         // Handle error response
         console.error('Error:', error);
+        alert('Error. Provide valid data!');
       }
     );
 }
