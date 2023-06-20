@@ -172,7 +172,7 @@ export class SettingsIComponent {
       password: this.password,
       newPassword: null,
       newDescription: null,
-      categoriesId: [],
+      categoriesIds: [],
       platforms: [platform],
     }
     console.log(data);
@@ -206,7 +206,7 @@ export class SettingsIComponent {
       password: this.prevPass,
       newPassword: this.newPass,
       newDescription: null,
-      categoriesId: [],
+      categoriesIds: [],
       platforms: []
     }
     console.log(data);
@@ -238,7 +238,7 @@ export class SettingsIComponent {
       password: this.pass3,
       newPassword: null,
       newDescription: this.influencer.description,
-      categoriesId: [],
+      categoriesIds: [],
       platforms: []
     }
     console.log(data);
@@ -361,7 +361,7 @@ closeModal(){
       password: this.pass3,
       newPassword: null,
       newDescription: null,
-      categoriesId: this.appliedFilters,
+      categoriesIds: this.appliedFilters,
       platforms: []
     }
     console.log(data);
