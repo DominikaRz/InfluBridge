@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ImgService } from 'src/app/services/img.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { ApiServiceService } from '../../../services/api-service.service';
 import { PostService } from 'src/app/services/post.service';
@@ -66,6 +67,7 @@ export class NavbarBrandComponent {
 
 
   ngOnInit() {
+    this.id = Number(this.getCookie('id'));
     this.http.get<any>(this.urlTags).subscribe(
       (data) => {
         this.category = data.data.categoriesList;
@@ -164,7 +166,7 @@ export class NavbarBrandComponent {
  tagFilterInput: FormControl = new FormControl();
 
   form!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService) {}
+  constructor(private formBuilder: FormBuilder, private apiService: ApiServiceService, private http: HttpClient, private postService: PostService, private img: ImgService, private router: Router) {}
 
   activeOptions: number[] = [];
 

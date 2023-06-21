@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { ApiServiceService } from '../../services/api-service.service';
 interface Campaign {
@@ -19,16 +20,18 @@ interface Campaign {
 })
 export class MainIComponent {
 
-  id = 5;
-  url = '/api/v1/campaign/influencer/' + this.id;
+  id!: number;
+  //id = 5;
    
   campaigns: Campaign[] = [];
   currentDate!: string;
 
-  constructor(private apiService: ApiServiceService, private http: HttpClient) {}
+  constructor(private apiService: ApiServiceService, private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
-    this.http.get<any>(this.url).subscribe(
+    this.id = Number(this.getCookie('id'));
+    let url = '/api/v1/campaign/influencer/' + this.id;
+    this.http.get<any>(url).subscribe(
       (data) => {
         const currentDate = new Date();
         const formattedDate = currentDate.toISOString().split('T')[0];
@@ -47,5 +50,15 @@ export class MainIComponent {
       return input.substring(0, index);
     }
     return input;  
+  }
+  getCookie(name: string): string | null {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split('=');
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
   }
 }
