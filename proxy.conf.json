@@ -1,6 +1,6 @@
 {
-    "/api/*": {
-      "target": "http://dummy.restapiexample.com",
+    "/api/v1/*": {
+      "target": "http://localhost:8080",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"

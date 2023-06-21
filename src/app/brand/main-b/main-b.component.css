@@ -67,7 +67,7 @@ main{
         --progress: calc(((var(--filled)* 100 )/ var(--places)));
         --progr: --progress;
         stroke-dasharray: 100;
-        stroke-dashoffset: calc(100 - (var(--progress)));
+        stroke-dashoffset: calc(100 - (var(--progr)));
     }
 
 

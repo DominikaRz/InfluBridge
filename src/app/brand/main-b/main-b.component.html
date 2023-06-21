@@ -48,8 +48,8 @@
                             <td>
                                 <svg width="50" height="50" viewBox="-30 -30 170 170">
                                     <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="20" />
-                                    <circle class="percent" style="--filled: {{ campaign.occupied }}; --places: {{ campaign.vacancies}}" 
-                                    cx="60" cy="60" r="54" fill="none" stroke="#6113b9" stroke-width="20" pathLength="100" />
+                                    <circle class="percent" [ngStyle]="{ '--filled': campaign.occupied, '--places': campaign.vacancies }"
+                                    cx="60" cy="60" r="54" fill="none" stroke="#6113b9" stroke-width="20" pathLength="100" /> <!--style="--filled: {{ campaign.occupied }}; --places: {{ campaign.vacancies}}" -->
                                 </svg> 
                                 <span class="uk-margin-small-left">{{ campaign.occupied }} / {{ campaign.vacancies}}</span>
                             </td>

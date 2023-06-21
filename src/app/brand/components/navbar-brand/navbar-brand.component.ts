@@ -51,6 +51,7 @@ export class NavbarBrandComponent {
   date = '23-08-2023';
   description = "This campaign is great. Join us!"
   rate = 12000;
+  bg!: string;
   //tagFilterInput!: FormControl;
   
   
@@ -104,6 +105,7 @@ export class NavbarBrandComponent {
     this.type = this.getCookie('type');
     this.username = this.getCookie('name');
     this.imag = this.img.getBrandAvatarById(this.id);
+    this.bg = this.img.getBrandBackgroundById(this.id);
   }
 
   getCookie(name: string): string | null {
